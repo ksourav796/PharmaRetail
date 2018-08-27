@@ -1,0 +1,1638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list id="c97d0e12-78f8-400b-81f8-58cecd78ecf4" name="pos html and css files" comment="" />
+    <list id="721d6db7-8261-4478-b62b-bb163bff06d7" name="formsetupedit patch" comment="" />
+    <list id="88987881-d203-4d23-b6c1-fac8d6bb47cf" name="item patch" comment="" />
+    <list default="true" readonly="true" id="9bcbfa14-5843-4ad5-989b-9466b9e77986" name="Default" comment="added new field for remarks in student fee details">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEndPoints/PosController.java" afterPath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEndPoints/PosController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEntities/ItemBrandName.java" afterPath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEntities/ItemBrandName.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEntities/ItemCategory.java" afterPath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEntities/ItemCategory.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posMapper/PosItemMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posMapper/PosItemMapper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posPojo/ItemBrandDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posPojo/ItemBrandDTO.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posPojo/ItemCategoryDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posPojo/ItemCategoryDTO.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posRespositories/PosCategoryRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posRespositories/PosCategoryRepository.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posService/BasicDataService.java" afterPath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posService/BasicDataService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posService/PosService.java" afterPath="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posService/PosService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/controller/brandinv.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/controller/brandinv.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/controller/categoryinv.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/controller/categoryinv.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/controller/uominv.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/controller/uominv.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/partials/brandinv.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/brandinv.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/partials/categoryinv.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/categoryinv.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/partials/posPurchase.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/posPurchase.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/partials/posbilling.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/posbilling.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/partials/uominv.html" afterPath="$PROJECT_DIR$/src/main/resources/static/partials/uominv.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/addhsncode.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/addhsncode.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/brandinv.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/brandinv.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/categoryinv.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/categoryinv.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/country.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/country.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/currency.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/currency.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/customer.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/customer.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/emailserver.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/emailserver.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/formsetup.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/formsetup.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/iteminv.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/iteminv.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/posBilling.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/posBilling.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/purchase.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/purchase.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/reportMailScheduler.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/reportMailScheduler.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/state.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/state.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/supplier.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/supplier.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/tax.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/tax.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/taxType.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/taxType.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/uominv.js" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/uominv.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/directives/addCustomerModal.js" afterPath="$PROJECT_DIR$/target/classes/static/js/directives/addCustomerModal.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/directives/addNewSupplierModal.js" afterPath="$PROJECT_DIR$/target/classes/static/js/directives/addNewSupplierModal.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/directives/purchasePrint.js" afterPath="$PROJECT_DIR$/target/classes/static/js/directives/purchasePrint.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/directives/salesPrint.js" afterPath="$PROJECT_DIR$/target/classes/static/js/directives/salesPrint.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/main.js" afterPath="$PROJECT_DIR$/target/classes/static/js/main.js" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/ReportMailScheduler.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/ReportMailScheduler.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/addCustomerModal.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/addCustomerModal.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/addhsncode.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/addhsncode.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/brandinv.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/brandinv.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/categoryinv.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/categoryinv.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/country.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/country.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/currency.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/currency.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/customer.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/customer.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/emailserver.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/emailserver.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/formsetup.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/formsetup.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/inventory.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/inventory.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/iteminv.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/iteminv.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/posPurchase.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/posPurchase.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/posbilling.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/posbilling.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/reports.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/reports.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/state.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/state.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/supplier.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/supplier.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/tax.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/tax.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/taxType.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/taxType.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/uominv.html" afterPath="$PROJECT_DIR$/target/classes/static/partials/uominv.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tables_mysql_innodb.sql" afterPath="$PROJECT_DIR$/target/classes/tables_mysql_innodb.sql" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+    </list>
+    <list id="f9772204-680a-4f72-8c43-6712522a8b79" name="Revert:" comment="" />
+    <list id="3a813a84-1f33-4266-924e-ebd05a3d7ecb" name="added new field for remarks in student fee details" comment="" />
+    <list id="b51474f3-cea4-4c57-aae9-2139ea165b36" name="mapper kukka" comment="" />
+    <list id="4bc02ad2-c46f-4746-9bb5-5323eca0ef13" name="POS1" comment="" />
+    <list id="b0dbec5c-0136-4a05-b9f0-041a2ba59543" name="controllers" comment="" />
+    <list id="91f63429-34e1-4508-9d23-fc1e1736e2fd" name="payment" comment="" />
+    <list id="f81957fe-27f0-40df-8e38-7b82523f8708" name="Revert: handling null for annual income in student export to excel" comment="" />
+    <list id="f6540f0d-02bc-4cda-a574-ea31b7975b85" name="SalesREposiory" comment="" />
+    <list id="5db2d3cc-89a0-44f6-9050-72b627d20419" name="Revert: " comment="" />
+    <list id="53763ad9-544f-4b66-adff-689aa52ce0fc" name="take and die" comment="" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/spring_data_rest_angular$Application.coverage" NAME="Application Coverage Results" MODIFIED="1528527887229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="uominv.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/uominv.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="90" column="96" lean-forward="false" selection-start-line="90" selection-start-column="96" selection-end-line="90" selection-end-column="96" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PosController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEndPoints/PosController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="238" column="39" lean-forward="false" selection-start-line="238" selection-start-column="30" selection-end-line="238" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uominv.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controller/uominv.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="205" column="55" lean-forward="false" selection-start-line="205" selection-start-column="46" selection-end-line="205" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PosService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posService/PosService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="836" column="77" lean-forward="false" selection-start-line="836" selection-start-column="77" selection-end-line="836" selection-end-column="77" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="categoryinv.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/categoryinv.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="241" column="115" lean-forward="false" selection-start-line="241" selection-start-column="115" selection-end-line="241" selection-end-column="115" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#2;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <marker date="1535374710832" expanded="false" signature="11310:11328" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PosCategoryRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posRespositories/PosCategoryRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="categoryinv.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controller/categoryinv.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PosItemMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posMapper/PosItemMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemCategoryDTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posPojo/ItemCategoryDTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getUOMItemList</find>
+      <find>UnitOfMeasurement</find>
+      <find>getPaginatedUOMList</find>
+      <find>callback</find>
+      <find>getPaginatedsta</find>
+      <find>ItemUOMTypeDTO</find>
+      <find>getpaginated</find>
+      <find>paginatedu</find>
+      <find>getpaginatedu</find>
+      <find>getpaginatedca</find>
+      <find>get</find>
+      <find>getBrandList</find>
+      <find>getbra</find>
+      <find>getBrand</find>
+      <find>editCategory</find>
+      <find>getca</find>
+      <find>getItemCategoryList</find>
+      <find>uom</find>
+      <find>getPaginatedCategoryList</find>
+      <find>getcategory</find>
+      <find>saveNewUOM</find>
+      <find>unitofmeasurementid</find>
+      <find>UOMName</find>
+      <find>add_new_UOM_modal</find>
+      <find>unitOfMeasurementId</find>
+      <find>editNewItemCategoryPopulate</find>
+      <find>add_new_ItemCategory_modal</find>
+      <find>editNewUOM</find>
+      <find>uominv-title</find>
+      <find>delete</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>getItemCategoryList</replace>
+      <replace>.post(</replace>
+      <replace>supplier</replace>
+      <replace>post(</replace>
+      <replace>itemIPTaxID</replace>
+      <replace>'/bs'</replace>
+      <replace>salesInvoiceDetailsTemplate</replace>
+      <replace>salesReturn</replace>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities</dir>
+      <dir>$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories</dir>
+      <dir>$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs</dir>
+      <dir>$PROJECT_DIR$/src/main/java/com/hyva/posretail</dir>
+    </dirStrings>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/inventory.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bspojo/FormsetupDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsendpoints/BsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsmapper/BsItemMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/SalesReturn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/PurchaseReturn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/SalesReturnRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/SalesReturnDetailsRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/PurchaseReturnRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/PurchaseReturnDetailsRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/SalesReturnDetails.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsendpoints/SalesController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/PurchaseReturnDetails.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsendpoints/PurchaseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/DirectSalesInvoiceDetailsTemplate.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/main.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/formsetup.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsservice/BsUserService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/controller/posBilling.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/directives/salesPrint.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/controller/purchase.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/directives/purchasePrint.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/NewPosPurchasePaymentTypes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bspojo/PurchaseDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/NewPosPaymentRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsservice/SalesService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/BsPosPurchasePaymentRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsservice/PurchaseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/NewPosPaymentTypes.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/salesPrint.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/posretail/Application.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/posbilling.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/posPurchase.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEntities/ItemBrandName.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posPojo/ItemBrandDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/controller/uominv.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/brandinv.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/controller/brandinv.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEntities/ItemCategory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posPojo/ItemCategoryDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posRespositories/PosCategoryRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posService/BasicDataService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posMapper/PosItemMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEndPoints/PosController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/categoryinv.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posService/PosService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/controller/categoryinv.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/uominv.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Retail" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Retail" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="675" />
+    <option name="y" value="24" />
+    <option name="width" value="689" />
+    <option name="height" value="624" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="1" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="spring-data-rest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="retail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-data-rest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="retail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-data-rest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="retail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-data-rest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="retail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-data-rest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="retail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="posretail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-data-rest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="retail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="posretail" type="462c0819:PsiDirectoryNode" />
+              <item name="pos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-data-rest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="retail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="posretail" type="462c0819:PsiDirectoryNode" />
+              <item name="pos" type="462c0819:PsiDirectoryNode" />
+              <item name="posService" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-data-rest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="retail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-data-rest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="retail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Importsheets" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="directory" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="SearchEverywhereHistoryKey" value="de&#9;ACTION&#9;ActivateDebugToolWindow&#10;debug&#9;null&#9;null" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="SQL" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/images/Importsheets" />
+      <recent name="$PROJECT_DIR$/src/main/resources/images/ImportSheets" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/resource/images" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/js/directives" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/partials" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.hyva.bsfms.bs.bsentities" />
+      <recent name="com.hyva.bsfms.bs.bsrespositories" />
+      <recent name="com.hyva.bsfms.bs.bspojo" />
+      <recent name="com.hyva.bsfms.bs.bsmapper" />
+      <recent name="com.hyva.bsfms.bs.bsservice" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/js/directives" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+    <option name="contentProportion" value="0.015236568" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hyva.posretail.Application" />
+      <option name="WORKING_DIRECTORY" value="file://$MAVEN_REPOSITORY$" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <module name="Retail" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration" myUseAcceleration="nothing" cleanupOnStartRun="true">
+    <configuration>$USER_HOME$/.subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+    <option name="runUnderTerminal" value="true" />
+    <option name="FORCE_UPDATE" value="true" />
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$/.idea" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/.idea" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9bcbfa14-5843-4ad5-989b-9466b9e77986" name="Default" comment="" />
+      <changelist id="5db2d3cc-89a0-44f6-9050-72b627d20419" name="Revert: " comment="" />
+      <changelist id="f9772204-680a-4f72-8c43-6712522a8b79" name="Revert:" comment="" />
+      <changelist id="f81957fe-27f0-40df-8e38-7b82523f8708" name="Revert: handling null for annual income in student export to excel" comment="" />
+      <changelist id="88987881-d203-4d23-b6c1-fac8d6bb47cf" name="item patch" comment="" />
+      <changelist id="b0dbec5c-0136-4a05-b9f0-041a2ba59543" name="controllers" comment="" />
+      <changelist id="3a813a84-1f33-4266-924e-ebd05a3d7ecb" name="added new field for remarks in student fee details" comment="" />
+      <changelist id="4bc02ad2-c46f-4746-9bb5-5323eca0ef13" name="POS1" comment="" />
+      <changelist id="b51474f3-cea4-4c57-aae9-2139ea165b36" name="mapper kukka" comment="" />
+      <changelist id="53763ad9-544f-4b66-adff-689aa52ce0fc" name="take and die" comment="" />
+      <changelist id="f6540f0d-02bc-4cda-a574-ea31b7975b85" name="SalesREposiory" comment="" />
+      <changelist id="91f63429-34e1-4508-9d23-fc1e1736e2fd" name="payment" comment="" />
+      <changelist id="c97d0e12-78f8-400b-81f8-58cecd78ecf4" name="pos html and css files" comment="" />
+      <changelist id="721d6db7-8261-4478-b62b-bb163bff06d7" name="formsetupedit patch" comment="" />
+      <created>1525519044225</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1525519044225</updated>
+      <workItem from="1525519046184" duration="12867000" />
+      <workItem from="1525666795181" duration="8048000" />
+      <workItem from="1525689618172" duration="15174000" />
+      <workItem from="1525753614157" duration="28874000" />
+      <workItem from="1525839555199" duration="31148000" />
+      <workItem from="1525926252406" duration="24458000" />
+      <workItem from="1526012589175" duration="18561000" />
+      <workItem from="1526036912062" duration="3913000" />
+      <workItem from="1526046315014" duration="409000" />
+      <workItem from="1526047811007" duration="1135000" />
+      <workItem from="1526049081974" duration="43000" />
+      <workItem from="1526100957045" duration="26545000" />
+      <workItem from="1526274942415" duration="17225000" />
+      <workItem from="1526358068091" duration="21326000" />
+      <workItem from="1526390751033" duration="244000" />
+      <workItem from="1526444419871" duration="9156000" />
+      <workItem from="1526456841175" duration="5710000" />
+      <workItem from="1526466589852" duration="15264000" />
+      <workItem from="1526532032220" duration="19855000" />
+      <workItem from="1526613409107" duration="5587000" />
+      <workItem from="1526641564253" duration="1252000" />
+      <workItem from="1526700017086" duration="9378000" />
+      <workItem from="1526723397811" duration="611000" />
+      <workItem from="1526873058147" duration="2861000" />
+      <workItem from="1526876051788" duration="16778000" />
+      <workItem from="1526959721664" duration="1649000" />
+      <workItem from="1527050426442" duration="6839000" />
+      <workItem from="1527132114172" duration="15666000" />
+      <workItem from="1527219003542" duration="16777000" />
+      <workItem from="1527305418705" duration="15814000" />
+      <workItem from="1527478409538" duration="11519000" />
+      <workItem from="1527492559752" duration="9240000" />
+      <workItem from="1527506516639" duration="3505000" />
+      <workItem from="1527564405730" duration="24503000" />
+      <workItem from="1527651285060" duration="26199000" />
+      <workItem from="1527682462594" duration="4704000" />
+      <workItem from="1527737368885" duration="286000" />
+      <workItem from="1527738036116" duration="17996000" />
+      <workItem from="1527827125996" duration="15247000" />
+      <workItem from="1527909876680" duration="13141000" />
+      <workItem from="1528082592464" duration="1877000" />
+      <workItem from="1528168966587" duration="15255000" />
+      <workItem from="1528190442334" duration="5120000" />
+      <workItem from="1528195594536" duration="4164000" />
+      <workItem from="1528255803606" duration="8912000" />
+      <workItem from="1528270791740" duration="853000" />
+      <workItem from="1528342552443" duration="1858000" />
+      <workItem from="1528348726493" duration="4955000" />
+      <workItem from="1528370864202" duration="2986000" />
+      <workItem from="1528374022519" duration="402000" />
+      <workItem from="1528428497241" duration="1697000" />
+      <workItem from="1528451685234" duration="1237000" />
+      <workItem from="1528453842808" duration="7470000" />
+      <workItem from="1528515350505" duration="955000" />
+      <workItem from="1528516638954" duration="7775000" />
+      <workItem from="1528525456513" duration="7080000" />
+      <workItem from="1528535850214" duration="10080000" />
+      <workItem from="1528687885670" duration="26240000" />
+      <workItem from="1528774479604" duration="24705000" />
+      <workItem from="1528860862944" duration="373000" />
+      <workItem from="1528861724814" duration="2058000" />
+      <workItem from="1528885005890" duration="2569000" />
+      <workItem from="1528887743715" duration="5076000" />
+      <workItem from="1528947709315" duration="1443000" />
+      <workItem from="1528949601929" duration="21077000" />
+      <workItem from="1529468375545" duration="2384000" />
+      <workItem from="1529642645149" duration="597000" />
+      <workItem from="1529736217966" duration="13731000" />
+      <workItem from="1529900700771" duration="3150000" />
+      <workItem from="1529903905660" duration="5998000" />
+      <workItem from="1529909949387" duration="15710000" />
+      <workItem from="1529987400585" duration="5262000" />
+      <workItem from="1529993379639" duration="5993000" />
+      <workItem from="1530696266102" duration="518000" />
+      <workItem from="1530696862754" duration="1779000" />
+      <workItem from="1535104161122" duration="1056000" />
+      <workItem from="1535106347026" duration="6808000" />
+      <workItem from="1535170392831" duration="27943000" />
+      <workItem from="1535343855020" duration="23680000" />
+    </task>
+    <task id="LOCAL-00013" summary="Fee Collection Changes">
+      <created>1526366171137</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1526366171137</updated>
+    </task>
+    <task id="LOCAL-00014" summary="back button issue is done and version change">
+      <created>1526367514065</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1526367514065</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fee and student changes and fee search filter">
+      <created>1526445435212</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1526445435212</updated>
+    </task>
+    <task id="LOCAL-00016" summary="student add popup">
+      <created>1526447853232</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1526447853232</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fee changes">
+      <created>1526466033826</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1526466033826</updated>
+    </task>
+    <task id="LOCAL-00018" summary="receipt no is taking in student branch">
+      <created>1526467194471</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1526467194472</updated>
+    </task>
+    <task id="LOCAL-00019" summary="branch issue and alignment">
+      <created>1526475902763</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1526475902763</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fee changes">
+      <created>1526709034261</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1526709034261</updated>
+    </task>
+    <task id="LOCAL-00021" summary="card n bank details are saving">
+      <created>1526716872087</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1526716872087</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fee changes">
+      <created>1526720262676</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1526720262676</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fee payment changes">
+      <created>1526874703802</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1526874703803</updated>
+    </task>
+    <task id="LOCAL-00024" summary="delete changes">
+      <created>1526878303965</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1526878303965</updated>
+    </task>
+    <task id="LOCAL-00025" summary="disable button">
+      <created>1526888633888</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1526888633888</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fee and student changes">
+      <created>1526904464647</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1526904464647</updated>
+    </task>
+    <task id="LOCAL-00027" summary="version change to 14">
+      <created>1526904536096</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1526904536096</updated>
+    </task>
+    <task id="LOCAL-00028" summary="filters in configuration">
+      <created>1526904853814</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1526904853814</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fee receipt changes">
+      <created>1527053236212</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1527053236212</updated>
+    </task>
+    <task id="LOCAL-00030" summary="card number">
+      <created>1527067272928</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1527067272928</updated>
+    </task>
+    <task id="LOCAL-00031" summary="edit student">
+      <created>1527132651610</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1527132651610</updated>
+    </task>
+    <task id="LOCAL-00032" summary="date changes">
+      <created>1527225422324</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1527225422324</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fee receipt changes">
+      <created>1527230906677</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1527230906677</updated>
+    </task>
+    <task id="LOCAL-00034" summary="fee type master">
+      <created>1527244132228</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1527244132228</updated>
+    </task>
+    <task id="LOCAL-00035" summary="string limit">
+      <created>1527249770393</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1527249770393</updated>
+    </task>
+    <task id="LOCAL-00036" summary="long text in schoolbranch details">
+      <created>1527314848686</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1527314848686</updated>
+    </task>
+    <task id="LOCAL-00037" summary="reports for due and fee collected">
+      <created>1527659496200</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1527659496200</updated>
+    </task>
+    <task id="LOCAL-00038">
+      <created>1527660063564</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1527660063564</updated>
+    </task>
+    <task id="LOCAL-00039" summary="reports changes">
+      <created>1527663918849</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1527663918849</updated>
+    </task>
+    <task id="LOCAL-00040" summary="report changes">
+      <created>1527683323261</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1527683323261</updated>
+    </task>
+    <task id="LOCAL-00041" summary="report changes">
+      <created>1527684563321</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1527684563321</updated>
+    </task>
+    <task id="LOCAL-00042" summary="date format">
+      <created>1527684793048</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1527684793048</updated>
+    </task>
+    <task id="LOCAL-00043" summary="reports changes">
+      <created>1527685935896</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1527685935896</updated>
+    </task>
+    <task id="LOCAL-00044" summary="fee changes">
+      <created>1527686776032</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1527686776032</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fee change">
+      <created>1527687071785</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1527687071785</updated>
+    </task>
+    <task id="LOCAL-00046" summary="pdf changes">
+      <created>1527751048747</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1527751048747</updated>
+    </task>
+    <task id="LOCAL-00047" summary="pdf alignment">
+      <created>1527751929489</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1527751929489</updated>
+    </task>
+    <task id="LOCAL-00048" summary="pdf alignment">
+      <created>1527752305082</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1527752305082</updated>
+    </task>
+    <task id="LOCAL-00049" summary="pdf alignment">
+      <created>1527753124926</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1527753124926</updated>
+    </task>
+    <task id="LOCAL-00050" summary="report changes">
+      <created>1527761547382</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1527761547384</updated>
+    </task>
+    <task id="LOCAL-00051" summary="report changes">
+      <created>1527827253211</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1527827253215</updated>
+    </task>
+    <task id="LOCAL-00052" summary="fee changes">
+      <created>1527829477641</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1527829477641</updated>
+    </task>
+    <task id="LOCAL-00053" summary="fee changes">
+      <created>1527831065929</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1527831065929</updated>
+    </task>
+    <task id="LOCAL-00054" summary="fee changes">
+      <created>1527832106255</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1527832106255</updated>
+    </task>
+    <task id="LOCAL-00055" summary="excel n pdf changes">
+      <created>1527835437936</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1527835437936</updated>
+    </task>
+    <task id="LOCAL-00056" summary="date format in receipt">
+      <created>1527835994846</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1527835994846</updated>
+    </task>
+    <task id="LOCAL-00057" summary="select option">
+      <created>1528183281114</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1528183281115</updated>
+    </task>
+    <task id="LOCAL-00058">
+      <created>1528267478973</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1528267478974</updated>
+    </task>
+    <task id="LOCAL-00059" summary="student">
+      <created>1528267649124</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1528267649124</updated>
+    </task>
+    <task id="LOCAL-00060" summary="added new field for remarks in student fee details">
+      <created>1530698239776</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1530698239777</updated>
+    </task>
+    <task id="LOCAL-00061" summary="added new field for remarks in student fee details">
+      <created>1530698645377</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1530698645378</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="760333000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="43" y="25" width="1323" height="743" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3257329" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Run Dashboard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35016286" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967892" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.70358306" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5602606" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27486297" sideWeight="0.49845678" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3257329" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24941361" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4553846" sideWeight="0.5015432" order="14" side_tool="false" content_ui="tabs" x="66" y="276" width="1279" height="212" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994527" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296617" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994527" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="fee and student changes" />
+    <MESSAGE value="version change to 14" />
+    <MESSAGE value="filters in configuration" />
+    <MESSAGE value="card number" />
+    <MESSAGE value="edit student" />
+    <MESSAGE value="date changes" />
+    <MESSAGE value="fee receipt changes" />
+    <MESSAGE value="fee type master" />
+    <MESSAGE value="string limit" />
+    <MESSAGE value="long text in schoolbranch details" />
+    <MESSAGE value="reports for due and fee collected" />
+    <MESSAGE value="date format" />
+    <MESSAGE value="version  17" />
+    <MESSAGE value="reports changes" />
+    <MESSAGE value="fee change" />
+    <MESSAGE value="pdf changes" />
+    <MESSAGE value="pdf alignment" />
+    <MESSAGE value="report changes" />
+    <MESSAGE value="fee changes" />
+    <MESSAGE value="excel n pdf changes" />
+    <MESSAGE value="version 17" />
+    <MESSAGE value="date format in receipt" />
+    <MESSAGE value="select option" />
+    <MESSAGE value="student" />
+    <MESSAGE value="added new field for remarks in student fee details" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new field for remarks in student fee details" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/Quartz/DynamicJob.java</url>
+          <properties />
+          <option name="timeStamp" value="329" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsendpoints/SalesController.java</url>
+          <line>23</line>
+          <properties />
+          <option name="timeStamp" value="398" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="410" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>itemDTO.getItemIPTaxID()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>cronTrigger.getObject()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>feeTypeMasterPojo.getStudentFeeDetailsId()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>bsUserService.getStudentDueList(reportPojo)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>sUserService.getStudentDueList(reportPojo)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>installments.getStudentFee().getFeeTypeAmount()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>jsonObj.getString(&quot;fatherEmailId&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>studentFeeDetails1</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string />
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsendpoints/PurchaseController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsendpoints/SalesController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bspojo/RetailDTO.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bspojo/PurchaseDTO.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/BsPosPurchasePaymentRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/NewPosPaymentTypes.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsservice/SalesService.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/NewPosPaymentRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/NewPosPurchasePaymentTypes.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsservice/PurchaseService.java" />
+    <entry file="file://$PROJECT_DIR$/retail.iml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#784#785#0" expanded="false" />
+            <element signature="e#840#841#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/directives/salesPrint.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1921">
+          <caret line="113" column="24" lean-forward="false" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="53" column="38" lean-forward="false" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/salesPrint.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="78" column="43" lean-forward="false" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="182" lean-forward="false" selection-start-line="34" selection-start-column="182" selection-end-line="34" selection-end-column="182" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controller/posBilling.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5117">
+          <caret line="301" column="8" lean-forward="false" selection-start-line="301" selection-start-column="8" selection-end-line="301" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/purchase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/posbilling.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26316">
+          <caret line="1548" column="29" lean-forward="false" selection-start-line="1548" selection-start-column="29" selection-end-line="1548" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/posPurchase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1561" column="33" lean-forward="false" selection-start-line="1561" selection-start-column="33" selection-end-line="1561" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3358">
+          <caret line="233" column="10" lean-forward="false" selection-start-line="233" selection-start-column="10" selection-end-line="233" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posPojo/ItemBrandDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="47" column="36" lean-forward="false" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEntities/ItemBrandName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="59" lean-forward="false" selection-start-line="1" selection-start-column="59" selection-end-line="1" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controller/addhsncode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/addhsncode.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2516">
+          <caret line="148" column="65" lean-forward="false" selection-start-line="148" selection-start-column="65" selection-end-line="148" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/1.11.9.RELEASE/spring-data-jpa-1.11.9.RELEASE.jar!/org/springframework/data/jpa/repository/JpaRepository.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/directives/addNewItemModal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="284" column="12" lean-forward="false" selection-start-line="284" selection-start-column="12" selection-end-line="284" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/brandinv.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="200" column="71" lean-forward="false" selection-start-line="200" selection-start-column="71" selection-end-line="200" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEntities/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posPojo/UnitOfMeasurementDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posPojo/ItemUOMTypeDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posPojo/BasePojo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2278">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posRespositories/PosBrandRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="3" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posRespositories/PosUomRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" column="28" lean-forward="false" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEntities/UnitOfMeasurement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1578#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEntities/ItemCategory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1559#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posMapper/PosUserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posPojo/ItemCategoryDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controller/brandinv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-487">
+          <caret line="126" column="31" lean-forward="false" selection-start-line="126" selection-start-column="23" selection-end-line="126" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.13.9.RELEASE/spring-data-commons-1.13.9.RELEASE.jar!/org/springframework/data/repository/CrudRepository.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posService/BasicDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1883">
+          <caret line="62" column="66" lean-forward="false" selection-start-line="62" selection-start-column="66" selection-end-line="62" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posMapper/PosItemMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posService/PosService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="836" column="77" lean-forward="false" selection-start-line="836" selection-start-column="77" selection-end-line="836" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posRespositories/PosCategoryRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/categoryinv.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="241" column="115" lean-forward="false" selection-start-line="241" selection-start-column="115" selection-end-line="241" selection-end-column="115" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#2;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1535374710832" expanded="false" signature="11310:11328" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controller/categoryinv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/uominv.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="90" column="96" lean-forward="false" selection-start-line="90" selection-start-column="96" selection-end-line="90" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controller/uominv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="205" column="55" lean-forward="false" selection-start-line="205" selection-start-column="46" selection-end-line="205" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/pos/posEndPoints/PosController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="238" column="39" lean-forward="false" selection-start-line="238" selection-start-column="30" selection-end-line="238" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>HiSASS:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring|retail</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>4.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

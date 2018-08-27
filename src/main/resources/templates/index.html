@@ -1,0 +1,129 @@
+
+
+
+<html ng-app="myApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>POS Billing</title>
+<link href='./css/style.css' rel="stylesheet" type="text/css" />
+<link href='./css/css/font-awesome.css' rel="stylesheet" type="text/css" />
+	<link href='./css/vendors/bootstrap-datetimepicker.min.css' rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href= './css/css/angular-ui-notification.min.css' type="text/css" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	<link href="css/login.css" rel="stylesheet" type="text/css" />
+	<link href='./css/vendors/bootstrap.min.css' rel="stylesheet" type="text/css" />
+<!--<title>HiAccounts</title>-->
+	</head>
+<body>
+<div class="generic-container">
+	<h2>POS Billing
+		<ul style="float:right;">
+			<li><a href="#!/login" id="logoutButton"  tabindex="-1" style="color: #fff !important;; font-size:14px !important;"> LogOut</a></li>
+		</ul>
+	</h2>
+
+	<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+		<div id="nav_side_menu" class="menu_section">
+			<ul class="nav side-menu">
+				<li id="inventory">
+					<a id="inventoryLink" href="#!/inventory"  tabindex="-1"> <i class="fa fa-area-chart" style="font-size:20px;color:#72319a;" aria-hidden="true"></i><span> Inventory </span></a>
+				</li>
+				<li id="purchase">
+					<a id="purchaseLink" href="#!/purchasePos"  tabindex="-1"> <i class="fa fa-area-chart" style="font-size:20px;color:#72319a;" aria-hidden="true"></i><span> Pharma Purchase</span></a>
+				</li>
+				<li id="sales">
+					<a id="salesLink" href="#!/posBilling"  tabindex="-1"> <i class="fa fa-area-chart" style="font-size:20px;color:#72319a;" aria-hidden="true"></i><span>Pharma Sales </span></a>
+				</li>
+				<li id="reports">
+					<a id="reportsLink" href="#!/reports"  tabindex="-1"> <i class="fa fa-area-chart" style="font-size:20px;color:#72319a;" aria-hidden="true"></i><span>  Reports  </span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+</div>
+
+
+
+<div ng-view="true"></div>
+<script src="./js/vendors/jquery.min.js"></script>
+<!-- Jquery UI Scripts -->
+<script src="./js/vendors/jquery-ui.js"></script>
+<script src="./js/jspdf.min.js"></script>
+<script src="./js/base64.js"></script>
+<script src="./js/jquery-base64.js"></script>
+<script src="./js/sprintf.js"></script>
+<!-- Bootstrap -->
+<script src="./js/vendors/bootstrap.min.js"></script>
+<!-- JQuery -->
+<script src="./js/vendors/jquery.min.js"></script>
+<!-- Jquery UI Scripts -->
+<script src="./js/vendors/jquery-ui.js"></script>
+<script src="./js/jspdf.min.js"></script>
+<script src="./js/base64.js"></script>
+<script src="./js/jquery-base64.js"></script>
+<script src="./js/sprintf.js"></script>
+<!-- Bootstrap -->
+<script src="./js/vendors/bootstrap.min.js"></script>
+
+
+<!-- Angular js -->
+<script src="./js/vendors/angular.min.js"></script>
+<script src="./js/vendors/angular-route.js"></script>
+<script src="./js/vendors/angular-animate.min.js"></script>
+<script src="./js/vendors/angular-sanitize.min.js"></script>
+<script src="./js/vendors/select2.min.js"></script>
+<script src="./js/vendors/angular-ui-notification.min.js"></script>
+<script src="./js/vendors/angular-cookies.min.js"></script>
+<script type="text/javascript" src="./js/vendors/moment.js"></script>
+<script src="./js/vendors/bootstrap-datetimepicker.min.js"></script>
+<script src="./js/vendors/ng-table.min.js"></script>
+<script src="./js/vendors/Chart.min.js"></script>
+<script src="./js/vendors/angular-chart.js"></script>
+<script src="./js/vendors/bootbox.min.js"></script>
+<script src="./js/vendors/ui-bootstrap-tpls.min.js"></script>
+<script src="./js/vendors/angular-filter.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="./js/main.js"></script>
+<script  src="./js/custom.js"></script>
+<script src="./js/bootstrap-wysiwyg.js"></script>
+<script src="./js/jquery.hotkeys.js"></script>
+<script src="./js/controller/login.js"></script>
+<script src="./js/controller/dashboard.js"></script>
+<script src="./js/controller/emailserver.js"></script>
+<script src="./js/controller/iteminv.js"></script>
+<script src="./js/controller/addhsncode.js"></script>
+<script src="./js/controller/categoryinv.js"></script>
+<script src="./js/controller/brandinv.js"></script>
+<script src="./js/controller/tax.js"></script>
+<script src="./js/controller/taxType.js"></script>
+<script src="./js/controller/state.js"></script>
+<script src="./js/controller/purchase.js"></script>
+<script src="./js/controller/editTemplate.js"></script>
+<script src="./js/directives/paymentmodal.js"></script>
+<script src="./js/controller/uominv.js"></script>
+<script src="./js/directives/salesPrint.js"></script>
+<script src="./js/directives/purchasePrint.js"></script>
+<script src="./js/controller/supplier.js"></script>
+<script src="./js/controller/customer.js"></script>
+<script src="./js/controller/country.js"></script>
+<script src="./js/controller/currency.js"></script>
+<script src="./js/directives/addCustomerModal.js"></script>
+<script src="./js/directives/addNewItemModal.js"></script>
+<script src="./js/directives/selectItemModal.js"></script>
+<script src="./js/directives/addNewSupplierModal.js"></script>
+<script src="./js/controller/smsConfigurator.js"></script>
+<!--<script src="./js/directives/paymentModal.js"></script>-->
+<script src="./js/controller/posBilling.js"></script>
+<script src="./js/controller/header.js"></script>
+<script type="text/javascript" src="./js/controller/numberToWord.js"></script>
+<script src="./js/controller/bank.js"></script>
+<script src="./js/controller/agent.js"></script>
+<script src="./js/controller/formsetup.js"></script>
+<script src="./js/controller/posSaleReport.js"></script>
+<script src="./js/controller/posPurchaseReport.js"></script>
+<script src="./js/controller/reportMailScheduler.js"></script>
+</body>
+</html>

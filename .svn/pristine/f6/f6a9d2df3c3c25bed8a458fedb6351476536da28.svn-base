@@ -1,0 +1,518 @@
+<body style="">
+<style>
+    .border_info tr td, .border_info tr th {
+        border: 1px solid rgba(51, 51, 51, 0.22);
+    }
+</style>
+<form id="editTemplate" name="editTemplate">
+    <div class="col-md-12">
+        <div style="height: 25px;">Headers</div>
+        <div class="col-md-1 showItems " id="items_draggable_table" style="width: 6%;">
+            <div id="itemSerialNumDet" style="top: 0px;"
+                 ng-style="isTrue ? editFormdragable[30] : { 'top': '0px', 'left': '0px'}"
+                 class="draggableitem ui-widget-content resizeable" ng-mouseup="showelements('snoVal')">
+                <span id="sNo">S.No</span>
+                <hr>
+                <span id="snoVal" class="hidden">1</span>
+            </div>
+
+            <div id="itemNameDet" style="top: 42px;"
+                 ng-style="isTrue ? editFormdragable[31] : { 'top': '42px', 'left': '0px'}"
+                 class="draggableitem ui-widget-content resizeable" ng-mouseup="showelements('itemNameValue')">
+                <span id="itemName">Item Name</span>
+                <hr>
+                <span id="itemNameValue" class="hidden">Mouse</span>
+            </div>
+
+            <div id="itemDesDet" style="top: 84px;"
+                 ng-style="isTrue ? editFormdragable[32] : { 'top': '84px', 'left': '0px'}"
+                 class="draggableitem ui-widget-content resizeable" ng-mouseup="showelements('desValue')">
+                <span id="itemDes">Item Desc</span>
+                <hr>
+                <span id="desValue" class="hidden">Product Desc</span>
+            </div>
+
+            <div id="itemHsnSacCodeDet" style="top: 126px;"
+                 ng-style="isTrue ? editFormdragable[33] : { 'top': '126px', 'left': '0px'}"
+                 class="draggableitem  ui-widget-content resizeable" ng-mouseup="showelements('itemHsnCodeValue')">
+                <span id="HsnCode">Hsn/Sac Code</span>
+                <hr>
+                <span id="itemHsnCodeValue" class="hidden">400</span>
+            </div>
+
+
+            <div id="itemQuantityDet" style="top: 168px;"
+                 ng-style="isTrue ? editFormdragable[34] : { 'top': '168px', 'left': '0px'}"
+                 class="draggableitem ui-widget-content resizeable" ng-mouseup="showelements('quantityVal')">
+                <span id="quantity">Quantity</span>
+                <hr>
+                <span id="quantityVal" class="hidden">12.00</span>
+            </div>
+
+            <div id="itemRateDet" style="top: 210px;"
+                 ng-style="isTrue ? editFormdragable[35] : { 'top': '210px', 'left': '0px'}"
+                 class="draggableitem ui-widget-content resizeable" ng-mouseup="showelements('itemRateValue')">
+                <span id="itemRate">Rate</span>
+                <hr>
+                <span id="itemRateValue" class="hidden">55.00</span>
+            </div>
+
+            <div id="itemAmountDet" style="top: 252px;"
+                 ng-style="isTrue ? editFormdragable[36] : { 'top': '252px', 'left': '0px'}"
+                 class="draggableitem ui-widget-content resizeable" ng-mouseup="showelements('AmountVal')">
+                <span id="amount">Amount(Ex)</span>
+                <hr>
+                <span id="AmountVal" class="hidden">660.00</span>
+            </div>
+
+            <div id="itemDiscountDet" style="top: 294px;"
+                 ng-style="isTrue ? editFormdragable[37] : { 'top': '294px', 'left': '0px'}"
+                 class="draggableitem ui-widget-content resizeable" ng-mouseup="showelements('itemDiscountVal')">
+                <span id="itemDiscount">Discount</span>
+                <hr>
+                <span id="itemDiscountVal" class="hidden">3</span>
+            </div>
+
+            <div id="itemTaxDet" style="top: 336px;"
+                 ng-style="isTrue ? editFormdragable[38] : { 'top': '336px', 'left': '0px'}"
+                 class="draggableitem ui-widget-content resizeable" ng-mouseup="showelements('taxVal')">
+                <span id="taxPer">Tax %</span>
+                <hr>
+                <span id="taxVal" class="hidden">0.00</span>
+            </div>
+
+            <div id="itemTaxAmtDet" style="top: 378px;"
+                 ng-style="isTrue ? editFormdragable[39] : { 'top': '378px', 'left': '0px'}"
+                 class="draggableitem ui-widget-content resizeable" ng-mouseup="showelements('taxAmountVal')">
+                <span id="taxAmount">Tax Amount</span>
+                <hr>
+                <span id="taxAmountVal" class="hidden">0.00</span>
+            </div>
+
+            <div id="itemCgstDet" style="top: 420px;"
+                 ng-style="isTrue ? editFormdragable[40] : { 'top': '420px', 'left': '0px'}"
+                 class="draggableitem ui-widget-content resizeable" ng-mouseup="showelements('CgstVal')">
+                <span id="Cgst">CGST</span>
+                <hr>
+                <span id="CgstVal" class="hidden">0.00</span>
+            </div>
+
+            <div id="itemSgstDet" style="top: 464px;"
+                 ng-style="isTrue ? editFormdragable[41] : { 'top': '464px', 'left': '0px'}"
+                 class="draggableitem ui-widget-content resizeable" ng-mouseup="showelements('SgstVal')">
+                <span id="Sgst">SGST</span>
+                <hr>
+                <span id="SgstVal" class="hidden">0.00</span>
+            </div>
+
+            <div id="itemIgstDet" style="top: 506px;"
+                 ng-style="isTrue ? editFormdragable[42] : { 'top': '506px', 'left': '0px'}"
+                 class="draggableitem ui-widget-content resizeable" ng-mouseup="showelements('IgstVal')">
+                <span id="Igst">IGST</span>
+                <hr>
+                <span id="IgstVal" class="hidden">0.00</span>
+            </div>
+
+            <div id="itemCessDet" style="top: 548px;"
+                 ng-style="isTrue ? editFormdragable[43] : { 'top': '548px', 'left': '0px'}"
+                 class="draggableitem ui-widget-content resizeable" ng-mouseup="showelements('cessVal')">
+                <span id="cess">CESS</span>
+                <hr>
+                <span id="cessVal" class="hidden">660.00</span>
+            </div>
+
+            <div id="returnQuantityDet" style="top: 590px;"
+                 ng-style="isTrue ? editFormdragable[44] : { 'top': '590px', 'left': '0px'}"
+                 class="draggableitem ui-widget-content resizeable" ng-mouseup="showelements('returnQuantityVal')">
+                <span id="returnQuantity">Return Quantity</span>
+                <hr>
+                <span id="returnQuantityVal" class="hidden">1.00</span>
+            </div>
+        </div>
+
+        <div class="col-md-11" style="margin-left: 7px;">
+            <div class="col-md-4">
+                <span style="font-weight: bold; padding-right: 17px;"> Report border : </span>
+                <span style="vertical-align: top"> yes </span><input type="radio" value="border" ng-model="borderVal"/>
+                <span style="vertical-align: top">  No </span><input type="radio" value="noBorder"
+                                                                     ng-model="borderVal"/>
+            </div>
+            <div class="col-md-4 pull-right">
+                <div class="col-md-8">
+                    <select class="form-control " id="hideSelectBoxId">
+                        <option>Hiden list</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-default hi_btn" ng-click="restoreDrag()">Restore</button>
+                </div>
+            </div>
+
+            <div class="col-md-11" style="margin-left: 7px;">
+                <div class="irep_wrap hi_wrap">
+                    <table border="0" cellpadding="0" cellspacing="0" class="irep_header" style="width:100%;">
+                        <!--<input type="hidden" name="id" value="" id="id">-->
+                        <!--<input type="hidden" name="formSetupName" value="AdvanceCustomerPayment" id="formSetupName">-->
+                        <tbody>
+                        <tr>
+                            <td class="ui-widget-header fs_header_info">
+                                <table border="0" cellpadding="0" cellspacing="0" class="resizeable"
+                                       style="border-collapse:collapse; vertical-align:top; width: inherit; height: auto;">
+                                    <tbody>
+                                    <tr>
+                                        <td id="dragcolumn1" class=" draggable_latest">
+                                            <div id="companyGstNo" style="top: 0px; left: 0px;"
+                                                 ng-style="isTrue ? editFormdragable[0] : { 'top': '0px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>GST No</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="companyName" style="top: 28px; left: 0%;"
+                                                 ng-style="isTrue ? editFormdragable[1] : { 'top': '28px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable"
+                                                 aria-disabled="false">
+                                                <p>COMPANY NAME</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="companyAddress" style="top: 56px; left: 0%;"
+                                                 ng-style="isTrue ? editFormdragable[2] : { 'top': '56px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>
+                                                    Address Of The Company
+                                                    StreetNo,Area
+                                                    City,Country - PinCode
+                                                </p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="companyState" style="top: 84px; left: 0px; "
+                                                 ng-style="isTrue ? editFormdragable[3] : { 'top': '84px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>State</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="companyInvoiceNo" style="top: 109px; left: 0px; "
+                                                 ng-style="isTrue ? editFormdragable[4] : { 'top': '109px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>Invoice Number</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="companyDate" style="top: 139px; left: 0px;"
+                                                 ng-style="isTrue ? editFormdragable[5] : { 'top': '139px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>Date(dd/mm/yyyy)</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="companyLogo"
+                                                 style="top: 0px; left: 80%; width: 20%; height: 168px;"
+                                                 ng-style="isTrue ? editFormdragable[6] : { 'top': '0%', 'left': '80%','width':'20%', 'height':'168px'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p style="text-align: center;  padding: 5px 79px;">logo</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <table style="width: 100%;" class="border_info hi_table" style="margin-top: 50px;">
+                        <tbody>
+                        <tr>
+                            <th style="width: 50%">
+                                <div style="font-size: 25px;"><b>Details of Billed to</b></div>
+                            </th>
+                            <th style="width: 50%; padding-left: 10px;">
+                                <div style="font-size: 25px;"><b>Details of Shipped to</b></div>
+                            </th>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                    <table border="0" cellpadding="0" cellspacing="0" class="irep_header" style="width:100%;">
+                        <tr>
+                            <td class="ui-widget-header fs_billTo_info" style="width: 50%; float: left;">
+                                <table border="0" cellpadding="0" cellspacing="0" class="resizeable"
+                                       style="border-collapse:collapse; vertical-align:top; width: 100%; height: auto;">
+                                    <tbody>
+                                    <tr>
+                                        <td class="draggable_sm_latest">
+                                            <div id="btcustomerGst" style="top: 0px; left: 0px;"
+                                                 ng-style="isTrue ? editFormdragable[7] : { 'top': '0px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>Billed to customer GST</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="btcustomerName" style="top: 28px; left: 0px;"
+                                                 ng-style="isTrue ? editFormdragable[8] : { 'top': '28px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>Billed to customer Name</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="btCustomerOrderNo" style="top: 56px; left: 0%;"
+                                                 ng-style="isTrue ? editFormdragable[9] : { 'top': '56px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>
+                                                    Billed to customer Order No
+                                                </p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="btCustomerAddress" style="top: 84px; left: 0%;"
+                                                 ng-style="isTrue ? editFormdragable[10] : { 'top': '84px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable"
+                                                 aria-disabled="false">
+                                                <p>Billed to customer Address</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="btCustomerState" style="top: 109px; left: 0%;"
+                                                 ng-style="isTrue ? editFormdragable[11] : { 'top': '109px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable"
+                                                 aria-disabled="false">
+                                                <p>Billed to customer State</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td class="ui-widget-header fs_shipTo_info" style="width: 50%;  float: right;">
+                                <table border="0" cellpadding="0" cellspacing="0" class="resizeable"
+                                       style="border-collapse:collapse; vertical-align:top; width: 100%; height: auto;">
+                                    <tbody>
+                                    <tr>
+                                        <td class="draggable_sm_latest">
+                                            <div id="stcustomerGst" style="top: 0px; left: 0px;"
+                                                 ng-style="isTrue ? editFormdragable[12] : { 'top': '0px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>Shipped to customer GST</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="stcustomerName" style="top: 28px; left: 0px;"
+                                                 ng-style="isTrue ? editFormdragable[13] : { 'top': '28px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>Shipped to customer Name</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="stCustomerOrderNo" style="top: 56px; left: 0%;"
+                                                 ng-style="isTrue ? editFormdragable[14] : { 'top': '56px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>
+                                                    Shipped to customer Order No
+                                                </p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="stCustomerAddress" style="top: 84px; left: 0%;"
+                                                 ng-style="isTrue ? editFormdragable[15] : { 'top': '84px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable"
+                                                 aria-disabled="false">
+                                                <p>Shipped to customer Address</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="stCustomerState" style="top: 109px; left: 0%;"
+                                                 ng-style="isTrue ? editFormdragable[16] : { 'top': '109px', 'left': '0%'}"
+                                                 class="draggable ui-widget-content resizeable"
+                                                 aria-disabled="false">
+                                                <p>Shipped to customer State</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <table border="0" cellpadding="0" cellspacing="0" class="irep_header" style="width:100%;">
+                        <tr>
+                            <td class="ui-widget-header fs_more_info" style="width: 100%; float: left;">
+                                <table border="0" cellpadding="0" cellspacing="0"
+                                       style="border-collapse:collapse; vertical-align:top; width: 100%; height: auto;"
+                                       class="resizeable">
+                                    <tbody>
+                                    <tr>
+                                        <td class="draggable_latest">
+                                            <div id="moreReceiptForm" style="top: 0px; left: 0px;"
+                                                 ng-style="isTrue ? editFormdragable[17] : { 'top': '0px', 'left': '0px'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>Receipt Form</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="moreAgent" style="top: 28px; left: 0%;"
+                                                 ng-style="isTrue ? editFormdragable[18] : { 'top': '28px', 'left': '0%'}"
+                                                 class="draggable ui-widget-content resizeable"
+                                                 aria-disabled="false">
+                                                <p>Agent</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="moreCurrencyName" style="top: 56px; left: 0%;"
+                                                 ng-style="isTrue ? editFormdragable[19] : { 'top': '56px', 'left': '0%'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p> Currency Name</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="moreEmployeeType" style="top: 84px; left: 0%;"
+                                                 ng-style="isTrue ? editFormdragable[20] : { 'top': '84px', 'left': '0%'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p> Employee Type</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="moreCustomerPo" style="top: 112px; left: 0%;"
+                                                 ng-style="isTrue ? editFormdragable[21] : { 'top': '112px', 'left': '0%'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p> Customer PO</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="moreCostCentre" style="top: 0px; left: 66.6%;"
+                                                 ng-style="isTrue ? editFormdragable[22] : { 'top': '0px', 'left': '66.6%'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p> Cost Centre</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="moreShippingMethod" style="top: 28px; left: 66.6%;"
+                                                 ng-style="isTrue ? editFormdragable[23] : { 'top': '28px', 'left': '66.6%'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>Shipping Method</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="moreShippingDate" style="top: 56px; left: 66.6%;"
+                                                 ng-style="isTrue ? editFormdragable[24] : { 'top': '56px', 'left': '66.6%'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>Shipping Date</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="moreShippingRefNo" style="top: 84px; left: 66.6%;"
+                                                 ng-style="isTrue ? editFormdragable[25] : { 'top': '84px', 'left': '66.6%'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>Shipping Reference No</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                            <div id="moreReferenceNno" style="top: 112px; left: 66.6%;"
+                                                 ng-style="isTrue ? editFormdragable[26] : { 'top': '112px', 'left': '66.6%'}"
+                                                 class="draggable ui-widget-content resizeable">
+                                                <p>Reference No</p>
+                                                <button type="button" ng-click="dragClose($event)"
+                                                        class="dragclose close">×
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <table border="0" cellpadding="0" cellspacing="0" class="irep_detail hi_table container">
+                        <thead>
+                        <tr>
+                            <td class="droppablettem ui-widget-header">
+
+                            </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+
+                    <table border="0" cellpadding="0" cellspacing="0" class="irep_footer hi_table" style="width:100%;">
+                        <tbody>
+                        <tr>
+                            <td id="footertarget" class="terms_info ui-widget-header">
+                                <div id="commonPrintFooterPrintId">
+                                    <div id="rep_tandc" style="top: 25px; left: 10px;"
+                                         ng-style="isTrue ? editFormdragable[27] : { 'top': '25px', 'left': '10px'}"
+                                         class="draggable ui-widget-content resizeable">
+                                        <p><span class="title"><strong>Terms and Conditions</strong></span><span
+                                                class="seprate">:</span></p>
+                                        <button type="button" ng-click="dragClose($event)" class="dragclose close">×
+                                        </button>
+                                    </div>
+                                    <div id="rep_prepby" style="top: 120px; left: 10px;"
+                                         ng-style="isTrue ? editFormdragable[28] : { 'top': '120px', 'left': '10px'}"
+                                         class="draggable ui-widget-content resizeable">
+                                        <p><strong>Prepared By</strong></p>
+                                        <button type="button" ng-click="dragClose($event)" class="dragclose close">×
+                                        </button>
+                                    </div>
+                                    <div id="rep_apprby" style="top: 120px; left: 645px;"
+                                         ng-style="isTrue ? editFormdragable[29] : { 'top': '120px', 'left': '645px'}"
+                                         class="draggable ui-widget-content resizeable">
+                                        <p><strong>Approved By</strong></p>
+                                        <button type="button" ng-click="dragClose($event)" class="dragclose close">×
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="printdesign_button_group">
+                    <button class="printdesign_btn" id="saveTemplateBtn" ng-click="saveTemplate()">save</button>
+                    <button id="delete_button" ng-click="resetTemplate(this)" class="printdesign_btn">Reset</button>
+                </div>
+            </div>
+        </div>
+</form>
+</body>

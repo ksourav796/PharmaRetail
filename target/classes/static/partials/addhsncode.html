@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div class="container-fluid">
+    <div class="container cus_main_row" style="height: 715px;" >
+
+        <div class="row">
+            <h2 class="pos-header-new">
+                <div>HSN/SAC Code</div>
+            </h2>
+        </div>
+        <div class="row inner_row_bg">
+        <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 10px;">
+    <div class="panel">
+        <div class="panel-body" style="height: 65px;">
+            <div class="col-md-4 col-lg-3 col-sm-5 col-xs-5">
+                <form class="form-horizontal ng-pristine ng-valid">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <p class="input-group" style="display: block;">
+                                <input id="textinput" name="textinput" type="text"
+                                       placeholder="Search HSN/SAC" ng-model="hsnCodeSearchText"
+                                       class="form-control input-md"
+                                       ng-keyup="getHSNCodeList()" />
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-9 col-lg-7 col-sm-7 col-xs-7">
+                <div class="form-group">
+                    <div class="col-lg-3 col-md-3 col-sm-4">
+                        <button type="button" class="btn btn-default hi_btn" ng-click="addNewHsnPopulate()">Add</button>
+                    </div>
+                    <!--<div class="col-lg-3 col-md-3 col-sm-4">-->
+                        <!--<button type="button" class="btn btn-default hi_btn" ng-click="getHSNCodeListFromFile()">Search HSN/SAC-->
+                        <!--</button>-->
+                    <!--</div>-->
+                    <div class="col-lg-2 col-md-3 col-sm-4">
+                        <button type="submit" id="colButn" class="btn btn-default" data-toggle="modal"
+                                ng-model="inactiveStatus" data-target=".print-me" ng-click="inactiveHsn()">{{ButtonStatus}}
+                        </button>
+                    </div>
+                    <div class="col-lg-3 col-md-5 col-sm-5">
+                        <span class="custom-dropdown custom-dropdown--white">
+                            <select ng-model="exportsType" class="form-control "  ng-change="GetValue()">
+                                <option value=""> Select Type</option>
+                                <option value="pdf"> pdf</option>
+                                <option value="excel"> Excel</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="col-lg-1 col-md-3 col-sm-3">
+                        <div ng-if="exportsType"> <a href="/pos/hsnExport?val={{hsnCodeSearchText}}&type={{exportsType}}&statustype={{inactiveStatus}}"><button type="button" class="btn btn-default hi_btn">Export</button></a>
+                    </div>
+                    <div ng-if="!exportsType">
+                        <button type="button" class="btn btn-default hi_btn">Export</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="fixed-table-container">
+            <div class="table_wrapfixed-table-container-inner">
+                <div class="header-background"></div>
+                <table data-toggle="table" data-cache="false" data-height="299"
+                       class="hi_table table table-hover table-bordered table-striped table-fixed-header">
+                    <thead>
+                    <tr>
+
+                        <th data-field="HSN code">
+                            <div class="th-inner">HSN/SAC Code</div>
+                        </th>
+                        <th data-field="HSN code">
+                            <div class="th-inner">HSN/SAC Description</div>
+                        </th>
+                        <th data-field="edit">
+                            <div class="th-inner">Edit</div>
+                        </th>
+                        <!--<th data-field="edit">-->
+                            <!--<div class="th-inner">{{ButtonStatus}}</div>-->
+                        <!--</th>-->
+                    </tr>
+                    </thead>
+                    <tbody id="parentTable">
+                    <tr ng-repeat="hsnCode in hsnCodeList| filter:hsnCodeSearchText" >
+                        <td>{{hsnCode.msiccode}}</td>
+                        <td>{{hsnCode.descrip}}</td>
+                        <td><a id="edit" ng-click="edithsnPopulate(hsnCode)" class="edit"><i
+                                class="fa fa-pencil-square-o fa-fw orange"></i></a></td>
+                        <!--<td><a id="del_{{$index}}" href="javascript:void(0)" ng-click="delete(hsnCode)" class="del"><i-->
+                                <!--class="fa fa-trash-o fa-fw orange"></i></a></td>-->
+                    </tr>
+                    </tbody>
+                    <tbody id="searchlist" style="display: none;"></tbody>
+                </table>
+            </div>
+        </div>
+
+    <div class="form-group">
+        <div class="col-sm-12 pagination_">
+
+            <button type="button" class="btn btn-default hi_btn" ng-class="{'diabled-class': first}" ng-disabled="first"
+                    ng-click="getHSNCodeList('firstPage')"  ng-model="first">First
+            </button>
+            <button type="button" class="btn btn-default hi_btn"  ng-class="{'diabled-class': prev}" ng-disabled="prev"
+                    ng-click="getHSNCodeList('prevPage')"   ng-model="prev">Prev
+            </button>
+            <button type="button" class="btn btn-default hi_btn"  name="next" ng-disabled="next"
+                    ng-click="getHSNCodeList('nextPage')"  value="next"  ng-class="{'diabled-class': next}" ng-model="next">Next
+            </button>
+            <button type="button" class="btn btn-default hi_btn"
+                    ng-click="getHSNCodeList('lastPage')"   ng-class="{'diabled-class': last}" ng-disabled="last"
+                    ng-model="last">Last
+            </button>
+        </div>
+        <div align="center"><span style="color: red;"></span></div>
+    </div>
+</div>
+
+
+<div class="modal fade ExchangeRate" tabindex="-1" id="add_new_hsn_modal" role="dialog" data-backdrop="static"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content checkout">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 id="HSN-title" class="modal-title">Add HSN/SAC Code</h4>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <form class="form-horizontal" name="hsnCode">
+                            <fieldset>
+                                <input type="hidden" ng-model="setupobj.msiccomid" value="{{setupobj.msiccomid}}"/>
+                                <input type="hidden" ng-model="setupobj.mscid" value="{{setupobj.mscid}}"/>
+                                <div class="form-group" ng-show="operation!='Edit'">
+                                    <label class="col-md-4 col-sm-4 control-label" for="">HSN/SAC Code</label>
+                                    <div class="col-md-6 col-sm-6" style="position:relative;">
+                                        <input id="HSNCode" name="HSNCode"
+                                               placeholder="HSN Code" maxlength="10" ng-pattern="/^[0-9]/"
+                                               ng-value="setupobj.code" num-with-space
+                                               ng-model="HSNCodeText"
+                                               class="form-control input-md" autocomplete="off" required>
+                                        <p class="error" ng-show="hsnCode.HSNCode.$error.pattern">Numbers only,
+                                            please.</p>
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-show="operation=='Edit'">
+                                    <label class="col-md-4 col-sm-4 control-label" for="">HSN/SAC Code</label>
+                                    <div class="col-md-6 col-sm-6" style="position:relative;">
+                                        <input id="HSNCode" name="HSNCode"
+                                               placeholder="HSN Code" maxlength="10" ng-pattern="/^[0-9]/"
+                                               ng-value="setupobj.code" num-with-space
+                                               ng-model="HSNCodeText" readonly
+                                               class="form-control input-md" autocomplete="off" required>
+                                        <p class="error" ng-show="hsnCode.HSNCode.$error.pattern">Numbers only,
+                                            please.</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 col-sm-4 control-label" for="">HSN/SAC Description</label>
+                                    <div class="col-md-6 col-sm-6" style="position:relative;">
+                                        <textarea id="HSNDescription" name="HSNDescription"  maxlength="255"
+                                                  allowpattern="[a-z]"
+                                                  type="text" placeholder="HSN Description"
+                                                  ng-model="HSNDescriptionText"
+                                                  class="form-control input-md">
+                                        </textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 col-sm-4 control-label" for="">Status</label>
+                                    <div class="col-md-6 col-sm-6" >
+                                        <select name="hsnStatus" id="hsnStatus" ng-model="hsnStatusText" class="form-control input-md" required>
+                                            <option value="Active">Active</option>
+                                            <option value="InActive">InActive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default" ng-disabled="!hsnCode.$valid" data-toggle="modal" ng-disabled="isDisabled"
+                        data-target=".print-me" ng-click="saveHSNCode('add_new_hsn_modal')">Save
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="removeHSNCodeDetails()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade ExchangeRate" tabindex="-1" id="select_new_hsn_modal" role="dialog" data-backdrop="static"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content checkout">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add HSN/SAC Code</h4>
+            </div>
+            <div class="panel-body" style=" height: 400px; overflow-y: scroll;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <p class="input-group">
+                                        <input type="text" class="form-control"
+                                               placeholder="Search" ng-model="hsnsearchText" ng-click="disableClick()">
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-12">
+                        <table class="hi_table" >
+                            <tr ng-repeat="hsnCode in hsnCodes | filter:hsnsearchText | limitTo: 150">
+                                <td><input type="checkbox" ng-model="selected" ng-checked="selection.indexOf(hsnCode.code) > -1"
+                                           ng-click="toggleSelection(hsnCode.code,hsnCode.description)"
+                                        ng-value="$index"/></td>
+                                <td>{{hsnCode.code}}</td>
+                                <td>{{hsnCode.description}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default" data-toggle="modal" ng-disabled="isDisabled"
+                         ng-click="saveHSNCodes()">Save
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

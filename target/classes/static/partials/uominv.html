@@ -1,0 +1,192 @@
+
+
+<div class="container-fluid">
+    <div class="container cus_main_row" style="height: 715px;" >
+
+        <div class="row">
+            <h2 class="pos-header-new">
+                <div>Unit Of Measurement</div>
+            </h2>
+        </div>
+        <div class="row inner_row_bg">
+            <div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="panel">
+        <div class="panel-body">
+            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-5">
+                <form class="form-horizontal ng-pristine ng-valid">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <p class="input-group" style="display: block;">
+                                <input id="textinput" name="textinput"  type="text"
+                                       placeholder="Search UOM" ng-model="UOMSearchText" class="form-control input-md"
+                                       ng-keyup="$event.keyCode == 13 ? getUOMItemList() : null" />
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="form-group">
+                <div class="col-md-1 col-sm-4">
+                    <button type="button" class="btn btn-primary hi_btn"  ng-click="addNewUOMPopulate()">Add</button>
+                </div>
+                <div class="col-md-1 col-sm-4">
+                    <!--<button type="button" class="btn btn-default hi_btn" ng-model="inactiveStatus" ng-click="inactiveUom('InActive')">Inactive</button>-->
+                    <div class="col-md-12 col-sm-12">
+                        <button type="submit" id="colButn" class="btn btn-primary" data-toggle="modal"
+                                ng-model="inactiveStatus" data-target=".print-me" ng-click="inactiveUom()">{{ButtonStatus}}
+                        </button>
+                    </div>
+                </div>
+                    <div class="col-md-2 col-sm-4">
+                        <span class="custom-dropdown custom-dropdown--white">
+                            <select ng-model="exportsType" class="form-control "  ng-change="GetValue()">
+                                <option value=""> Select Type</option>
+                                <option value="pdf"> pdf</option>
+                                <option value="excel"> Excel</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="col-md-1 col-sm-4">
+                        <div ng-if="exportsType"><a href="/pos/uomExport?val={{UOMSearchText}}&type={{exportsType}}&statustype={{inactiveStatus}}"><button type="button" class="btn btn-primary hi_btn">Export</button></a>
+                        </div>
+                        <div ng-if="!exportsType">
+                            <button type="button" class="btn btn-primary hi_btn">Export</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+
+        <div class="fixed-table-container">
+            <div class="table_wrapfixed-table-container-inner">
+                <div class="header-background"></div>
+                <table data-toggle="table" data-cache="false" data-height="299" class="hi_table table table-hover table-bordered table-striped table-fixed-header">
+                    <thead>
+                    <tr>
+                        <th data-field="cntryname">
+                            <div class="th-inner">UOM Name</div>
+                        </th>
+                        <th data-field="edit">
+                            <div class="th-inner">Description</div>
+                        </th>
+                        <th data-field="edit">
+                            <div class="th-inner">Edit</div>
+                        </th>
+                        <!--<th data-field="edit">-->
+                            <!--<div class="th-inner">{{ButtonStatus}}</div>-->
+                        <!--</th>-->
+                    </tr>
+                    </thead>
+                    <tbody id="parentTable">
+                    <tr ng-repeat="itemUOM in itemUOMList| filter:UOMSearchText">
+                        <td>{{itemUOM.unitOfMeasurementName}}</td>
+                        <td>{{itemUOM.unitOfMeasurementDescription}}</td>
+                        <td>
+                            <a id="edit_{{$index}}" href="javascript:void(0)" ng-click="editNewUOM(itemUOM)" class="edit">
+                                <i class="fa fa-pencil-square-o fa-fw orange"></i></a>
+                        <td><a id="del_{{$index}}" href="javascript:void(0)" ng-click="deleteUOMItem(itemUOM)"
+                               class="edit"><i class="fa fa-trash-o fa-fw orange"></i></a></td>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12 pagination_" style="margin-top: 180px;">
+                <button type="button" class="btn btn-primary hi_btn" ng-class="{'diabled-class': first}" ng-disabled="first"
+                        ng-click="getUOMItemList('firstPage')"  ng-model="first">First
+                </button>
+                <button type="button" class="btn btn-primary hi_btn"  ng-class="{'diabled-class': prev}" ng-disabled="prev"
+                        ng-click="getUOMItemList('prevPage')"   ng-model="prev">Prev
+                </button>
+                <button type="button" class="btn btn-primary hi_btn"  name="next" ng-disabled="next"
+                        ng-click="getUOMItemList('nextPage')"  value="next"  ng-class="{'diabled-class': next}" ng-model="next">Next
+                </button>
+                <button type="button" class="btn btn-primary hi_btn"
+                        ng-click="getUOMItemList('lastPage')"   ng-class="{'diabled-class': last}" ng-disabled="last"
+                        ng-model="last">Last
+                </button>
+            </div>
+            <div align="center"><span style="color: red;"></span></div>
+        </div>
+    </div>
+</div>
+        </div>
+<div class="modal fade addCustomer" tabindex="-1" id="add_new_UOM_modal" role="dialog" data-backdrop="static"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content checkout">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 id = "uominv-title"  class="modal-title">Add UOM</h4>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <input type="hidden" ng-model="uominvObj.unitofmeasurementid"
+                                       value="{{uominvObj.unitofmeasurementid}}"/>
+                                <div>
+                                    <div  class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label">UOM Name</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="UOMName" name="UOMName"
+                                                   allowpattern="[a-z]" alphanum-with-space
+                                                   type="text" placeholder="UOMName"
+                                                   ng-model="UOMName"
+                                                   ng-value="uominvObj.unitofmeasurementname"
+                                                   ng-readonly="operation === 'Edit' "
+                                                   class="form-control input-md">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 col-sm-4 control-label">UOM Description</label>
+                                    <div class="col-md-6 col-sm-6" style="position:relative;">
+                                        <input id="UOMDescription" name="UOMDescription"
+                                               allowpattern="[a-z]"
+                                               type="text" placeholder="UOM Description"
+                                               ng-model="UOMDescription"
+                                               ng-value="uominvObj.unitOfMeasurementDescription"
+                                               ng-blur="hideAutoComplete()"
+                                               class="form-control input-md" maxlength="255">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 col-sm-4 control-label" for="">Status</label>
+                                    <div class="col-md-6 col-sm-6" >
+                                        <select name="uomStatus" id="uomStatus" ng-model="uomStatusText" class="form-control input-md" required>
+                                            <option value="Active">Active</option>
+                                            <option value="InActive">InActive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" id="submit" ng-disabled="isDisabled"
+                                        ng-click="saveNewUOM()">Save
+                                </button>
+                                <button type="button" class="btn btn-primary" ng-click="removeUOMDetails()"  data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+

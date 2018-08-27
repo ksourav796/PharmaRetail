@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+
+<style>
+    .th-inner{
+        font-size: 13px;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="container cus_main_row" style="height: 715px;">
+
+        <div class="row">
+            <h2 class="pos-header-new">
+                <div>Pos Sales Report</div>
+            </h2>
+        </div>
+        <div class="row inner_row_bg">
+            <div class="col-sm-12 col-md-12">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="col-sm-12 col-md-12">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-md-10 col-sm-9">
+                                        <div class="row">
+                                            <div class="col-md-3 col-sm-12">
+                                                <div class="col-md-8 col-sm-9 input_label cus_input_label no-pad">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 col-sm-4">
+                                                <button type="button" class="btn btn-default hi_btn col-md-2" ng-click="getSalesInvoiceListWithFilter()" style="min-width: 101px;">View
+                                                </button>
+                                            </div>
+                                            <div class="col-md-5 col-sm-8">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fixed-table-container">
+                    <div class="table_wrapfixed-table-container-inner hi_table">
+                        <div class="header-background"></div>
+                        <table data-toggle="table" data-cache="false" data-height="299"style="margin-bottom: 0px;"
+                               class="table table_option2 table-hover table-striped table-fixed-header list_table">
+                            <thead>
+                            <tr>
+                                <th data-field="date">
+                                    <div class="th-inner">Inv Date</div>
+                                </th>
+                                <th data-field="date">
+                                    <div class="th-inner">Sales Invoice No</div>
+                                </th>
+                                <th data-field="itmcode">
+                                    <div class="th-inner">Customer Name</div>
+                                </th>
+                                <th data-field="itmname">
+                                    <div class="th-inner">Invoice Amount</div>
+                                </th>
+                                <th data-field="currency">
+                                    <div class="th-inner">Total Paid</div>
+                                </th>
+
+                            </tr>
+                            </thead>
+                            <tbody ng-repeat="sq in salesList">
+
+                            <tr>
+                                <td>{{sq.date | date:'dd/MM/yyyy'}}</td>
+                                <td class="align_right">{{sq.sino}}</a> </td>
+                                <td class="align_right">{{sq.customerName}}</td>
+                                <td class="align_right">{{sq.totalAmount}}</td>
+                                <td class="align_right">{{sq.totalReceivable}}</td>
+
+                            </tr>
+
+                            <tfoot>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

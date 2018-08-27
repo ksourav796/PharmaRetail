@@ -1,0 +1,303 @@
+<div class="modal fade addSupplier" tabindex="-1" id="addSupplier" role="dialog" data-backdrop="static"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content checkout">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 id="modal-title">Add Supplier</h4>
+            </div>
+            <style>
+                .checkout i.on-off {
+                    color: #ccc;
+                    padding: 0;
+                    border: none;
+                    margin: 0 auto;
+                    font-size: 24px;
+                }
+                .input_loader i{
+                    position: absolute;
+                    top: 12px;
+                    margin: 0 auto;
+                    color: #1292a2;
+                    font-size: 13px;
+                    border: none;
+                    padding: 0;
+                    right: 10px;
+                }
+                #autoComplete {
+                    position: absolute;
+                    z-index: 9999;
+                    background-color: #fff;
+                    padding: 10px;
+                    list-style: none;
+                    top: 35px;
+                    border: 1px solid #cccccc;
+                    border-radius: 4px;
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+                    width:100%;
+                }
+                #autoComplete li{
+                    cursor: pointer;
+                }
+                #autoComplete li:not(:first-child) {
+                    margin-top: 10px;
+                }
+                #autoComplete li:not(:last-child){
+                    border-bottom: 1px solid #ddd;
+                }
+                #autoComplete li:hover{
+                    background-color: #ddd;
+                }
+                #autoComplete li p {
+                    margin: 5px;
+                }
+            </style>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal" name="mail" >
+                            <fieldset>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade in active" id="sub_step1">
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="">Supplier Name</label>
+                                            <div class="col-md-6" style="position:relative;">
+                                                <input id="SupplierName" name="SupplierName" alphanum-with-space
+                                                       allowpattern="[a-z]" maxlength="125"
+                                                       type="text" placeholder="Supplier  Name"
+                                                       ng-model="supplierNameText"
+                                                       ng-change="searchSupplierName(supplierNameText,Hi_Conn_company_Name)"
+
+                                                       ng-blur="hideAutoComplete()"
+                                                       class="form-control input-md" autocomplete="off" required>
+                                                <span style="position: relative;top: -4px;">HiConnect :</span>
+                                                <span class="input_loader" ng-if="Hi_Conn_company_Name && showInputLoader">
+                                                <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                                            </span>
+                                                <label>
+                                                    <input type="checkbox" ng-model="Hi_Conn_company_Name" style="display:none;"/>
+                                                    <span ng-if="Hi_Conn_company_Name">
+                                                    <i class="fa fa-toggle-on on-off" aria-hidden="true" style="color:#1292a2;"></i>
+                                                </span>
+                                                    <span ng-if="!Hi_Conn_company_Name">
+                                                    <i class="fa fa-toggle-off on-off" aria-hidden="true"></i>
+                                                </span>
+                                                </label>
+
+                                                <ul id="autoComplete" ng-if="Hi_Conn_company_Name && supplierDetails.length && showAutoComplete">
+                                                    <li ng-repeat="supplier in supplierDetails| limitTo:5" ng-click="appendSupplierDetails(supplier,$index)">
+                                                        <p><strong>Company: </strong> {{supplier.companyname}}</p>
+                                                        <p><strong>Email: </strong> {{supplier.email}}</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 col-sm-4 control-label" for="GSTIN">GSTN</label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input type="text" id="GSTIN" name="GSTIN" maxlength="15"
+                                                       placeholder="GSTN"
+                                                       ng-model="GSTINText"
+                                                       class="form-control input-md" required/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="">Email</label>
+                                            <div class="col-md-6">
+                                                <input id="SupplierEmail" name="SupplierEmail"
+                                                       ng-readonly="operation === 'Return'"
+                                                       type="text" placeholder="Supplier Email"
+                                                       ng-model="supplierEmailText"
+                                                       class="form-control input-md">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="">Contact</label>
+                                            <div class="col-md-6">
+                                                <input id="SupplierContact" name="SupplierContact" num-without-space
+                                                       ng-blur="toFixedTwo(supplierContactText)"
+                                                       two-digits-dec
+                                                       ng-pattern="contactNo"
+                                                       ng-readonly="operation === 'Return'"
+                                                       type="text" placeholder="Supplier  Contact"
+                                                       ng-model="supplierContactText"
+                                                       class="form-control input-md" required maxlength="10">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="">Address</label>
+                                            <div class="col-md-6">
+                                                <textarea id="SupplierAddress" name="SupplierAddress"
+                                                          ng-readonly="operation === 'Return'"
+                                                          type="text" placeholder="Supplier  Address"
+                                                          ng-model="supplierAddressText"
+                                                          class="form-control input-md" required>
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                        <a class="btn btn-default next" href="javascript:void(0)" ng-click="next_wizardSupp()" data-toggle="tab" data-step="2">More</a>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="sub_step2">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="">Person Incharge</label>
+                                            <div class="col-md-6" style="position:relative;">
+                                                <input id="personIncharge" name="personIncharge"
+                                                       ng-pattern="/[aA-zZ\s]$/"
+                                                       type="text" placeholder="PersonIncharge Name"
+                                                       ng-model="personInchargeText"
+                                                       class="form-control input-md" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="country">Country</label>
+                                            <div class="col-md-6">
+                                                <select id="country" name="country"
+                                                        ng-model="selectedCountry" ng-change="countryState(selectedCountry); setCurrency()"
+                                                        ng-options="country.countryName as country.countryName for country in countryDTOList"
+                                                        class="form-control input-md">
+                                                <option value="">Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="currency">Currency</label>
+                                            <div class="col-md-6">
+                                                <select id="currency" name="currency"
+                                                        ng-model="selectedCurrency"
+                                                        ng-options="currency.currencyName as currency.currencyName for currency in currencyDTOList"
+                                                        class="form-control input-md">
+                                                   <option value="">Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="">State</label>
+                                            <div class="col-md-6">
+                                                <select id="state" name="stateName"
+                                                        ng-readonly="operation === 'Return'"
+                                                        ng-model="selectedState"
+                                                        ng-options="state.stateName as state.stateName for state in stateDTOList"
+                                                        class="form-control input-md">
+                                                    <option value=""> Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 col-sm-4 control-label" for="">Status</label>
+                                            <div class="col-md-6 col-sm-6" >
+                                                <select name="supStatus" id="supStatus" ng-model="supStatusText" class="form-control input-md" required>
+                                                    <option value="">Select</option>
+                                                    <option value="Active">Active</option>
+                                                    <option value="InActive">InActive</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="bankName">Bank Name</label>
+                                            <div class="col-md-6">
+                                                <input id="bankName" name="bankName"
+                                                       type="text" placeholder="Bank Name"
+                                                       ng-pattern="/[aA-zZ\s]$/"
+                                                       ng-model="bankNameText"
+                                                       class="form-control input-md" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="accNo">Acc No</label>
+                                            <div class="col-md-6">
+                                                <input id="accNo" name="accNo" maxlength="25"
+                                                       type="text" placeholder="Account No"
+                                                       ng-model="accNoText" ng-change="ValidatePAN(panNumberText)"
+                                                       class="form-control input-md" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="PANNo">PAN No</label>
+                                            <div class="col-md-6">
+                                                <input id="panNumber" name="panNumber"
+                                                       type="text" placeholder="PAN Number"
+                                                       ng-model="panNumberText"
+                                                       class="form-control input-md" required maxlength="10">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="">Bank Branch</label>
+                                            <div class="col-md-6">
+                                                <input id="Bankbranch" name="Bankbranch" maxlength="125"
+                                                       type="text" placeholder="Bank Branch"
+                                                       ng-model="bankBranchText"
+                                                       class="form-control input-md" required>
+                                                </input>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="IFSC">IFSC</label>
+                                            <div class="col-md-6">
+                                                <input id="IFSC" name="IFSC"
+                                                       type="text" placeholder="IFSC" maxlength="15"
+                                                       ng-model="IFSCText"
+                                                       class="form-control input-md" required>
+                                                </input>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="UIN">UIN</label>
+                                            <div class="col-md-6">
+                                                <input id="UIN" name="UIN"
+                                                       type="text" placeholder="UIN" maxlength="15"
+                                                       ng-model="UINText"
+                                                       class="form-control input-md" required>
+                                                </input>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="website">Website</label>
+                                            <div class="col-md-6">
+                                                <input id="website" name="website" maxlength="255"
+                                                       type="text" placeholder="Website"
+                                                       ng-model="websiteText"
+                                                       ng-change="ValidateWebsite(websiteText)"
+                                                       class="form-control input-md" required>
+                                                </input>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 col-sm-4 control-label" for="creditTerm">CreditTerm</label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input id="creditTerm" name="creditTerm"
+                                                       type="text" placeholder="CreditTerm" maxlength="30"
+                                                       ng-model="creditTermText"
+                                                       class="form-control input-md" required>
+                                                </input>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 col-sm-4 control-label" for="creditLimit">CreditLimit</label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input id="creditLimit" name="creditLimit"
+                                                       type="text" placeholder="CreditLimit" maxlength="30"
+                                                       ng-model="creditLimitText"
+                                                       class="form-control input-md" required>
+                                                </input>
+                                            </div>
+                                        </div>
+                                        <a class="btn btn-default back"  href="javascript:void(0)" ng-click="back_wizardSupp()" data-toggle="tab" data-step="2">Less</a>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="submit" class="btn btn-default" data-toggle="modal" ng-disabled="isDisabled"
+                        data-target=".print-me" ng-click="saveSupplier('addSupplier')">Save
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="removeSupplierDetails()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

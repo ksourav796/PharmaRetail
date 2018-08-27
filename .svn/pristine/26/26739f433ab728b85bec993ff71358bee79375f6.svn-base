@@ -1,0 +1,775 @@
+app.controller('salesPosCtrl',
+    function($rootScope, $scope, $http, $interval, $location, $filter, Notification, ngTableParams,  $timeout) {
+        window.$scope = $scope;
+        $scope.getItemList = function (val, showPopUp) {
+            $(".loader").css("display", "block");
+            if (angular.isUndefined(val)) {
+                val = "";
+            }
+            $http.post('bs'+ '/getItemList?type='+'Active').then(function (response) {
+                var data = response.data;
+                $scope.itemList = angular.copy(data);
+                if(showPopUp) {
+                    $("#selectItem").modal('show');
+                }else {
+                    $scope.showSelectItemSidePopUp = true;
+                }
+                $scope.itemSearchText = val;
+                $scope.searchText = val;
+                if($scope.itemList.length === 1){
+                    var item = $scope.itemList[0];
+                    $scope.addItem(item,1);
+                    $scope.showSelectItemSidePopUp = false;
+                    $scope.itemSearchText = ""
+                }
+                $timeout(function(){$("#selectItemSearchBox").focus();},500);
+            })
+        };
+        $scope.selectedItemsList=[];
+        $scope.addItem = function (itemCode, keyEvent) {
+            if(angular.isUndefined($scope.customerSearchText)||$scope.customerSearchText == ""){
+                Notification.info({
+                    message:'please select supplier',
+                    positionX:'center',
+                    delay: 2000
+                });
+                return false;
+            }
+            if (itemCode.serializableStatus == 'Serialize' || itemCode.serializableStatus == 'Batch') {
+                if (itemCode.serializableStatus == 'Batch') {
+                    $scope.name = 'batch';
+                }
+                if (itemCode.serializableStatus == 'Serialize') {
+                    $scope.name = 'Serialize';
+                }
+                var localItemCode;
+                if (!angular.isUndefined(itemCode.barcodeInput)) {
+                    localItemCode = itemCode.barcodeInput;
+                }
+                else {
+                    localItemCode = itemCode.itemCode;
+                }
+                $scope.getItem(localItemCode);
+                $scope.barcodeInput = "";
+            } else {
+                var localItemCode;
+                if (!angular.isUndefined(itemCode.barcodeInput)) {
+                    localItemCode = itemCode.barcodeInput;
+                }
+                else {
+                    localItemCode = itemCode.itemCode;
+                }
+                if (keyEvent === 13 && ($scope.barcodeInput === "" || angular.isUndefined($scope.barcodeInput))) {
+                    return false;
+                }
+                $('#barcodeInput').val('');
+                $scope.iteamIndex = $scope.itemIndexOfItemCode($scope.selectedItemsList, localItemCode);
+                if (!angular.isUndefined($scope.iteamIndex) && $scope.iteamIndex !== null && $scope.iteamIndex !== -1) {
+                    $scope.currentQty = $scope.selectedItemsList[$scope.iteamIndex].qty;
+                    $scope.selectedItemsList[$scope.iteamIndex].qty = parseFloat($scope.currentQty) + 1;
+                    $scope.selectedItemsList[$scope.iteamIndex].convertedQuantity = parseFloat($scope.currentQty) + 1;
+                    $scope.editSelectedItemList($scope.selectedItemsList[$scope.iteamIndex], $scope.selectedItemsList[$scope.iteamIndex].taxid,$scope.iteamIndex);
+                } else {
+                    $scope.getItem(localItemCode);
+                }
+                $scope.barcodeInput = "";
+            }
+        };
+        $scope.editSelectedItemList = function (data, tax, index) {
+            if($scope.purchaseOrderId=="" || $scope.receiveItemId==""){
+                $scope.purchaseOrderId=null;
+                $scope.receiveItemId=null;
+            }
+            if(($scope.purchaseOrderId!=null || $scope.receiveItemId!=null)&&$scope.operation=='Invoke'){
+                if(data.pORemaningQty<data.qty){
+                    $scope.message="Error";
+                    $scope.selectedItemsList[index].qty = parseInt(0);
+                    data.qty=0;
+                    Notification.error({
+                        message: 'Qty is greater than available Ordered Qty ',
+                        positionX: 'center',
+                        delay: 2000
+                    });
+                }
+            }
+            var disQty=data.qty;
+            if($scope.operation=="Return"){
+                disQty=data.returnQty;
+            }
+            if (data.type == "Percentage") {
+                $scope.selectedItemsList[index].discountAmt = parseFloat(((data.unitPrice * disQty) * data.discPercent) / 100).toFixed(2);
+                $scope.selectedItemsList[index].discountConfigAmt = parseFloat(data.discPercent).toFixed(2);
+            }
+            else if (data.type == "Amount") {
+                if (data.unitPrice > data.discPercent) {
+                    $scope.selectedItemsList[index].discountConfigAmt =parseFloat(data.discPercent).toFixed(2);
+                    $scope.selectedItemsList[index].discountAmt = parseFloat(disQty * data.discPercent).toFixed(2);
+                }
+                else{
+                    $scope.selectedItemsList[index].discountAmt = 0;
+                    $scope.selectedItemsList[index].discountConfigAmt = 0;
+                    $scope.selectedItemsList[index].discPercent = 0;
+                    Notification.error({
+                        message: 'Discount Amount Should Be Less Than Amount(EX) ',
+                        positionX: 'center',
+                        delay: 2000
+                    });
+                }
+            }
+            $scope.iteamIndex = $scope.itemIndexOf($scope.selectedItemsList, data.itemName);
+            if (tax != -1) {
+                $scope.taxIndex = $scope.taxIndexOf($scope.taxList, tax);
+                $scope.selectedItemsList[$scope.iteamIndex].taxid = tax;
+            } else {
+                $scope.taxIndex = $scope.taxIndexOf($scope.taxList, data.taxid);
+            }
+            var taxPercent = $scope.taxList[$scope.taxIndex].taxString.split('|');
+            var taxName = taxPercent[1];
+            var unitPrice = data.unitPrice;
+            var unitPrice1 = data.unitPriceIn;
+            if(JSON.parse(data.inclusiveJSON).purchases){
+                unitPrice = unitPrice1 / (1 + (Number(taxPercent[0]) * 0.01));
+            }
+            var cess = data.cess;
+            var totalTax = (parseFloat(taxPercent[0])).toFixed(2);
+            var amntEX = data.unitPrice * data.qty;
+            var qty = data.qty;
+            var disAmt=$scope.selectedItemsList[index].discountAmt;
+            if (parseFloat(amntEX) > 0) {
+                if (parseFloat(disAmt) >= parseFloat(amntEX)) {
+                    Notification.error({
+                        message: 'Discount Amount Should Be Less Than Amount(EX) ',
+                        positionX: 'center',
+                        delay: 2000
+                    });
+                    $scope.selectedItemsList[$scope.iteamIndex].discountAmt = 0;
+                    $scope.selectedItemsList[$scope.iteamIndex].discountConfigAmt = 0;
+                    var amtexclusivetax = (parseFloat(unitPrice) * parseFloat(qty))-disAmt;
+                    var taxamt = (parseFloat(amtexclusivetax) ) * ((parseFloat(totalTax) / 100));
+                    var cessTaxAmt = (parseFloat(amtexclusivetax)) * ((parseFloat(cess) / 100));
+                    var igtaxamt = (parseFloat(amtexclusivetax) ) * ((parseFloat(taxPercent[0]) / 100));
+                    var amtinclusivetax = ((parseFloat(amtexclusivetax) + parseFloat(taxamt) + parseFloat(cessTaxAmt)) );
+                    $scope.selectedItemsList[index].taxamt = parseFloat(taxamt.toFixed(2));
+                    $scope.selectedItemsList[index].amtinclusivetax = amtinclusivetax;
+                    $scope.selectedItemsList[index].igTax = parseFloat(igtaxamt.toFixed(2));
+                    $scope.selectedItemsList[index].cessTaxAmt = parseFloat(cessTaxAmt.toFixed(2));
+                    return;
+                }
+            }
+            if ($scope.operation === 'Return') {
+                if (parseFloat(data.returnQty) > parseFloat(qty)) {
+                    data.returnQty=0;
+                    Notification.error({
+                        message: 'Return quantity should be less or equal than quantity',
+                        positionX: 'center',
+                        delay: 2000
+                    });
+                    return;
+                } else {
+                }
+            }
+            if ($scope.operation !== 'Return') {
+                $scope.selectedItemsList[index].qty = qty;
+                $scope.selectedItemsList[index].remainingQty = qty;
+                var amtexclusivetax = (parseFloat(unitPrice) * parseFloat(qty))-disAmt;
+                var taxamt = (parseFloat(amtexclusivetax) ) * ((parseFloat(totalTax) / 100));
+                if(cess != ""){
+                    var cessTaxAmt = (parseFloat(amtexclusivetax) ) * ((parseFloat(cess) / 100));
+                }else{
+                    var cessTaxAmt = 0;
+                }
+                var igtaxamt = (parseFloat(amtexclusivetax) ) * ((parseFloat(taxPercent[0]) / 100));
+                var amtinclusivetax = ((parseFloat(amtexclusivetax) + parseFloat(taxamt)+ parseFloat(cessTaxAmt)));
+                $scope.selectedItemsList[index].taxpercent = taxPercent[0];
+                $scope.selectedItemsList[index].amtexclusivetax = parseFloat(amtexclusivetax.toFixed(2));
+                $scope.selectedItemsList[index].taxamt = parseFloat(taxamt.toFixed(2));
+                $scope.selectedItemsList[index].igTax = parseFloat(igtaxamt.toFixed(2));
+                $scope.selectedItemsList[index].amtinclusivetax = amtinclusivetax;
+                $scope.selectedItemsList[index].discountAmt = parseFloat(disAmt);
+                $scope.selectedItemsList[index].taxName = taxName;
+                $scope.selectedItemsList[index].unitPrice = parseFloat(unitPrice);
+                $scope.selectedItemsList[index].cessTaxAmt = parseFloat(cessTaxAmt.toFixed(2));
+            } else {
+                qty = parseFloat(qty) - parseFloat(data.returnQty);
+                $scope.selectedItemsList[index].remainingQty = parseFloat(qty);
+                $scope.selectedItemsList[index].returnQty = parseFloat(data.returnQty);
+                var amtexclusivetax = (parseFloat(unitPrice) * parseFloat(data.returnQty))-disAmt;
+                var taxamt = (parseFloat(amtexclusivetax) ) * ((parseFloat(totalTax) / 100));
+                var cessTaxAmt = (parseFloat(amtexclusivetax) ) * ((parseFloat(cess) / 100));
+                var igtaxamt = (parseFloat(amtexclusivetax) ) * ((parseFloat(taxPercent[0]) / 100));
+                //to do
+                // var discountAmt = $scope.getDiscountAmt(data.discountAmt, data.isDiscountInPercent, amtexclusivetax);
+                var amtinclusivetax = ((parseFloat(amtexclusivetax) + parseFloat(taxamt) + parseFloat(cessTaxAmt)) );
+                $scope.selectedItemsList[index].taxpercent = taxPercent[0];
+                $scope.selectedItemsList[index].amtexclusivetax = parseFloat(amtexclusivetax.toFixed(2));
+                $scope.selectedItemsList[index].taxamt = parseFloat(taxamt.toFixed(2));
+                $scope.selectedItemsList[index].igTax = parseFloat(igtaxamt.toFixed(2));
+                $scope.selectedItemsList[index].amtinclusivetax = amtinclusivetax;
+                $scope.selectedItemsList[index].discountAmt = disAmt-0;
+                $scope.selectedItemsList[index].taxName = taxName;
+                $scope.selectedItemsList[index].cessTaxAmt = parseFloat(cessTaxAmt.toFixed(2));
+            }
+            $scope.getTotalAmtForSelectedItems();
+        };
+        $scope.taxIndexOf = function (array, searchVal) {
+            var taxIndex = -1;
+            if ($scope.isUndefinedOrNull(searchVal)) {
+                taxIndex = -1;
+            } else {
+                var foundIndex = $filter('filter')(array, {
+                    taxid: searchVal
+                }, true)[0];
+                taxIndex = array.indexOf(foundIndex);
+            }
+            return taxIndex;
+        };
+        $scope.getItem = function (itemCode) {
+            $http.post('/pos'+ '/getItem?itemCode=' + itemCode).then(function (response) {
+                var data = response.data;
+                console.log("------------------");
+                console.log(data);
+                $scope.operation="Create";
+                if (data.length > 0) {
+                    var status=data[0].status;
+                    if (status == "InActive") {
+                        Notification.info({
+                            message: 'Item Status has been changed to Inactive ' + itemCode,
+                            positionX: 'center',
+                            delay: 2000
+                        });
+                    }
+                    else {
+                        $scope.addSelectedItemList(data[0]);
+                    }
+                } else {
+                    Notification.info({
+                        message: 'Item not found with barcode ' + itemCode,
+                        positionX: 'center',
+                        delay: 2000
+                    });
+                }
+            }, function (error) {
+                Notification.error({
+                    message: 'Something went wrong, please try again',
+                    positionX: 'center',
+                    delay: 2000
+                });
+            })
+        };
+        $scope.getTaxList = function () {
+            $http.post('/pos' + "/getPageLoadData").then(function (response) {
+                var data = response.data;
+                $scope.taxList = data.taxList;
+                $scope.uomList = data.itemUOMTypeDTOList;
+
+            }, function (error) {
+                Notification.error({
+                    message: 'Something went wrong, please try again',
+                    positionX: 'center',
+                    delay: 2000
+                });
+            })
+        };
+        $scope.getTaxList();
+        $scope.addSelectedItemList = function (data) {
+            var count = $scope.countVal;
+            $scope.taxIndex = $scope.taxIndexOf($scope.taxList, parseFloat(data.itemIPTaxID));
+            var taxPercent = $scope.taxList[$scope.taxIndex].taxString.split('|');
+            var unitPrice = data.purchasePrice;
+            var unitPrice1 = data.purchasePrice;
+            if(JSON.parse(data.inclusiveJSON).purchases){
+                unitPrice = data.purchasePrice;
+                unitPrice = unitPrice / (1 + (Number(taxPercent[0]) * 0.01));
+            }
+            var cess = data.cess;
+            var totalTax = parseFloat(taxPercent[0]);
+            var qty = 1;
+            var discountConfigAmt=0;
+            var discountAmt=0;
+            var amtexclusivetax = (parseFloat(unitPrice) * parseFloat(qty))-discountAmt;
+            var taxamt = (parseFloat(amtexclusivetax)) * ((parseFloat(totalTax) / 100));
+            if(cess != ""){
+                var cessTaxAmt = (parseFloat(amtexclusivetax)) * ((parseFloat(cess) / 100));
+            }else{
+                var cessTaxAmt = 0;
+            }
+            var igtaxamt = (parseFloat(amtexclusivetax) ) * ((parseFloat(taxPercent[0]) / 100));
+            var amtinclusivetax = ((parseFloat(amtexclusivetax) + parseFloat(taxamt) + parseFloat(cessTaxAmt)));
+            $scope.selectedItemsList.push({
+                itemCode: data.itemCode,
+                itemId: data.itemId,
+                itemName: data.itemName,
+                itemDescription: data.itemDesc,
+                serializableStatus: data.serializableStatus,
+                unitPrice: parseFloat(unitPrice).toFixed(2),
+                unitPriceIn: parseFloat(unitPrice1).toFixed(2),
+                discountAmt: discountAmt,
+                cess:data.cess,
+                isDiscountInPercent: data.isDiscountInPercent,
+                qty: 1,
+                uom:parseInt(data.uom),
+                returnQty: 0,
+                discountConfigAmt: discountConfigAmt,
+                remainingQty: 1,
+                amtexclusivetax: parseFloat(amtexclusivetax.toFixed(2)),
+                taxid: data.inputTaxId,
+                taxpercent: taxPercent[0],
+                taxName: taxPercent[1],
+                cessTaxAmt: parseFloat(cessTaxAmt.toFixed(2)),
+                taxamt: parseFloat(taxamt.toFixed(2)),
+                igTax: parseFloat(igtaxamt),
+                amtinclusivetax: parseFloat(amtinclusivetax.toFixed(2)),
+                hsnCode:data.hsnCode,
+                uomName:data.uomName,
+                inclusiveJSON: data.inclusiveJSON,
+                purchasePrice:data.purchasePrice
+            });
+            $scope.displayItemLength=$scope.selectedItemsList.length;
+            $scope.updatesimplifiedTax();
+            $scope.countVal = count + 1;
+            $scope.serializableItemsList[$scope.countVal] = data.serializableItemsDTOList;
+            $scope.getTotalAmtForSelectedItems();
+            var sel;
+            for (var sr = 0; sr < data.serializableItemsDTOList.length; sr++) {
+                sel = data.serializableItemsDTOList[sr];
+                if (sel.serializableNumbers == $scope.selectedSerialNumberFilter) {
+                    $scope.serialItemsList[0] = sel;
+                    $scope.selectedItemsList[0].serializableItemId = sel.serializableItemId;
+                    $scope.selectedItemsList[0].serializableNumbers = sel.serializableNumbers;
+                    $scope.serializableItemsList[$scope.countVal].splice(sr, 1);
+                    break;
+                }
+            }
+        };
+        $scope.removeAllItemsWithoutSupplier = function () {
+            $scope.totalCheckOutamt = parseFloat('0.00');
+            $scope.totalBeforDiscount = parseFloat('0.00');
+            $scope.totalDiscount = parseFloat('0.00');
+            $scope.totalAfterDiscount = parseFloat('0.00');
+            $scope.totalTaxAmt = parseFloat('0.00');
+            $scope.invokeOrderName = "";
+            $scope.invokeOrderId = "";
+            $scope.invokeorder = "";
+            $scope.selectedItemsList = [];
+            $scope.itemSearchText = "";
+            $scope.operation = 'Create';
+            $scope.op = 'Create';
+            $scope.supplierEmail = "";
+            $scope.supplierInvNo="";
+            $scope.memo= "";
+            $scope.serialItems = "";
+
+        };
+        $scope.appendSupplier = function (supplierId) {
+            $scope.selectedCustomer = supplierId.customerName;
+            $scope.customerId = supplierId.customerId;
+            $scope.customerSearchText = supplierId.customerName;
+            $("#selectSupplier").modal('hide');
+
+            $scope.isVisible = false;
+        }
+        $scope.getSupplierListSearch = function (val) {
+            $(".loader").css("display", "block");
+            if (angular.isUndefined(val)) {
+                val = "";
+            }
+            $http.post('/pos'+ '/getCustomerList?type='+"Active").then(function (response) {
+                var data = response.data;
+                $scope.supplierList = angular.copy(data);
+                $("#selectSupplier").modal('show');
+                $scope.searchSupplierText = val;
+            })
+        };
+        $scope.updatesimplifiedTax = function () {
+            var taxType = $scope.fullSimplTax;
+            if(taxType==='CGST:SGST/UGST') {
+                angular.forEach($scope.selectedItemsList, function (value, key) {
+                    var splitValue = value.taxamt.toFixed(2) / 2;
+                    $scope.selectedItemsList[key].taxAmountSplit = splitValue + ":" + splitValue
+                });
+            }else{
+                if(taxType==='IGST') {
+                    angular.forEach($scope.selectedItemsList, function (value, key) {
+                        var splitValue = value.taxamt;
+                        $scope.selectedItemsList[key].taxAmountSplit = splitValue
+                    });
+                }
+            }
+        };
+        $scope.getTotalAmtForSelectedItems = function () {
+            var totalAmt = 0.00;
+            var totalTaxAmt = 0.00;
+            var totalDiscountAmt = 0.00;
+            var cessTotalTaxAmt =0.00;
+            var totalQty = 0.00;
+            angular.forEach($scope.selectedItemsList, function (item, index) {
+                totalAmt += parseFloat(item.amtinclusivetax);
+                totalTaxAmt += parseFloat(item.taxamt);
+                if(!angular.isUndefined(item.cessTaxAmt))  {
+                    cessTotalTaxAmt += parseFloat(item.cessTaxAmt);
+                }
+                totalDiscountAmt += parseFloat(item.discountAmt);
+                totalQty += parseFloat(item.returnQty);
+            });
+            angular.forEach($scope.selectedAccountsList, function (item, index) {
+                totalAmt += parseFloat(item.amtinclusivetax);
+                totalTaxAmt += parseFloat(item.taxamt);
+            });
+            var totalAfterDiscount = parseFloat(totalAmt);
+            $scope.displayTotalAmount = totalAfterDiscount;
+            $scope.totalCheckOutamt = parseFloat(totalAmt.toFixed(2));
+            $scope.totalBeforDiscount = parseFloat(totalAmt.toFixed(2));
+            $scope.totalDiscount = parseFloat(totalDiscountAmt.toFixed(2));
+            $scope.totalAfterDiscount = parseFloat(totalAfterDiscount.toFixed(2));
+            $scope.totalTaxAmt = parseFloat(totalTaxAmt.toFixed(2));
+            $scope.cessTotalTaxAmt = parseFloat(cessTotalTaxAmt).toFixed(2);
+            $scope.returnQty = parseFloat(totalQty.toFixed(2));
+        };
+        $scope.itemIndexOfItemCode = function (array, searchVal) {
+            var itemIndex = -1;
+            if ($scope.isUndefinedOrNull(searchVal)) {
+                itemIndex = -1;
+            } else {
+                var foundIndex = $filter('filter')(array, {
+                    itemCode: searchVal
+                }, true)[0];
+                var foundIndex1 = $filter('filter')(array, {
+                    itemCode: searchVal
+                }, true)[0];
+                itemIndex = array.indexOf(foundIndex);
+                if (!$scope.isUndefinedOrNull(foundIndex1)) {
+                    if (foundIndex1.serializableStatus == 'Serialize')
+                        itemIndex = -1
+                }
+            }
+            return itemIndex;
+        };
+        $scope.itemIndexOf = function (array, searchVal) {
+            var itemIndex = -1;
+            if ($scope.isUndefinedOrNull(searchVal)) {
+                itemIndex = -1;
+            } else {
+                var foundIndex = $filter('filter')(array, {
+                    itemName: searchVal
+                }, true)[0];
+                itemIndex = array.indexOf(foundIndex);
+            }
+            return itemIndex;
+        };
+        $scope.editSelectedItemListPrice = function (data, tax, index) {
+            $scope.iteamIndex = $scope.itemIndexOf($scope.selectedItemsList, data.itemName);
+            if (tax != -1) {
+                $scope.taxIndex = $scope.taxIndexOf($scope.taxList, tax);
+                $scope.selectedItemsList[$scope.iteamIndex].taxid = tax;
+            } else {
+                $scope.taxIndex = $scope.taxIndexOf($scope.taxList, data.taxid);
+            }
+            var taxPercent = $scope.taxList[$scope.taxIndex].taxString.split('|');
+            var taxName = taxPercent[1];
+            var unitPrice = data.unitPrice;
+            var unitPrice1 = unitPrice;
+            if(JSON.parse(data.inclusiveJSON).purchases){
+                unitPrice = unitPrice1 / (1 + (Number(taxPercent[0]) * 0.01));
+            }
+            var cess = data.cess;
+            var disAmt=$scope.selectedItemsList[index].discountAmt;
+            var totalTax = (parseFloat(taxPercent[0])).toFixed(2);
+            var amntEX = data.amtexclusivetax;
+            var qty = data.qty;
+            if (parseFloat(amntEX) > 0) {
+                if (parseFloat(disAmt) >= parseFloat(amntEX)) {
+                    Notification.error({
+                        message: 'Discount Amount Should Be Less Than Amount(EX) ',
+                        positionX: 'center',
+                        delay: 2000
+                    });
+                    $scope.selectedItemsList[$scope.iteamIndex].discountAmt = 0;
+                    var amtexclusivetax = (parseFloat(unitPrice) * parseFloat(qty))-disAmt;
+                    var taxamt = (parseFloat(amtexclusivetax)) * ((parseFloat(totalTax) / 100));
+                    var cessTaxAmt = (parseFloat(amtexclusivetax) ) * ((parseFloat(cess) / 100));
+                    var igtaxamt = (parseFloat(amtexclusivetax) ) * ((parseFloat(taxPercent[0]) / 100));
+                    var amtinclusivetax = ((parseFloat(amtexclusivetax) + parseFloat(taxamt) + parseFloat(cessTaxAmt)) );
+
+                    $scope.selectedItemsList[index].taxamt = parseFloat(taxamt.toFixed(2));
+                    $scope.selectedItemsList[index].amtinclusivetax = Math.round(amtinclusivetax);
+                    $scope.selectedItemsList[index].igTax = parseFloat(igtaxamt.toFixed(2));
+                    $scope.selectedItemsList[index].cessTaxAmt = parseFloat(cessTaxAmt.toFixed(2));
+                    return;
+                }
+            }
+            if ($scope.operation === 'Return') {
+                if (parseFloat(data.returnQty) > parseFloat(qty)) {
+                    Notification.error({
+                        message: 'Return quantity should be less or equal than quantity',
+                        positionX: 'center',
+                        delay: 2000
+                    });
+                    return;
+                } else {
+                }
+            }
+            if ($scope.operation !== 'Return') {
+                $scope.selectedItemsList[index].qty = qty;
+                $scope.selectedItemsList[index].remainingQty = qty;
+                var amtexclusivetax = (parseFloat(unitPrice) * parseFloat(qty))-disAmt;
+                var taxamt = (parseFloat(amtexclusivetax)) * ((parseFloat(totalTax) / 100));
+                if(cess != ""){
+                    var cessTaxAmt = (parseFloat(amtexclusivetax)) * ((parseFloat(cess) / 100));
+                }else{
+                    var cessTaxAmt = 0;
+                }
+                var igtaxamt = (parseFloat(amtexclusivetax) ) * ((parseFloat(taxPercent[0]) / 100));
+                var amtinclusivetax = ((parseFloat(amtexclusivetax) + parseFloat(taxamt)+ parseFloat(cessTaxAmt)));
+                $scope.selectedItemsList[index].taxpercent = taxPercent[0];
+                $scope.selectedItemsList[index].amtexclusivetax = parseFloat(amtexclusivetax.toFixed(2));
+                $scope.selectedItemsList[index].taxamt = parseFloat(taxamt.toFixed(2));
+                $scope.selectedItemsList[index].igTax = parseFloat(igtaxamt.toFixed(2));
+                $scope.selectedItemsList[index].amtinclusivetax = parseFloat(amtinclusivetax.toFixed(2));
+                $scope.selectedItemsList[index].discountAmt = parseFloat(disAmt);
+                $scope.selectedItemsList[index].taxName = taxName;
+                $scope.selectedItemsList[index].unitPrice = parseFloat(unitPrice);
+                $scope.selectedItemsList[index].unitPriceIn = parseFloat(unitPrice1);
+                $scope.selectedItemsList[index].cessTaxAmt = parseFloat(cessTaxAmt);
+            } else {
+                qty = parseFloat(qty) - parseFloat(data.returnQty);
+                $scope.selectedItemsList[index].remainingQty = parseFloat(qty);
+                $scope.selectedItemsList[index].returnQty = parseFloat(data.returnQty);
+                var amtexclusivetax = (parseFloat(unitPrice) * parseFloat(data.returnQty))-disAmt;
+                var taxamt = (parseFloat(amtexclusivetax)) * ((parseFloat(totalTax) / 100));
+                var cessTaxAmt = (parseFloat(amtexclusivetax) ) * ((parseFloat(cess) / 100));
+                var igtaxamt = (parseFloat(amtexclusivetax)) * ((parseFloat(taxPercent[0]) / 100));
+                var amtinclusivetax = ((parseFloat(amtexclusivetax) + parseFloat(taxamt) + parseFloat(cessTaxAmt)) );
+                $scope.selectedItemsList[index].taxpercent = taxPercent[0];
+                $scope.selectedItemsList[index].amtexclusivetax = parseFloat(amtexclusivetax.toFixed(2));
+                $scope.selectedItemsList[index].taxamt = parseFloat(taxamt.toFixed(2));
+                $scope.selectedItemsList[index].igTax = parseFloat(igtaxamt.toFixed(2));
+                $scope.selectedItemsList[index].amtinclusivetax = parseFloat(amtinclusivetax.toFixed(2));
+                $scope.selectedItemsList[index].discountAmt = parseFloat(disAmt);
+                $scope.selectedItemsList[index].taxName = taxName;
+                $scope.selectedItemsList[index].cessTaxAmt = parseFloat(cessTaxAmt.toFixed(2));
+            }
+            var totalAmt = 0.00;
+            var totalTaxAmt = 0.00;
+            var totalDiscountAmt = 0.00;
+            var cessTotalTaxAmt =0.00;
+            var totalQty = 0.00;
+            angular.forEach($scope.selectedItemsList, function (item, index) {
+                totalAmt += parseFloat(item.amtinclusivetax);
+                totalTaxAmt += parseFloat(item.taxamt);
+                if(!angular.isUndefined(item.cessTaxAmt))  {
+                    cessTotalTaxAmt += parseFloat(item.cessTaxAmt);
+                }
+                totalDiscountAmt += parseFloat(item.discountAmt);
+                totalQty += parseFloat(item.returnQty);
+            });
+            var totalAfterDiscount = parseFloat(totalAmt);
+            $scope.displayTotalAmount = totalAfterDiscount;
+            $scope.totalCheckOutamt = parseFloat(totalAmt.toFixed(2));
+            $scope.totalBeforDiscount = parseFloat(totalAmt.toFixed(2));
+            $scope.totalDiscount = parseFloat(totalDiscountAmt.toFixed(2));
+            $scope.totalAfterDiscount = parseFloat(totalAfterDiscount.toFixed(2));
+            $scope.totalTaxAmt = parseFloat(totalTaxAmt.toFixed(2));
+            $scope.cessTotalTaxAmt = parseFloat(cessTotalTaxAmt).toFixed(2);
+            $scope.returnQty = parseFloat(totalQty.toFixed(2));
+        };
+        $scope.taxIndexOf = function (array, searchVal) {
+            var taxIndex = -1;
+            if ($scope.isUndefinedOrNull(searchVal)) {
+                taxIndex = -1;
+            } else {
+                var foundIndex = $filter('filter')(array, {
+                    taxid: searchVal
+                }, true)[0];
+                taxIndex = array.indexOf(foundIndex);
+            }
+            return taxIndex;
+        };
+        $scope.isUndefinedOrNull = function (data) {
+            return (angular.isUndefined(data) || data === null || data === '' || data === 'null');
+        };
+        $scope.saveMultiPOS = function (paymentType) {
+            // if (!$scope.validatePayment(paymentType)) {
+            //     return;
+            // }
+            $scope.isDisabled = true;
+            var purobject=$scope.populateSaveSIMultiPayData1(paymentType);
+            if(purobject!=false) {
+                $http.post('/sales' +'/savePOSInvoice',
+                    angular.toJson(purobject, "Create")).then(function (response, status, headers, config) {
+                    $scope.isDisabled = false;
+                    var data = response.data;
+                    $scope.sendSMS(data, "DirectPurchaseInvoice");
+                    $scope.removeAllItems();
+                    $scope.clearValues();
+                    $scope.displayItemLength = $scope.selectedItemsList.length;
+                    Notification.success({
+                        message: 'Invoice has been saved successfully',
+                        positionX: 'center',
+                        delay: 2000
+                    });
+                    $("#paymentNew1").modal('hide');
+                }, function (error) {
+                    $scope.isDisabled = false;
+                    Notification.error({
+                        message: 'Something went wrong, please try again',
+                        positionX: 'center',
+                        delay: 2000
+                    });
+                })
+            }
+        };
+        $scope.populateSaveSIMultiPayData1 = function (paymentType, operation) {
+            $scope.BPDetails = [];
+            $scope.CCPDetails = [];
+            $scope.CPDetails = [];
+            $scope.VPDetails = [];
+            var CASHPAYMENT = $scope.CASHPAYMENT;
+            var CARDPAYMENT = $scope.CARDPAYMENT;
+            var OTHERSPAYMENT = $scope.OTHERSPAYMENT;
+            var VOUCHERPAYMENT = $scope.VOUCHERPAYMENT;
+
+            $scope.BANK_PAYMENT_DETAILS = [];
+            $scope.CARD_PAYMENT_DETAILS = [];
+            $scope.CASH_PAYMENT_DETAILS = [];
+            $scope.VOUCHER_PAYMENT_DETAILS = [];
+
+            angular.forEach($scope.paymentDropdown, function (value, key) {
+                if (!angular.isUndefined($scope.paymentDropdown[key].DefaultPaymentmethodId)) {
+                    var paymentTypeId = $scope.paymentDropdown[key].DefaultPaymentmethodId;
+                }
+                angular.forEach($scope.getPaymentTypes, function (value1, key1) {
+                    if ($.trim(paymentTypeId) == value1.paymentmethodId) {
+                        /****FOR PAYMENT-TYPE = "OTHERS" (BANK) ***************************************/
+                        if (value1.paymentmethodType == 'Bank') {
+                            var paymentType = value1.paymentmethodId;
+                            $scope.BANK_PAYMENT_DETAILS.push({
+                                'paymentType': paymentType,
+                                'bankAccount': $scope.paymentDropdown[key].bankAccount,
+                                'bankName': $scope.paymentDropdown[key].bankName,
+                                'bankAccountId': $scope.paymentDropdown[key].bankAccountId,
+                                'transactionNo': $scope.paymentDropdown[key].bankinvoiceNo,
+                                'amount': $scope.paymentDropdown[key].bankAmount,
+                                'date': $scope.paymentDropdown[key].bankDate
+                            });
+                        }
+                        if (value1.paymentmethodType == 'Card') {
+                            /****FOR PAYMENT-TYPE = "CARD" *********************************************/
+                            var paymentType = value1.paymentmethodId;
+                            $scope.CARD_PAYMENT_DETAILS.push({
+                                'paymentType': paymentType,
+                                'cardNo': $scope.paymentDropdown[key].cardTransactionNo,
+                                'cardAmt': $scope.paymentDropdown[key].cardAmount,
+                                'cardBankName': $scope.paymentDropdown[key].cardBankName,
+                                'cardBankAccount': $scope.paymentDropdown[key].cardBankAccount,
+                                'cardDate': $scope.paymentDropdown[key].cardDate
+                            });
+                        }
+                        if (value1.paymentmethodType == 'Cash') {
+                            /****FOR PAYMENT-TYPE = "CARD" *********************************************/
+                            var paymentType = value1.paymentmethodId;
+                            $scope.CASH_PAYMENT_DETAILS.push({
+                                'paymentType': paymentType,
+                                'cashAmt': $scope.paymentDropdown[key].totalCPAmountTendered
+                            });
+                        }
+                        if (value1.paymentmethodType == 'Voucher') {
+                            /****FOR PAYMENT-TYPE = "CARD" *********************************************/
+                            var paymentType = value1.paymentmethodId;
+                            $scope.VOUCHER_PAYMENT_DETAILS.push({
+                                'paymentType': paymentType,
+                                'voucherNo': $scope.paymentDropdown[key].voucherNo,
+                                'voucherAmt': $scope.paymentDropdown[key].voucherAmt
+                            });
+                        }
+
+
+                    }
+                });
+            });
+            if ((CASHPAYMENT != true) && (CARDPAYMENT != true) && (OTHERSPAYMENT != true) && (VOUCHERPAYMENT != true)) {
+                var confirm = $window.confirm("No Payment Type Is Selected Do You Want To Continue?");
+                if (confirm == false) {
+                    $scope.isDisabled= false;
+                    return false;
+                }
+                console.log("should not execute...........");
+            }
+
+            $scope.BPDetails = {
+                // totalBPBeforDiscount: $scope.totalVPBeforDiscount,
+                // totalBPDiscount: $scope.totalVPDiscount,
+                // totalBPAmountTendered: $scope.totalPaidAmt,
+                // totalBPAmountRefunded: $scope.totalVPAmountRefunded,
+                multiBankPaymentList: $scope.BANK_PAYMENT_DETAILS
+            };
+            $scope.CCPDetails = {
+                // totalBPBeforDiscount: $scope.totalVPBeforDiscount,
+                // totalBPDiscount: $scope.totalVPDiscount,
+                // totalBPAmountTendered: $scope.totalPaidAmt,
+                // totalBPAmountRefunded: $scope.totalVPAmountRefunded,
+                cardPaymentList: $scope.CARD_PAYMENT_DETAILS
+            };
+            $scope.CPDetails = {
+                // totalBPBeforDiscount: $scope.totalVPBeforDiscount,
+                // totalBPDiscount: $scope.totalVPDiscount,
+                // totalBPAmountTendered: $scope.totalPaidAmt,
+                // totalBPAmountRefunded: $scope.totalVPAmountRefunded,
+                multiCashPaymentList: $scope.CASH_PAYMENT_DETAILS
+            };
+            $scope.VPDetails = {
+                multiVoucherPayments: $scope.VOUCHER_PAYMENT_DETAILS
+            };
+
+            var data = {
+                operation: operation,
+                piNo: $scope.pino,
+                selectedAccountList: $scope.selectedAccountsList,
+                selectedItemsList: $scope.selectedItemsList,
+                cashPayment: $scope.CPDetails,
+                creditPayment: $scope.CCPDetails,
+                bankPayment: $scope.BPDetails,
+                voucherPayment: $scope.VPDetails,
+                totalCheckOutamt: $scope.totalVPBeforDiscount,
+                paymentType: paymentType,
+                totalTaxAmt: $scope.totalTaxAmt,
+                cessTotalTaxAmt: $scope.cessTotalTaxAmt,
+                taxType: $scope.fullSimplTax,
+                customerId: $scope.supplierId,
+                supplierEmail: $scope.supplierEmail,
+                cutomerName: $scope.supplierSearchText,
+                amountReturned: $scope.totalVPAmountRefunded,
+                discountAmount: $scope.totalVPDiscount,
+                totalTenderedAmount: $scope.totalPaidAmt,
+                supplierInvNo: $scope.supplierInvNo,
+                memo: $scope.memo,
+                userName: $('#userName').val(),
+                advancepayment: $scope.advancepayment,
+                exchangerateId: $scope.exchangeRateId,
+                exchangerateValue : $scope.exchangeRateText,
+                currencyId: $scope.currencyText,
+                termsandConditionsId: $scope.termsAndConditionText,
+                agentId: $scope.agentText,
+                shippingmethodId: $scope.shipingmethod,
+                projectId: $scope.projectText,
+                referenceNo: $scope.referenceNo,
+                shippingReferenceNo: $scope.shippingmethodreferenceno,
+                shippingDate: $scope.dt1,
+                selfBuildInvoice: $scope.selfBuildInvoice,
+                dateOfInvoice: $scope.dt,
+                cmpyLoc: $scope.companyLocation,
+                suppLoc: $scope.supplierLocation,
+                purchaseQuotationId:$scope.purchaseQuotationId,
+                purchaseOrderId:$scope.purchaseOrderId,
+                receiveItemId:$scope.receiveItemId,
+                typeOfInvoice:$scope.flag,
+                employeeId:$scope.employeeText,
+                tcsAmount:$scope.totalTCSAmountTendered,
+                tdsAmount:$scope.totalTDSAmountTendered,
+                // roundingOffValue:parseFloat($scope.roundingOffValue.toFixed(2)),
+                otherContactId:$scope.otherContactId,
+                piStatus:$scope.piStatus
+            };
+            console.log(data);
+            return data;
+        }
+    });

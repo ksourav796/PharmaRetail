@@ -1,0 +1,130 @@
+/**
+ * Created by azgar.h on 7/1/2017.
+ */
+
+app.controller('customerCtrl',
+    function ($scope, $http, $location, $filter, Notification, ngTableParams, $timeout) {
+        $("#contact").addClass('active');
+        $('#contact').siblings().removeClass('active');
+        $("#customer").addClass('active');
+        $('#customer').siblings().removeClass('active');
+
+        $scope.word = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
+        $scope.regEx="/^[0-9]{10,10}$/";
+
+        $scope.inactiveStatus="Active";
+
+        $scope.clicked = false;
+        $scope.ButtonStatus = "InActive";
+        $scope.inactiveCustomer = function(val) {
+            if($scope.clicked == false){
+                $scope.inactiveStatus = "InActive";
+                $scope.ButtonStatus = "Active";
+                var page="Page";
+            }
+            else{
+                $scope.inactiveStatus = "Active";
+                $scope.ButtonStatus = "InActive";
+                var page="";
+            }
+            $scope.clicked = !$scope.clicked;
+            $http.post('/pos' + '/getCustomerList?&type='+$scope.inactiveStatus).then(function (response) {
+                var data = response.data;
+                $scope.customerList = data;
+            })
+        };
+
+        $scope.getCustomerList = function (type) {
+            $(".loader").css("display", "block");
+
+            if (angular.isUndefined(type)) {
+                type = "Active";
+            }
+            $http.post('/pos' + '/getCustomerList?type=' +type).then(function (response) {
+                    var data = response.data;
+                    console.log(data);
+                    $scope.customerList = data;
+                }, function (error) {
+                    Notification.error({
+                        message: 'Something went wrong, please try again',
+                        positionX: 'center',
+                        delay: 2000
+                    });
+                }
+            )
+        };
+        $scope.removeCustomerDetails = function () {
+            $scope.customerNameText = "";
+            $scope.customerEmailText = "";
+            $scope.customerContactText = "";
+            $scope.customerContactText = "";
+            $scope.customerAddressText = "";
+            $scope.creditLimitText = "";
+            $scope.creditTermText = "";
+            $scope.pincode="";
+            $scope.fromRegNo = "";
+            $scope.companyRegNo = "";
+            $scope.Hi_Conn_company_Name = false;
+        };
+
+        $scope.importPopup = function(){
+            $("#import_Customer").modal('show');
+        }
+
+        $scope.editCustomerPopulate = function (dataObj) {
+            $http.post('/pos'+ '/editCustomer?customerName=' + dataObj.customerName).then(function (response) {
+                var data = response.data;
+                $scope.customerId=data.customerId;
+                $scope.stateDTOList =data.stateDTOList;
+                $scope.countryDTOList = data.countryDTOList;
+                $scope.currencyDTOList = data.currencyDTOList;
+                $scope.customerNameText=data.customerName;
+                $scope.GSTINText=data.gstIn;
+                $scope.pincode=data.pincode;
+                $scope.selectedState=data.state;
+                $scope.customerContactText=data.customerNumber;
+                $scope.customerEmailText=data.customerEmail;
+                $scope.customerAddressText=data.billingAddress;
+                $scope.personInchargeText=data.personIncharge;
+                $scope.selectedCountry=data.country;
+                $scope.selectedCurrency=data.currency;
+                $scope.bankNameText=data.bankName;
+                $scope.accNoText=data.accountNo;
+                $scope.panNumberText=data.panNO;
+                $scope.bankBranchText=data.branchName;
+                $scope.IFSCText=data.iFSCCode;
+                $scope.websiteText=data.website;
+                $scope.creditTermText=data.terms;
+                $scope.creditLimitText=data.creditedLimit;
+                $scope.custStatusText=data.status;
+                $("#addCustomer").modal('show');
+                $('#modal-title').text("Edit Customer");
+                $("#submit").text("Update");
+                }, function (error) {
+                    Notification.error({
+                        message: 'Something went wrong, please try again',
+                        positionX: 'center',
+                        delay: 2000
+                    });
+                }
+            )
+        };
+        $scope.getCustomerList();
+        $scope.next_wizard = function(){
+            $("#cus_step1").removeClass("in active");
+            $("#cus_step2").addClass("tab-pane fade in active");
+        }
+        $scope.back_wizard = function(){
+            $("#cus_step2").removeClass("in active");
+            $("#cus_step1").addClass("tab-pane fade in active");
+        }
+        $scope.next_wizardEdit = function(){
+            $("#cus_step12").removeClass("in active");
+            $("#cus_step22").addClass("tab-pane fade in active");
+        }
+        $scope.back_wizardEdit = function(){
+            $("#cus_step22").removeClass("in active");
+            $("#cus_step12").addClass("tab-pane fade in active");
+        }
+
+    });

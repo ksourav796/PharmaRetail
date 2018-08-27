@@ -1,0 +1,1698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list id="f81957fe-27f0-40df-8e38-7b82523f8708" name="Revert: handling null for annual income in student export to excel" comment="" />
+    <list id="88987881-d203-4d23-b6c1-fac8d6bb47cf" name="item patch" comment="" />
+    <list id="91f63429-34e1-4508-9d23-fc1e1736e2fd" name="payment" comment="" />
+    <list id="f9772204-680a-4f72-8c43-6712522a8b79" name="Revert:" comment="" />
+    <list id="b51474f3-cea4-4c57-aae9-2139ea165b36" name="mapper kukka" comment="" />
+    <list id="c97d0e12-78f8-400b-81f8-58cecd78ecf4" name="pos html and css files" comment="" />
+    <list default="true" readonly="true" id="9bcbfa14-5843-4ad5-989b-9466b9e77986" name="Default" comment="added new field for remarks in student fee details">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HiSASS_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/HiSASS_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/addhsncode.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/addhsncode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/brandinv.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/brandinv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/categoryinv.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/categoryinv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/country.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/country.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/currency.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/currency.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/formsetup.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/formsetup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/iteminv.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/iteminv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/posBilling.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/posBilling.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/purchase.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/purchase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/supplier.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/supplier.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/tax.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/tax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/taxType.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/taxType.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/controller/uominv.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/controller/uominv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/directives/addCustomerModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/directives/addCustomerModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/directives/addNewItemModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/directives/addNewItemModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/directives/addNewSupplierModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/directives/addNewSupplierModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/addNewItemModal.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/addNewItemModal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/addNewSupplierModal.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/addNewSupplierModal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/addhsncode.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/addhsncode.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/brandinv.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/brandinv.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/categoryinv.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/categoryinv.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/country.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/country.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/currency.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/currency.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/customer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/formsetup.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/formsetup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/iteminv.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/iteminv.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/state.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/state.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/supplier.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/supplier.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/tax.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/tax.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/taxType.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/taxType.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/partials/uominv.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/partials/uominv.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
+    <list id="721d6db7-8261-4478-b62b-bb163bff06d7" name="formsetupedit patch" comment="" />
+    <list id="4bc02ad2-c46f-4746-9bb5-5323eca0ef13" name="POS1" comment="" />
+    <list id="3a813a84-1f33-4266-924e-ebd05a3d7ecb" name="added new field for remarks in student fee details" comment="" />
+    <list id="f6540f0d-02bc-4cda-a574-ea31b7975b85" name="SalesREposiory" comment="" />
+    <list id="5db2d3cc-89a0-44f6-9050-72b627d20419" name="Revert: " comment="" />
+    <list id="53763ad9-544f-4b66-adff-689aa52ce0fc" name="take and die" comment="" />
+    <list id="b0dbec5c-0136-4a05-b9f0-041a2ba59543" name="controllers" comment="" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/spring_data_rest_angular$Application.coverage" NAME="Application Coverage Results" MODIFIED="1528527887229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="posbilling.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/posbilling.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="557">
+              <caret line="127" column="17" selection-start-line="127" selection-start-column="17" selection-end-line="127" selection-end-column="17" />
+              <folding>
+                <element signature="n#style#0;n#button#0;n#div#1;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#4;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="salesPrint.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/salesPrint.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="884">
+              <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="53" column="38" lean-forward="true" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/Application.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#784#785#0" expanded="true" />
+                <element signature="e#840#841#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="salesPrint.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/directives/salesPrint.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="557">
+              <caret line="113" column="24" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="purchasePrint.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/directives/purchasePrint.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>turn</find>
+      <find>&gt;eturn</find>
+      <find>&gt;ind</find>
+      <find>editInvoiceList</find>
+      <find>editInvoiceListr</find>
+      <find>PosInvoiceed</find>
+      <find>editInvoice</find>
+      <find>editpurchaseInvoice</find>
+      <find>PosInvoiceReturn</find>
+      <find>7.71</find>
+      <find>editse</find>
+      <find>return r</find>
+      <find>populatebill</find>
+      <find>save</find>
+      <find>&lt;a</find>
+      <find>&lt;add</find>
+      <find>/save</find>
+      <find>ret</find>
+      <find>savePOSInvoice</find>
+      <find>POSPA</find>
+      <find>details</find>
+      <find>item Description</find>
+      <find>&lt;sa</find>
+      <find>indianA4Print_modal_info</find>
+      <find>in_custable</find>
+      <find>tax_total_info</find>
+      <find>modal-body checkout-body report_panel_hei print_modal_info</find>
+      <find>BSFMS</find>
+      <find>retail</find>
+      <find>context</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>getItemCategoryList</replace>
+      <replace>.post(</replace>
+      <replace>supplier</replace>
+      <replace>post(</replace>
+      <replace>itemIPTaxID</replace>
+      <replace>'/bs'</replace>
+      <replace>salesInvoiceDetailsTemplate</replace>
+      <replace>salesReturn</replace>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities</dir>
+      <dir>$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories</dir>
+      <dir>$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs</dir>
+      <dir>$PROJECT_DIR$/src/main/java/com/hyva/posretail</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/purchase.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/controller/salespos.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/salespos.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/DirectSalesInvoiceTemplate.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/controller/academicyearmaster.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/directives/addNewItemModal.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/directives/addNewSupplierModal.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/addNewSupplierModal.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bspojo/SalesInvoiceDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/SalesInvoiceRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/SalesInvoiceDetailsRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/BsPurchaseInvoiceRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/BsPurchaseInvoiceDetailsRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/BsItemStockRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/BsFormSetupRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/inventory.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bspojo/FormsetupDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsendpoints/BsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsmapper/BsItemMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/SalesReturn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/PurchaseReturn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/SalesReturnRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/SalesReturnDetailsRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/PurchaseReturnRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/PurchaseReturnDetailsRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/SalesReturnDetails.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsendpoints/SalesController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/PurchaseReturnDetails.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsendpoints/PurchaseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/DirectSalesInvoiceDetailsTemplate.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/main.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/formsetup.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsservice/BsUserService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/controller/posBilling.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/directives/salesPrint.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/posPurchase.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/controller/purchase.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/directives/purchasePrint.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/NewPosPurchasePaymentTypes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bspojo/PurchaseDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/NewPosPaymentRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsservice/SalesService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/BsPosPurchasePaymentRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsservice/PurchaseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/NewPosPaymentTypes.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/posbilling.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/partials/salesPrint.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hyva/posretail/Application.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Retail" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Retail" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Retail" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="675" />
+    <option name="y" value="24" />
+    <option name="width" value="689" />
+    <option name="height" value="624" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="1" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="spring-data-rest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="retail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-data-rest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="retail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-data-rest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="retail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-data-rest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="retail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-data-rest-angular" type="b2602c69:ProjectViewProjectNode" />
+              <item name="retail" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="directory" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="SearchEverywhereHistoryKey" value="de&#9;ACTION&#9;ActivateDebugToolWindow&#10;debug&#9;null&#9;null" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="SQL" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/js/directives" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.hyva.bsfms.bs.bsentities" />
+      <recent name="com.hyva.bsfms.bs.bsrespositories" />
+      <recent name="com.hyva.bsfms.bs.bspojo" />
+      <recent name="com.hyva.bsfms.bs.bsmapper" />
+      <recent name="com.hyva.bsfms.bs.bsservice" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/js/directives" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/partials" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/js/controller" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bspojo" />
+    </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/.idea/libraries/Maven__org_reflections_reflections_0_9_11.xml</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_7_0.xml</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_7_0.xml</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_1_0_Final.xml</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_13.xml</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_7_0.xml</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_7_0.xml</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_7_0.xml</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_18_0.xml</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_13.xml</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_6_14.xml</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_7_0.xml</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/config</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/config/AuthorizationServerConfig.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/config/SecurityConfig.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/config/ResourceServerConfig.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/config/AuditorAwareImpl.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/pusher</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/pusher/PusherService.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/pusher/pusherMapper</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/pusher/pusherMapper/MasterMapper.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/pusher/pusherMapper/TransactionMapper.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/pusher/pusherPojo</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/pusher/pusherPojo/TransactionPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/pusher/pusherPojo/AbstractResponse.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/pusher/pusherPojo/MasterPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/pusher/pusherPojo/SelectedItem.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/pusher/MasterDetailsGettingService.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/pusher/KafkaPusherCreds.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/Application.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/messages</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/messages/ErrorMessages.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/messages/SuccessMessages.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/security</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/security/UserNamePasswordAuthenticationProvider.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/HomeController.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/exceptions</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/exceptions/BadRequestException.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/JpaConfig.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsservice</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsservice/MailService.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsservice/SmsService.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsservice/BsUserService.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsservice/MailService$1.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsservice/SalesService.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsservice/BsUserService$1.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsservice/BsUserService$2.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsservice/BsUserService$3.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsservice/PurchaseService.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsservice/BasicDataService.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsservice/SchedulerService.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/Quartz</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/Quartz/QuartzConfiguration.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/Quartz/TenantContext.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/Quartz/DynamicJob.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/Quartz/AutowiringSpringBeanJobFactory.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsendpoints</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsendpoints/SalesController.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsendpoints/PurchaseController.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsendpoints/BsController.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/FormSetUp.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/Msiccode.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/PurchaseInvoice.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/ItemCategory.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/Tax.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/PurchaseInvoiceDetails.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/NewPosPaymentTypes.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/Item.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/Agent.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/Customer.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/Country.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/Supplier.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/SchedulerData.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/PurchaseReturn.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/DirectSalesInvoiceTemplate.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/StudentFeeDetails.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/CompanyMSICcode.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/FeeTypeMaster.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/User.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/DirectSalesInvoiceDetailsTemplate.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/AcademicYearMaster.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/Student.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/NewPosPurchasePaymentTypes.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/Currency.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/GradeMaster.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/TaxType.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/ItemType.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/ItemBrandName.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/StudentFee.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/SalesReturn.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/InventoryMovement.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/UnitOfMeasurement.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/Bank.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/FeeReceipt.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/SchoolBranchDetails.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/SalesReturnDetails.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/Installments.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/PaymentMethod.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/PurchaseReturnDetails.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/State.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/UserType.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/FeeReceiptDetails.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsentities/Mail.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsmapper</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsmapper/BsFeeTypeMasterMapper.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsmapper/BsItemMapper.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsmapper/BsUserMapper.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsmapper/BsGradeMapper.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsmapper/BsAcademicMapper.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsmapper/BsStudentFeeMapper.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsmapper/BsStudentMapper.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsmapper/BsSchoolBranchDetailsMapper.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/StudentFeePojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/HsnDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/SchoolBranchDetailsPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/ReportPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/EwalletDetails.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/FeeReceiptPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/ItemCategoryDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/RetailPrintDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/ItemDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/CouponDetails.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/BankPayment.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/VoucherPayment.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/BsCustomerPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/AdmissionPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/ItemCountTypeDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/ItemOPTaxDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/MultiBankPayment.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/BsUserPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/CurrencyDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/SelectedAccount.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/MultiPartialPayment.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/ItemTypeDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/CashPaymentList.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/SupplierDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/MultiCouponList.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/MailSchedulerData.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/ItemBrandDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/StudentFeeDto.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/UnitOfMeasurementDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/MultiCardPayment.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/MultiVoucherPayment.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/GradeMasterPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/StateDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/RetailDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/ItemUOMTypeDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/MailDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/GiftCardDetails.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/SalesInvoiceDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/EntityResponse.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/CreditCardPayment.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/TaxDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/AgentDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/InstallmentsPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/StudentDatapojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/TaxSummary.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/ItemIPTaxDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/PurchaseDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/ItemTaxDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/BankDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/MultiPayment.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/EWallet.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/PurchasePrintDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/StudentFeeDetailsPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/FeeTypeMasterPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/UserPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/CustomerDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/CountryDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/AcademicYearMasterPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/StudentFeeTypeMasterPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/CashPayment.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/StudentPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/ItemMSICDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/GiftCard.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/studentDetailsPojo.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/PaymentMethodDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/MultiCashPayment.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/addNewItemDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bspojo/FormsetupDTO.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsCountryRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/SalesInvoiceDetailsRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsStudentFeeRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsBankRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsFeeReceiptRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsStudentFeeDetailsRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsCategoryRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsFeeTypeMasterRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsInstallmentsRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsSchedulerRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsMailRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/SalesReturnRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsFormSetupRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/NewPosPaymentRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsStudentRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsBrandRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/SalesReturnDetailsRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/PurchaseReturnDetailsRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsPurchaseInvoiceDetailsRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsTaxTypeRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsItemRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/SalesInvoiceRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsCustomerRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsSupplierRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsInventoryMovementRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsSchoolBranchDetailsRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsPaymentMethodRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsUserRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsStateRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsFeeReceiptDetailsRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsAcademicYearMasterRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/PurchaseReturnRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsPurchaseInvoiceRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsHsnRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsPosPurchasePaymentRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsCurrencyRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsTaxRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsAgentRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsGrademasterRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsItemTypeRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsrespositories/BsUomRepository.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsutil</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsutil/AccessTokenGenerator.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/com/hyva/bsfms/bs/bsutil/ObjectMapperUtils.class</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/partials/feeCollectedReports.html</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/partials/studentschooldetails.html</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/partials/feeDueReports.html</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/partials/academicyearmaster.html</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/partials/student.html</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/partials/reports.html</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/vendors/goldsales.js</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/js/controller/salespos.js</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/js/controller/feetypemaster.js</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/js/controller/feeCollectedReports.js</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/js/controller/grademaster.js</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/js/controller/fee.js</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/js/controller/studentschooldetails.js</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/js/controller/feeDueReports.js</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/classes/static/js/controller/academicyearmaster.js</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/target/BSFMS-V-18.1.17.jar.original</PATH>
+          <PATH vcs="svn" revision="165">$PROJECT_DIR$/BSFMS.iml</PATH>
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="retail" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hyva.posretail.Application" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>$USER_HOME$/.subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+    <option name="runUnderTerminal" value="true" />
+    <option name="FORCE_UPDATE" value="true" />
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$/.idea" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$/.idea" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9bcbfa14-5843-4ad5-989b-9466b9e77986" name="Default" comment="" />
+      <changelist id="5db2d3cc-89a0-44f6-9050-72b627d20419" name="Revert: " comment="" />
+      <changelist id="f9772204-680a-4f72-8c43-6712522a8b79" name="Revert:" comment="" />
+      <changelist id="f81957fe-27f0-40df-8e38-7b82523f8708" name="Revert: handling null for annual income in student export to excel" comment="" />
+      <changelist id="88987881-d203-4d23-b6c1-fac8d6bb47cf" name="item patch" comment="" />
+      <changelist id="b0dbec5c-0136-4a05-b9f0-041a2ba59543" name="controllers" comment="" />
+      <changelist id="3a813a84-1f33-4266-924e-ebd05a3d7ecb" name="added new field for remarks in student fee details" comment="" />
+      <changelist id="4bc02ad2-c46f-4746-9bb5-5323eca0ef13" name="POS1" comment="" />
+      <changelist id="b51474f3-cea4-4c57-aae9-2139ea165b36" name="mapper kukka" comment="" />
+      <changelist id="53763ad9-544f-4b66-adff-689aa52ce0fc" name="take and die" comment="" />
+      <changelist id="f6540f0d-02bc-4cda-a574-ea31b7975b85" name="SalesREposiory" comment="" />
+      <changelist id="91f63429-34e1-4508-9d23-fc1e1736e2fd" name="payment" comment="" />
+      <changelist id="c97d0e12-78f8-400b-81f8-58cecd78ecf4" name="pos html and css files" comment="" />
+      <changelist id="721d6db7-8261-4478-b62b-bb163bff06d7" name="formsetupedit patch" comment="" />
+      <created>1525519044225</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1525519044225</updated>
+      <workItem from="1525519046184" duration="12867000" />
+      <workItem from="1525666795181" duration="8048000" />
+      <workItem from="1525689618172" duration="15174000" />
+      <workItem from="1525753614157" duration="28874000" />
+      <workItem from="1525839555199" duration="31148000" />
+      <workItem from="1525926252406" duration="24458000" />
+      <workItem from="1526012589175" duration="18561000" />
+      <workItem from="1526036912062" duration="3913000" />
+      <workItem from="1526046315014" duration="409000" />
+      <workItem from="1526047811007" duration="1135000" />
+      <workItem from="1526049081974" duration="43000" />
+      <workItem from="1526100957045" duration="26545000" />
+      <workItem from="1526274942415" duration="17225000" />
+      <workItem from="1526358068091" duration="21326000" />
+      <workItem from="1526390751033" duration="244000" />
+      <workItem from="1526444419871" duration="9156000" />
+      <workItem from="1526456841175" duration="5710000" />
+      <workItem from="1526466589852" duration="15264000" />
+      <workItem from="1526532032220" duration="19855000" />
+      <workItem from="1526613409107" duration="5587000" />
+      <workItem from="1526641564253" duration="1252000" />
+      <workItem from="1526700017086" duration="9378000" />
+      <workItem from="1526723397811" duration="611000" />
+      <workItem from="1526873058147" duration="2861000" />
+      <workItem from="1526876051788" duration="16778000" />
+      <workItem from="1526959721664" duration="1649000" />
+      <workItem from="1527050426442" duration="6839000" />
+      <workItem from="1527132114172" duration="15666000" />
+      <workItem from="1527219003542" duration="16777000" />
+      <workItem from="1527305418705" duration="15814000" />
+      <workItem from="1527478409538" duration="11519000" />
+      <workItem from="1527492559752" duration="9240000" />
+      <workItem from="1527506516639" duration="3505000" />
+      <workItem from="1527564405730" duration="24503000" />
+      <workItem from="1527651285060" duration="26199000" />
+      <workItem from="1527682462594" duration="4704000" />
+      <workItem from="1527737368885" duration="286000" />
+      <workItem from="1527738036116" duration="17996000" />
+      <workItem from="1527827125996" duration="15247000" />
+      <workItem from="1527909876680" duration="13141000" />
+      <workItem from="1528082592464" duration="1877000" />
+      <workItem from="1528168966587" duration="15255000" />
+      <workItem from="1528190442334" duration="5120000" />
+      <workItem from="1528195594536" duration="4164000" />
+      <workItem from="1528255803606" duration="8912000" />
+      <workItem from="1528270791740" duration="853000" />
+      <workItem from="1528342552443" duration="1858000" />
+      <workItem from="1528348726493" duration="4955000" />
+      <workItem from="1528370864202" duration="2986000" />
+      <workItem from="1528374022519" duration="402000" />
+      <workItem from="1528428497241" duration="1697000" />
+      <workItem from="1528451685234" duration="1237000" />
+      <workItem from="1528453842808" duration="7470000" />
+      <workItem from="1528515350505" duration="955000" />
+      <workItem from="1528516638954" duration="7775000" />
+      <workItem from="1528525456513" duration="7080000" />
+      <workItem from="1528535850214" duration="10080000" />
+      <workItem from="1528687885670" duration="26240000" />
+      <workItem from="1528774479604" duration="24705000" />
+      <workItem from="1528860862944" duration="373000" />
+      <workItem from="1528861724814" duration="2058000" />
+      <workItem from="1528885005890" duration="2569000" />
+      <workItem from="1528887743715" duration="5076000" />
+      <workItem from="1528947709315" duration="1443000" />
+      <workItem from="1528949601929" duration="21077000" />
+      <workItem from="1529468375545" duration="2384000" />
+      <workItem from="1529642645149" duration="597000" />
+      <workItem from="1529736217966" duration="13731000" />
+      <workItem from="1529900700771" duration="3150000" />
+      <workItem from="1529903905660" duration="5998000" />
+      <workItem from="1529909949387" duration="15710000" />
+      <workItem from="1529987400585" duration="5262000" />
+      <workItem from="1529993379639" duration="5993000" />
+      <workItem from="1530696266102" duration="518000" />
+      <workItem from="1530696862754" duration="1779000" />
+    </task>
+    <task id="LOCAL-00013" summary="Fee Collection Changes">
+      <created>1526366171137</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1526366171137</updated>
+    </task>
+    <task id="LOCAL-00014" summary="back button issue is done and version change">
+      <created>1526367514065</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1526367514065</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fee and student changes and fee search filter">
+      <created>1526445435212</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1526445435212</updated>
+    </task>
+    <task id="LOCAL-00016" summary="student add popup">
+      <created>1526447853232</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1526447853232</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fee changes">
+      <created>1526466033826</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1526466033826</updated>
+    </task>
+    <task id="LOCAL-00018" summary="receipt no is taking in student branch">
+      <created>1526467194471</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1526467194472</updated>
+    </task>
+    <task id="LOCAL-00019" summary="branch issue and alignment">
+      <created>1526475902763</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1526475902763</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fee changes">
+      <created>1526709034261</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1526709034261</updated>
+    </task>
+    <task id="LOCAL-00021" summary="card n bank details are saving">
+      <created>1526716872087</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1526716872087</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fee changes">
+      <created>1526720262676</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1526720262676</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fee payment changes">
+      <created>1526874703802</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1526874703803</updated>
+    </task>
+    <task id="LOCAL-00024" summary="delete changes">
+      <created>1526878303965</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1526878303965</updated>
+    </task>
+    <task id="LOCAL-00025" summary="disable button">
+      <created>1526888633888</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1526888633888</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fee and student changes">
+      <created>1526904464647</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1526904464647</updated>
+    </task>
+    <task id="LOCAL-00027" summary="version change to 14">
+      <created>1526904536096</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1526904536096</updated>
+    </task>
+    <task id="LOCAL-00028" summary="filters in configuration">
+      <created>1526904853814</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1526904853814</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fee receipt changes">
+      <created>1527053236212</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1527053236212</updated>
+    </task>
+    <task id="LOCAL-00030" summary="card number">
+      <created>1527067272928</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1527067272928</updated>
+    </task>
+    <task id="LOCAL-00031" summary="edit student">
+      <created>1527132651610</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1527132651610</updated>
+    </task>
+    <task id="LOCAL-00032" summary="date changes">
+      <created>1527225422324</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1527225422324</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fee receipt changes">
+      <created>1527230906677</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1527230906677</updated>
+    </task>
+    <task id="LOCAL-00034" summary="fee type master">
+      <created>1527244132228</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1527244132228</updated>
+    </task>
+    <task id="LOCAL-00035" summary="string limit">
+      <created>1527249770393</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1527249770393</updated>
+    </task>
+    <task id="LOCAL-00036" summary="long text in schoolbranch details">
+      <created>1527314848686</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1527314848686</updated>
+    </task>
+    <task id="LOCAL-00037" summary="reports for due and fee collected">
+      <created>1527659496200</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1527659496200</updated>
+    </task>
+    <task id="LOCAL-00038">
+      <created>1527660063564</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1527660063564</updated>
+    </task>
+    <task id="LOCAL-00039" summary="reports changes">
+      <created>1527663918849</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1527663918849</updated>
+    </task>
+    <task id="LOCAL-00040" summary="report changes">
+      <created>1527683323261</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1527683323261</updated>
+    </task>
+    <task id="LOCAL-00041" summary="report changes">
+      <created>1527684563321</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1527684563321</updated>
+    </task>
+    <task id="LOCAL-00042" summary="date format">
+      <created>1527684793048</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1527684793048</updated>
+    </task>
+    <task id="LOCAL-00043" summary="reports changes">
+      <created>1527685935896</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1527685935896</updated>
+    </task>
+    <task id="LOCAL-00044" summary="fee changes">
+      <created>1527686776032</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1527686776032</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fee change">
+      <created>1527687071785</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1527687071785</updated>
+    </task>
+    <task id="LOCAL-00046" summary="pdf changes">
+      <created>1527751048747</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1527751048747</updated>
+    </task>
+    <task id="LOCAL-00047" summary="pdf alignment">
+      <created>1527751929489</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1527751929489</updated>
+    </task>
+    <task id="LOCAL-00048" summary="pdf alignment">
+      <created>1527752305082</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1527752305082</updated>
+    </task>
+    <task id="LOCAL-00049" summary="pdf alignment">
+      <created>1527753124926</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1527753124926</updated>
+    </task>
+    <task id="LOCAL-00050" summary="report changes">
+      <created>1527761547382</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1527761547384</updated>
+    </task>
+    <task id="LOCAL-00051" summary="report changes">
+      <created>1527827253211</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1527827253215</updated>
+    </task>
+    <task id="LOCAL-00052" summary="fee changes">
+      <created>1527829477641</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1527829477641</updated>
+    </task>
+    <task id="LOCAL-00053" summary="fee changes">
+      <created>1527831065929</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1527831065929</updated>
+    </task>
+    <task id="LOCAL-00054" summary="fee changes">
+      <created>1527832106255</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1527832106255</updated>
+    </task>
+    <task id="LOCAL-00055" summary="excel n pdf changes">
+      <created>1527835437936</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1527835437936</updated>
+    </task>
+    <task id="LOCAL-00056" summary="date format in receipt">
+      <created>1527835994846</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1527835994846</updated>
+    </task>
+    <task id="LOCAL-00057" summary="select option">
+      <created>1528183281114</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1528183281115</updated>
+    </task>
+    <task id="LOCAL-00058">
+      <created>1528267478973</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1528267478974</updated>
+    </task>
+    <task id="LOCAL-00059" summary="student">
+      <created>1528267649124</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1528267649124</updated>
+    </task>
+    <task id="LOCAL-00060" summary="added new field for remarks in student fee details">
+      <created>1530698239776</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1530698239777</updated>
+    </task>
+    <task id="LOCAL-00061" summary="added new field for remarks in student fee details">
+      <created>1530698645377</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1530698645378</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="700846000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="47" y="-4" width="1319" height="772" extended-state="6" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" weight="0.3287037" />
+      <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="0.3299293" />
+      <window_info anchor="bottom" id="Database Changes" order="7" weight="0.3287037" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32994527" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24941361" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" x="66" y="276" width="1279" height="212" id="Debug" order="14" sideWeight="0.5015432" weight="0.4553846" />
+      <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32615384" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="5" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.3287037" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Run Dashboard" order="8" weight="0.32970452" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6982893" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="12" visible="true" weight="0.7060653" />
+      <window_info anchor="bottom" id="Spring" order="11" weight="0.3287037" />
+      <window_info anchor="bottom" id="Terminal" order="13" weight="0.3287037" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49845678" weight="0.33150038" />
+      <window_info anchor="right" id="Bean Validation" order="3" weight="0.32994527" />
+      <window_info anchor="bottom" id="Web" order="9" side_tool="true" weight="0.3287037" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32659408" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.3296617" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="fee and student changes" />
+    <MESSAGE value="version change to 14" />
+    <MESSAGE value="filters in configuration" />
+    <MESSAGE value="card number" />
+    <MESSAGE value="edit student" />
+    <MESSAGE value="date changes" />
+    <MESSAGE value="fee receipt changes" />
+    <MESSAGE value="fee type master" />
+    <MESSAGE value="string limit" />
+    <MESSAGE value="long text in schoolbranch details" />
+    <MESSAGE value="reports for due and fee collected" />
+    <MESSAGE value="date format" />
+    <MESSAGE value="version  17" />
+    <MESSAGE value="reports changes" />
+    <MESSAGE value="fee change" />
+    <MESSAGE value="pdf changes" />
+    <MESSAGE value="pdf alignment" />
+    <MESSAGE value="report changes" />
+    <MESSAGE value="fee changes" />
+    <MESSAGE value="excel n pdf changes" />
+    <MESSAGE value="version 17" />
+    <MESSAGE value="date format in receipt" />
+    <MESSAGE value="select option" />
+    <MESSAGE value="student" />
+    <MESSAGE value="added new field for remarks in student fee details" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new field for remarks in student fee details" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/Quartz/DynamicJob.java</url>
+          <properties />
+          <option name="timeStamp" value="329" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsendpoints/SalesController.java</url>
+          <line>23</line>
+          <properties />
+          <option name="timeStamp" value="398" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="404" />
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>itemDTO.getItemIPTaxID()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>cronTrigger.getObject()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>feeTypeMasterPojo.getStudentFeeDetailsId()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>bsUserService.getStudentDueList(reportPojo)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>sUserService.getStudentDueList(reportPojo)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>installments.getStudentFee().getFeeTypeAmount()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>jsonObj.getString(&quot;fatherEmailId&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>studentFeeDetails1</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string />
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/BsPurchaseInvoiceRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controller/posPurchase.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/BsPurchaseInvoiceDetailsRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/BsItemStockRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/ItemStock.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/BsFormSetupRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/configuration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-666" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/inventory.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="141" column="18" selection-start-line="141" selection-start-column="18" selection-end-line="141" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bspojo/FormsetupDTO.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.13.RELEASE/spring-web-4.3.13.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsendpoints/BsController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/PurchaseReturn.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/SalesReturnRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/SalesReturnDetailsRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/SalesInvoiceRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/PurchaseReturnRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/PurchaseReturnDetailsRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/vendors/goldsales.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/SalesReturn.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/SalesReturnDetails.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.3.13.RELEASE/spring-aop-4.3.13.RELEASE-sources.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/PurchaseReturnDetails.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/DirectSalesInvoiceDetailsTemplate.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/purchasePrint.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3961">
+          <caret line="233" column="10" selection-start-line="233" selection-start-column="10" selection-end-line="233" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsmapper/BsItemMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsservice/BsUserService.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/formsetup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-238">
+          <caret line="118" column="26" selection-start-line="118" selection-start-column="26" selection-end-line="118" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="115" column="28" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controller/posBilling.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="1438" selection-start-line="1438" selection-end-line="1438" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/posPurchase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="1757" column="15" selection-start-line="1757" selection-start-column="15" selection-end-line="1757" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/controller/purchase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="1814" selection-start-line="1814" selection-end-line="1814" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsendpoints/PurchaseController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsendpoints/SalesController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bspojo/RetailDTO.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bspojo/PurchaseDTO.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/BsPosPurchasePaymentRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/NewPosPaymentTypes.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsservice/SalesService.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsrespositories/NewPosPaymentRepository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsentities/NewPosPurchasePaymentTypes.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/bsfms/bs/bsservice/PurchaseService.java" />
+    <entry file="file://$PROJECT_DIR$/retail.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1744" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/-comparison-report.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hyva/posretail/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#784#785#0" expanded="true" />
+            <element signature="e#840#841#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/directives/salesPrint.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="113" column="24" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/directives/purchasePrint.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/posbilling.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="127" column="17" selection-start-line="127" selection-start-column="17" selection-end-line="127" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#4;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/partials/salesPrint.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="53" column="38" lean-forward="true" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>HiSASS:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring|retail</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>4.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

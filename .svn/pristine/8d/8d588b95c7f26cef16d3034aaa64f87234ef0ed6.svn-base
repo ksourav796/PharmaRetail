@@ -1,0 +1,865 @@
+// var taskManagerModule = angular.module('taskManagerApp', ['ngRoute','ngAnimate']);
+//
+
+var app = angular.module('myApp',['ngRoute', 'ngAnimate',
+    'ngSanitize','ui-notification','ngTable',
+    'ngCookies', 'angular.filter','ui.bootstrap']);
+app.factory('keyboardManager2', ['$window', '$timeout', function ($window, $timeout) {
+    var keyboardManagerService = {};
+
+    var defaultOpt = {
+        'type':             'keydown',
+        'propagate':        false,
+        'inputDisabled':    false,
+        'target':           $window.document,
+        'keyCode':          false
+    };
+    // Store all keyboard combination shortcuts
+    keyboardManagerService.keyboardEvent = {}
+    // Add a new keyboard combination shortcut
+    keyboardManagerService.bind = function (label, callback, opt) {
+        var fct, elt, code, k;
+        // Initialize opt object
+        opt   = angular.extend({}, defaultOpt, opt);
+        label = label.toLowerCase();
+        elt   = opt.target;
+        if(typeof opt.target == 'string') elt = document.getElementById(opt.target);
+
+        fct = function (e) {
+            e = e || $window.event;
+
+            // Disable event handler when focus input and textarea
+            if (opt['inputDisabled']) {
+                var elt;
+                if (e.target) elt = e.target;
+                else if (e.srcElement) elt = e.srcElement;
+                if (elt.nodeType == 3) elt = elt.parentNode;
+                if (elt.tagName == 'INPUT' || elt.tagName == 'TEXTAREA') return;
+            }
+
+            // Find out which key is pressed
+            if (e.keyCode) code = e.keyCode;
+            else if (e.which) code = e.which;
+            var character = String.fromCharCode(code).toLowerCase();
+
+            if (code == 188) character = ","; // If the user presses , when the type is onkeydown
+            if (code == 190) character = "."; // If the user presses , when the type is onkeydown
+
+            var keys = label.split("+");
+            // Key Pressed - counts the number of valid keypresses - if it is same as the number of keys, the shortcut function is invoked
+            var kp = 0;
+            // Work around for stupid Shift key bug created by using lowercase - as a result the shift+num combination was broken
+            var shift_nums = {
+                "`":"~",
+                "1":"!",
+                "2":"@",
+                "3":"#",
+                "4":"$",
+                "5":"%",
+                "6":"^",
+                "7":"&",
+                "8":"*",
+                "9":"(",
+                "0":")",
+                "-":"_",
+                "=":"+",
+                ";":":",
+                "'":"\"",
+                ",":"<",
+                ".":">",
+                "/":"?",
+                "\\":"|"
+            };
+            // Special Keys - and their codes
+            var special_keys = {
+                'esc':27,
+                'escape':27,
+                'tab':9,
+                'space':32,
+                'return':13,
+                'enter':13,
+                'backspace':8,
+
+                'scrolllock':145,
+                'scroll_lock':145,
+                'scroll':145,
+                'capslock':20,
+                'caps_lock':20,
+                'caps':20,
+                'numlock':144,
+                'num_lock':144,
+                'num':144,
+
+                'pause':19,
+                'break':19,
+
+                'insert':45,
+                'home':36,
+                'delete':46,
+                'end':35,
+
+                'pageup':33,
+                'page_up':33,
+                'pu':33,
+
+                'pagedown':34,
+                'page_down':34,
+                'pd':34,
+
+                'left':37,
+                'up':38,
+                'right':39,
+                'down':40,
+
+                'f1':112,
+                'f2':113,
+                'f3':114,
+                'f4':115,
+                'f5':116,
+                'f6':117,
+                'f7':118,
+                'f8':119,
+                'f9':120,
+                'f10':121,
+                'f11':122,
+                'f12':123
+            };
+            // Some modifiers key
+            var modifiers = {
+                shift: {
+                    wanted:		false,
+                    pressed:	e.shiftKey ? true : false
+                },
+                ctrl : {
+                    wanted:		false,
+                    pressed:	e.ctrlKey ? true : false
+                },
+                alt  : {
+                    wanted:		false,
+                    pressed:	e.altKey ? true : false
+                },
+                meta : { //Meta is Mac specific
+                    wanted:		false,
+                    pressed:	e.metaKey ? true : false
+                }
+            };
+            // Foreach keys in label (split on +)
+            for(var i=0, l=keys.length; k=keys[i],i<l; i++) {
+                switch (k) {
+                    case 'ctrl':
+                    case 'control':
+                        kp++;
+                        modifiers.ctrl.wanted = true;
+                        break;
+                    case 'shift':
+                    case 'alt':
+                    case 'meta':
+                        kp++;
+                        modifiers[k].wanted = true;
+                        break;
+                }
+
+                if (k.length > 1) { // If it is a special key
+                    if(special_keys[k] == code) kp++;
+                } else if (opt['keyCode']) { // If a specific key is set into the config
+                    if (opt['keyCode'] == code) kp++;
+                } else { // The special keys did not match
+                    if(character == k) kp++;
+                    else {
+                        if(shift_nums[character] && e.shiftKey) { // Stupid Shift key bug created by using lowercase
+                            character = shift_nums[character];
+                            if(character == k) kp++;
+                        }
+                    }
+                }
+            }
+
+            if(kp == keys.length &&
+                modifiers.ctrl.pressed == modifiers.ctrl.wanted &&
+                modifiers.shift.pressed == modifiers.shift.wanted &&
+                modifiers.alt.pressed == modifiers.alt.wanted &&
+                modifiers.meta.pressed == modifiers.meta.wanted) {
+                $timeout(function() {
+                    callback(e);
+                }, 1);
+
+                if(!opt['propagate']) { // Stop the event
+                    // e.cancelBubble is supported by IE - this will kill the bubbling process.
+                    e.cancelBubble = true;
+                    e.returnValue = false;
+
+                    // e.stopPropagation works in Firefox.
+                    if (e.stopPropagation) {
+                        e.stopPropagation();
+                        e.preventDefault();
+                    }
+                    return false;
+                }
+            }
+
+        };
+        // Store shortcut
+        keyboardManagerService.keyboardEvent[label] = {
+            'callback': fct,
+            'target':   elt,
+            'event':    opt['type']
+        };
+        //Attach the function with the event
+        if(elt.addEventListener) elt.addEventListener(opt['type'], fct, false);
+        else if(elt.attachEvent) elt.attachEvent('on' + opt['type'], fct);
+        else elt['on' + opt['type']] = fct;
+    };
+    // Remove the shortcut - just specify the shortcut and I will remove the binding
+    keyboardManagerService.unbind = function (label) {
+        label = label.toLowerCase();
+        var binding = keyboardManagerService.keyboardEvent[label];
+        delete(keyboardManagerService.keyboardEvent[label])
+        if(!binding) return;
+        var type		= binding['event'],
+            elt			= binding['target'],
+            callback	= binding['callback'];
+        if(elt.detachEvent) elt.detachEvent('on' + type, callback);
+        else if(elt.removeEventListener) elt.removeEventListener(type, callback, false);
+        else elt['on'+type] = false;
+    };
+    //
+    return keyboardManagerService;
+}]);
+
+app.config(['$routeProvider', function($routeProvider) {
+    $routeProvider
+        .when("/login", {
+            templateUrl: "partials/login.html",
+            controller: "loginController"
+        })
+        .when("/edittemplate/:id", {
+            templateUrl: "partials/editTemplate.html",
+            controller: "editTemplateCtrl as rest"
+        })
+        .when("/dashboard", {
+            templateUrl: "partials/dashboard.html",
+            controller: "dashboardController"
+        })
+        .when("/emailServer", {
+            templateUrl: "partials/emailserver.html",
+            controller: "emailserverCtrl"
+        })
+        .when("/inventory", {
+            templateUrl: "partials/inventory.html",
+            controller: "iteminvCtrl as rest"
+        })
+        .when("/iteminv", {
+            templateUrl: "partials/iteminv.html",
+            controller: "iteminvCtrl as rest"
+        })
+        .when("/emailServer", {
+            templateUrl: "partials/emailserver.html",
+            controller: "emailserverCtrl"
+        })
+        .when("/inventory", {
+            templateUrl: "partials/inventory.html",
+            controller: "iteminvCtrl as rest"
+        })
+        .when("/posBilling", {
+            templateUrl: "partials/posbilling.html",
+            controller: "posBillingCtrl as rest"
+        })
+        .when("/purchasePos", {
+            templateUrl: "partials/posPurchase.html",
+            controller: "purchaseCtrl as rest"
+        })
+        .when("/iteminv", {
+            templateUrl: "partials/iteminv.html",
+            controller: "iteminvCtrl as rest"
+        })
+        .when("/emailServer", {
+            templateUrl: "partials/emailserver.html",
+            controller: "emailserverCtrl"
+        })
+        .when("/inventory", {
+            templateUrl: "partials/inventory.html",
+            controller: "iteminvCtrl as rest"
+        })
+        .when("/posBilling", {
+            templateUrl: "partials/posbilling.html",
+            controller: "posBillingCtrl as rest"
+        })
+        .when("/iteminv", {
+            templateUrl: "partials/iteminv.html",
+            controller: "iteminvCtrl as rest"
+        })
+        .when("/emailServer", {
+            templateUrl: "partials/emailserver.html",
+            controller: "emailserverCtrl"
+        })
+        .when("/inventory", {
+            templateUrl: "partials/inventory.html",
+            controller: "iteminvCtrl as rest"
+        })
+        .when("/iteminv", {
+            templateUrl: "partials/iteminv.html",
+            controller: "iteminvCtrl as rest"
+        })
+        .when("/categoryinv", {
+            templateUrl: "partials/categoryinv.html",
+            controller: "categoryinvCtrl as rest"
+        })
+        .when("/addhsncode", {
+            templateUrl: "partials/addhsncode.html",
+            controller: "addhsncodeCtrl as rest"
+        })
+        .when("/agent", {
+            templateUrl: "partials/agent.html",
+            controller: "agentCtrl as rest"
+        })
+        .when("/TaxType", {
+            templateUrl: "resource/partial/taxType.html",
+            controller: "TaxTypeCtrl"
+        })
+
+        .when("/Tax", {
+            templateUrl: "resource/partial/tax.html",
+            controller: "TaxTypeCtrl"
+        })
+        .when("/currency", {
+            templateUrl: "partials/currency.html",
+            controller: "currencyCtrl as rest"
+        })
+        .when("/brandinv", {
+            templateUrl: "partials/brandinv.html",
+            controller: "brandinvCtrl as rest"
+        })
+        .when("/uominv", {
+            templateUrl: "partials/uominv.html",
+            controller: "uominvCtrl as rest"
+        })
+        .when("/categoryinv", {
+            templateUrl: "partials/categoryinv.html",
+            controller: "categoryinvCtrl as rest"
+        })
+        .when("/addhsncode", {
+            templateUrl: "partials/addhsncode.html",
+            controller: "addhsncodeCtrl as rest"
+        })
+        .when("/agent", {
+            templateUrl: "partials/agent.html",
+            controller: "agentCtrl as rest"
+        })
+        .when("/TaxType", {
+            templateUrl: "partials/taxType.html",
+            controller: "TaxTypeCtrl"
+        })
+
+        .when("/Tax", {
+            templateUrl: "partials/tax.html",
+            controller: "TaxTypeCtrl"
+        })
+        .when("/currency", {
+            templateUrl: "partials/currency.html",
+            controller: "currencyCtrl as rest"
+        })
+        .when("/brandinv", {
+            templateUrl: "partials/brandinv.html",
+            controller: "brandinvCtrl as rest"
+        })
+        .when("/uominv", {
+            templateUrl: "partials/uominv.html",
+            controller: "uominvCtrl as rest"
+        })
+        .when("/categoryinv", {
+            templateUrl: "partials/categoryinv.html",
+            controller: "categoryinvCtrl as rest"
+        })
+        .when("/addhsncode", {
+            templateUrl: "partials/addhsncode.html",
+            controller: "addhsncodeCtrl as rest"
+        })
+        .when("/agent", {
+            templateUrl: "partials/agent.html",
+            controller: "agentCtrl as rest"
+        })
+        .when("/TaxType", {
+            templateUrl: "partials/taxType.html",
+            controller: "TaxTypeCtrl"
+        })
+
+        .when("/Tax", {
+            templateUrl: "partials/tax.html",
+            controller: "TaxTypeCtrl"
+        })
+        .when("/currency", {
+            templateUrl: "partials/currency.html",
+            controller: "currencyCtrl as rest"
+        })
+        .when("/brandinv", {
+            templateUrl: "partials/brandinv.html",
+            controller: "brandinvCtrl as rest"
+        })
+        .when("/uominv", {
+            templateUrl: "partials/uominv.html",
+            controller: "uominvCtrl as rest"
+        })
+        .when("/categoryinv", {
+            templateUrl: "partials/categoryinv.html",
+            controller: "categoryinvCtrl as rest"
+        })
+        .when("/addhsncode", {
+            templateUrl: "partials/addhsncode.html",
+            controller: "addhsncodeCtrl as rest"
+        })
+        .when("/agent", {
+            templateUrl: "partials/agent.html",
+            controller: "agentCtrl as rest"
+        })
+        .when("/TaxType", {
+            templateUrl: "resource/partial/taxType.html",
+            controller: "TaxTypeCtrl"
+        })
+        .when("/Tax", {
+            templateUrl: "resource/partial/tax.html",
+            controller: "TaxTypeCtrl"
+        })
+        .when("/currency", {
+            templateUrl: "partials/currency.html",
+            controller: "currencyCtrl as rest"
+        })
+        .when("/bank", {
+            templateUrl: "partials/bank.html",
+            controller: "bankCtrl as rest"
+        })
+        .when("/paymentmethod", {
+            templateUrl: "partials/paymentmethod.html",
+            controller: "paymentmethodCtrl as rest"
+        })
+        .when("/agent", {
+            templateUrl: "partials/agent.html",
+            controller: "agentCtrl as rest"
+        })
+        .when("/formsetup", {
+            templateUrl: "partials/formsetup.html",
+            controller: "formsetupCtrl as rest"
+        })
+        .when("/brandinv", {
+            templateUrl: "partials/brandinv.html",
+            controller: "brandinvCtrl as rest"
+        })
+        .when("/uominv", {
+            templateUrl: "partials/uominv.html",
+            controller: "uominvCtrl as rest"
+        })
+        .when("/state", {
+            templateUrl: "partials/state.html",
+            controller: "stateCtrl as rest"
+        })
+        .when("/country", {
+            templateUrl: "partials/country.html",
+            controller: "countryCtrl as rest"
+        })
+        .when("/currency", {
+            templateUrl: "partials/currency.html",
+            controller: "currencyCtrl as rest"
+        })
+        .when("/supplier", {
+            templateUrl: "partials/supplier.html",
+            controller: "supplierCtrl as rest"
+        })
+        .when("/customer", {
+            templateUrl: "partials/customer.html",
+            controller: "customerCtrl as rest"
+        })
+        .when("/tax", {
+            templateUrl: "partials/tax.html",
+            controller: "TaxCtrl as rest"
+        })
+        .when("/taxType", {
+        templateUrl: "partials/taxType.html",
+        controller: "TaxTypeCtrl as rest"
+    })
+        .when("/smsConfig", {
+            templateUrl: "partials/smsConfigurator.html",
+            controller: "smsConfigCtrl as rest"
+        })
+        .when("/reports", {
+            templateUrl: "partials/reports.html"
+        })
+        .when("/posSaleReport", {
+            templateUrl: "partials/posSaleReport.html",
+            controller: "posSaleReportController"
+        })
+        .when("/posPurchaseReport", {
+            templateUrl: "partials/posPurchaseReport.html",
+            controller: "posPurchaseReportController"
+        })
+        .when("/reportMailScheduler", {
+            templateUrl: "partials/ReportMailScheduler.html",
+            controller: "reportMailSchedulerCtrl as rest"
+        })
+        .otherwise({redirectTo:'/login'});
+}]);
+
+app.directive("limitTo", [function () {
+    return {
+        restrict: "A",
+        link: function (scope, elem, attrs) {
+            var limit = parseInt(attrs.limitTo);
+            angular.element(elem).on("keypress", function (e) {
+                if (this.value.length === limit)
+                    e.preventDefault();
+            });
+        }
+    };
+}]);
+
+
+/* for only  Alpha without space function
+ */
+app.directive('alphaWithoutSpace', function() {
+    return {
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModelCtrl) {
+            if(!ngModelCtrl) {
+                return;
+            }
+
+            ngModelCtrl.$parsers.push(function(val) {
+                var clean = val.replace( /[^a-zA-Z]/g, '');
+                if (val !== clean) {
+                    ngModelCtrl.$setViewValue(clean);
+                    ngModelCtrl.$render();
+                }
+                return clean;
+            });
+
+            element.bind('keypress', function(event) {
+                if(event.keyCode === 32) {
+                    event.preventDefault();
+                }
+            });
+        }
+    };
+});
+/* validation
+ * for only number with space function
+ */
+app.directive('numWithSpace', function() {
+    return {
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModelCtrl) {
+            if(!ngModelCtrl) {
+                return;
+            }
+
+            ngModelCtrl.$parsers.push(function(val) {
+                var clean = val.replace( /[^\s^0-9]+/g, '');
+                if (val !== clean) {
+                    ngModelCtrl.$setViewValue(clean);
+                    ngModelCtrl.$render();
+                }
+                return clean;
+            });
+        }
+    };
+});
+
+/* validation
+ * It allows number,plus,hypen with space function
+ */
+app.directive('mobileNumWithSpace', function() {
+    return {
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModelCtrl) {
+            if(!ngModelCtrl) {
+                return;
+            }
+
+            ngModelCtrl.$parsers.push(function(val) {
+                var clean = val.replace( /[^- ^+^0-9]+/g, '');
+                if (val !== clean) {
+                    ngModelCtrl.$setViewValue(clean);
+                    ngModelCtrl.$render();
+                }
+                return clean;
+            });
+        }
+    };
+});
+app.directive('numWithOutSpace', function() {
+    return {
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModelCtrl) {
+            if(!ngModelCtrl) {
+                return;
+            }
+
+            ngModelCtrl.$parsers.push(function(val) {
+                var clean = val.replace( /[^0-9]+/g, '');
+                if (val !== clean) {
+                    ngModelCtrl.$setViewValue(clean);
+                    ngModelCtrl.$render();
+                }
+                return clean;
+            });
+        }
+    };
+});
+/* validation
+ * It allows number,plus,hypen with space function
+ */
+app.directive('number', function() {
+    return {
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModelCtrl) {
+            if(!ngModelCtrl) {
+                return;
+            }
+
+            ngModelCtrl.$parsers.push(function(val) {
+                var clean = val.replace( /[^0-9]+/g, '');
+                if (val !== clean) {
+                    ngModelCtrl.$setViewValue(clean);
+                    ngModelCtrl.$render();
+                }
+                return clean;
+            });
+        }
+    };
+});
+
+
+
+/* for only Alpha with space function
+ */
+app.directive('alphaWithSpace', function() {
+    return {
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModelCtrl) {
+            if(!ngModelCtrl) {
+                return;
+            }
+
+            ngModelCtrl.$parsers.push(function(val) {
+                var clean = val.replace( /[^\s^a-zA-Z]/g, '');
+                if (val !== clean) {
+                    ngModelCtrl.$setViewValue(clean);
+                    ngModelCtrl.$render();
+                }
+                return clean;
+            });
+        }
+    };
+});
+
+
+/* for only Alpha and number with space function
+ */
+app.directive('alphanumWithSpace', function() {
+    return {
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModelCtrl) {
+            if(!ngModelCtrl) {
+                return;
+            }
+
+            ngModelCtrl.$parsers.push(function(val) {
+                var clean = val.replace( /[^\s^a-zA-Z^0-9]/g, '');
+                if (val !== clean) {
+                    ngModelCtrl.$setViewValue(clean);
+                    ngModelCtrl.$render();
+                }
+                return clean;
+            });
+        }
+    };
+});
+
+
+/* for only Alpha and number without space function
+ */
+app.directive('alphanumWithoutSpace', function() {
+    return {
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModelCtrl) {
+            if(!ngModelCtrl) {
+                return;
+            }
+
+            ngModelCtrl.$parsers.push(function(val) {
+                var clean = val.replace( /[^a-zA-Z^0-9]/g, '');
+                if (val !== clean) {
+                    ngModelCtrl.$setViewValue(clean);
+                    ngModelCtrl.$render();
+                }
+                return clean;
+            });
+
+            element.bind('keypress', function(event) {
+                if(event.keyCode === 32) {
+                    event.preventDefault();
+                }
+            });
+        }
+    };
+});
+
+/* for only two digit decimal Function
+ */
+
+app.directive('twoDigitsDec', function() {
+    return {
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModelCtrl) {
+            if(!ngModelCtrl) {
+                return;
+            }
+
+            ngModelCtrl.$parsers.push(function(val) {
+                if (angular.isUndefined(val)) {
+                    var val = '';
+                }
+
+                var clean = val.replace(/[^-0-9\.]/g, '');
+                var negativeCheck = clean.split('-');
+                var decimalCheck = clean.split('.');
+                if(!angular.isUndefined(negativeCheck[1])) {
+                    negativeCheck[1] = negativeCheck[1].slice(0, negativeCheck[1].length);
+                    clean =negativeCheck[0] + '-' + negativeCheck[1];
+                    if(negativeCheck[0].length > 0) {
+                        clean =negativeCheck[0];
+                    }
+
+                }
+
+                if(!angular.isUndefined(decimalCheck[1])) {
+                    decimalCheck[1] = decimalCheck[1].slice(0,2);
+                    clean =decimalCheck[0] + '.' + decimalCheck[1];
+                }
+
+                if (val !== clean) {
+                    ngModelCtrl.$setViewValue(clean);
+                    ngModelCtrl.$render();
+                }
+                return clean;
+            });
+
+            element.bind('keypress', function(event) {
+                if(event.keyCode === 32) {
+                    event.preventDefault();
+                }
+            });
+        }
+    };
+});
+
+app.directive('noSpace', function() {
+    return {
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModelCtrl) {
+            element.bind('keypress', function(event) {
+                if(event.keyCode === 32) {
+                    event.preventDefault();
+                }
+            });
+        }
+    };
+});
+
+// Change text to uppercase and add dash every 5 char
+app.directive('capitalizeWithDash', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attrs, modelCtrl) {
+            var capitalize = function(inputValue) {
+                var number = 5;
+                if (inputValue == undefined) inputValue = '';
+                var inputUpper = inputValue.toUpperCase();
+                var capitalizedArray = [];
+                for(var i=0; i<inputUpper.length; i+= number){
+                    if(inputUpper[i] == "-"){
+                        capitalizedArray.push(inputUpper.substr(i+1,number))
+                        i += 1;
+                    }else {
+                        capitalizedArray.push(inputUpper.substr(i, number))
+                    }
+                }
+                var capitalized = capitalizedArray.join("-");
+                if (capitalized !== inputValue) {
+                    modelCtrl.$setViewValue(capitalized);
+                    modelCtrl.$render();
+                }
+                return capitalized;
+            }
+            modelCtrl.$parsers.push(capitalize);
+            capitalize(scope[attrs.ngModel]);
+        }
+    };
+});
+
+// $('.main_container').bind('keypress', function(e) {
+//     var code = e.keyCode || e.which;
+//     if(code == 13) { //Enter keycode
+//         //Do something
+//     }
+// });
+
+
+
+
+// angular.module("core").directive('hnEnterKey', function() {
+//     return function(scope, element, attrs) {
+//        ("keydown keypress", function(event) {
+//
+//             var code = e.keyCode || e.which;
+//             if(code == 13) { //Enter keycode
+//                 //Do something
+//             }
+//
+//
+//             var keyCode = event.which || event.keyCode;
+//             if (keyCode === 13) {
+//                 scope.$apply(function() {
+//                     scope.$eval(attrs.hnEnterKey);
+//                 });
+//
+//                 event.preventDefault();
+//             }
+//         });
+//     };
+// });
+
+
+// app.config(['$httpProvider', function ($httpProvider) {
+//     var $cookies;
+//     angular.injector(['ngCookies']).invoke(['$cookies', function (_$cookies_) {
+//         $cookies = _$cookies_;
+//     }]);
+//     $httpProvider.defaults.headers.common['Authorization'] = $cookies.get('accessToken');
+// }]);
+
+
+app.filter('setDecimal', function ($filter) {
+    return function (input, places) {
+        if (isNaN(input))
+            return input;
+        // If we want 1 decimal place, we want to mult/div by 10
+        // If we want 2 decimal places, we want to mult/div by 100, etc
+        // So use the following to create that factor
+        var factor = "1" + Array(+(places > 0 && places + 1)).join("0");
+        return Math.round(input * factor) / factor;
+    };
+});
+
+app.filter('firstLetter', function () {
+    return function (input, key, letter) {
+        input = input || [];
+        var out = [];
+        input.forEach(function (item) {
+            console.log('item: ', item[key][0].toLowerCase());
+            console.log('letter: ', letter);
+            if (item[key][0].toLowerCase() == letter.toLowerCase()) {
+                out.push(item);
+            }
+        });
+        return out;
+    }
+});
+

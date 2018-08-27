@@ -1,0 +1,230 @@
+<div class="container-fluid">
+    <div class="container cus_main_row">
+
+        <div class="row">
+            <h2 class="pos-header-new">
+                <div>Category</div>
+            </h2>
+        </div>
+        <div class="row inner_row_bg">
+            <div class="col-md-12 col-sm-12 col-xs-12 ng-scope">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="col-md-2 col-sm-5 col-xs-5">
+                            <input id="textinput" name="textinput" type="text"
+                                   placeholder="Search Category" ng-model="searchText" class="form-control input-md"
+                                   ng-keyup="$event.keyCode == 13 ? getItemCategoryList() : null"/>
+                        </div>
+                        <div class=" col-md-4 col-sm-7 col-xs-7">
+                            <div class="form-group" style="margin-bottom: 0px;">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-4">
+                                        <button type="button" class="btn btn-default hi_btn"
+                                                ng-click="addNewItemCategoryPopulate()" style="width: 100%;">Add
+                                        </button>
+                                    </div>
+                                    <!--<div class="col-md-5 col-sm-4">-->
+                                        <!--<button type="button" class="btn btn-default hi_btn" ng-click="importPopup()">-->
+                                            <!--Category Import-->
+                                        <!--</button>-->
+                                    <!--</div>-->
+                                    <div class="col-md-3 col-sm-4">
+                                        <button type="submit" id="colButn" class="btn btn-default" data-toggle="modal"
+                                                ng-model="inactiveStatus" data-target=".print-me"
+                                                ng-click="inactiveCategory()">{{ButtonStatus}}
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--<div class="col-lg-2 col-md-2 col-sm-2">-->
+                                    <!--<span class="custom-dropdown custom-dropdown&#45;&#45;white">-->
+                                        <!--<select ng-model="exportsType" class="form-control " ng-change="GetValue()">-->
+                                            <!--<option value=""> Select Type</option>-->
+                                            <!--<option value="pdf"> Pdf</option>-->
+                                            <!--<option value="excel"> Excel</option>-->
+                                        <!--</select>-->
+                                    <!--</span>-->
+
+
+                        <!--</div>-->
+                        <!--<div class="col-lg-2 col-md-2 col-sm-2" style="margin-left: 0px;">-->
+                            <!--<div ng-if="exportsType"><a-->
+                                    <!--href="/hipos/{custId}/categoryExport?val={{text}}&type={{exportsType}}&statustype={{inactiveStatus}}">-->
+                                <!--<button type="button" class="btn btn-default hi_btn">Export</button>-->
+                            <!--</a></div>-->
+                            <!--<div ng-if="!exportsType">-->
+                                <!--<button type="button" class="btn btn-default hi_btn">Export</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="fixed-table-container">
+                    <div class="table_wrap fixed-table-container-inner">
+                        <table class=" hi_table table table_option2 table-hover table-striped table-fixed-header list_table"
+                               id="" style="margin-bottom: 0;">
+                            <thead>
+                            <tr>
+                                <th data-field="name">
+                                    <div class="th-inner">Item Category Code</div>
+                                </th>
+                                <th data-field="desc">
+                                    <div class="th-inner">Item Category Name</div>
+                                </th>
+                                <th data-field="desc">
+                                    <div class="th-inner">Item Category Description</div>
+                                </th>
+                                <th data-field="desc">
+                                    <div class="th-inner">Edit</div>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody id="parentTable">
+                            <tr ng-repeat="itemCategory in itemCategoryList">
+                                <td>{{itemCategory.itemCategoryCode}}</td>
+                                <td>{{itemCategory.itemCategoryName}}</td>
+                                <td>{{itemCategory.itemCategoryDesc}}</td>
+                                <td>
+                                    <a id="edit_{{$index}}" href="javascript:void(0)"
+                                       ng-click="editNewItemCategoryPopulate(itemCategory.itemCategoryName)" class="edit">
+                                        <i class="fa fa-pencil-square-o fa-fw orange"></i></a>
+                                </td>
+                            </tr>
+                            <!--<tr ng-if="itemCategoryList.length==0">-->
+                                <!--<td colspan="4" style="color: red; font-weight: bold">No Records Found</td>-->
+                            <!--</tr>-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12 pagination_">
+                    <button type="button" class="btn btn-default hi_btn" ng-class="{'diabled-class': first}" ng-disabled="first"
+                            ng-click="getItemCategoryList('','firstPage')"  ng-model="first">First
+                    </button>
+                    <button type="button" class="btn btn-default hi_btn"  ng-class="{'diabled-class': prev}" ng-disabled="prev"
+                            ng-click="getItemCategoryList('','prevPage')"   ng-model="prev">Prev
+                    </button>
+                    <button type="button" class="btn btn-default hi_btn"  name="next" ng-disabled="next"
+                            ng-click="getItemCategoryList('','nextPage')"  value="next"  ng-class="{'diabled-class': next}" ng-model="next">Next
+                    </button>
+                    <button type="button" class="btn btn-default hi_btn"
+                            ng-click="getItemCategoryList('','lastPage')"   ng-class="{'diabled-class': last}" ng-disabled="last"
+                            ng-model="last">Last
+                    </button>
+                </div>
+            </div>
+            <form class="form-horizontal" id="itemDetails" method="post" ng-submit="saveItemImport()">
+                <div class="modal fade" tabindex="-1" id="import_category" role="dialog" data-backdrop="static"
+                     aria-labelledby="mySmallModalLabel_1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Import Category </h4>
+                            </div>
+                            <a href="resource\ImportSheets\Item Category.xlsx" download>Download ExcelSheet</a>
+                            <div class="modal-body checkout-body">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="col-xs-5">
+                                            <input type="file" name="myFile"
+                                                   id="myFile"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-default" data-toggle="modal"
+                                        ng-disabled="isDisabled">Save
+                                </button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="modal fade addCustomer" tabindex="-1" id="add_new_ItemCategory_modal" role="dialog"
+                 data-backdrop="static"
+                 aria-labelledby="mySmallModalLabel">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content checkout">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="modelName"></h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <form class="form-horizontal">
+                                        <fieldset>
+                                            <input type="hidden" ng-model="ItemObj.itemCategoryId"
+                                                   value="{{ItemObj.itemCategoryId}}"/>
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-sm-4 control-label">Category Name</label>
+                                                <div class="col-md-6 col-sm-6" style="position:relative;">
+                                                    <input id="CategoryName" name="CategoryName"
+                                                           alpha-with-space
+                                                           type="text" placeholder="Category Name"
+                                                           ng-value="ItemObj.itemCategoryName"
+                                                           ng-model="CategoryNameText"
+                                                           maxlength="125"
+                                                           class="form-control input-md">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-sm-4 control-label">Category
+                                                    Description</label>
+                                                <div class="col-md-6 col-sm-6" style="position:relative;">
+                                                    <textarea name="CategoryDescription" id="CategoryDescription"
+                                                              ng-value="ItemObj.itemCategoryDesc" maxlength="255"
+                                                              ng-model="CategoryDescriptionText"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-sm-4 control-label">Default Type</label>
+                                                <div class="col-md-6 col-sm-6" style="position:relative;">
+                                                    <input id="defaultType" type="checkbox"
+                                                           ng-change="selectModule(defaultType);"
+                                                           ng-model="defaultType">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-4 col-sm-4 control-label" for="">Status</label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <select name="ctgryStatus" id="ctgryStatus"
+                                                            ng-model="ctgryStatusText" class="form-control input-md"
+                                                            required>
+                                                        <option value="Active">Active</option>
+                                                        <option value="InActive">InActive</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" id="submit"
+                                                        ng-disabled="isDisabled"
+                                                        ng-click="saveNewItemCategory()">Save
+                                                </button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                            </div>
+                                        </fieldset>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

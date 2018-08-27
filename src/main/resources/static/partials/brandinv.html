@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<div class="container-fluid">
+    <div class="container cus_main_row" style="height: 715px;">
+
+        <div class="row">
+            <h2 class="pos-header-new">
+                <div>Brand</div>
+            </h2>
+        </div>
+        <div class="row inner_row_bg">
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="panel">
+        <div class="panel-body">
+            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-5">
+                <form class="form-horizontal ng-pristine ng-valid">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <p class="input-group" style="display: block;">
+                                <input id="textinput" name="textinput"  type="text"
+                                       placeholder="Search Brand" ng-model="brandSearchText" class="form-control input-md"
+                                       ng-keyup="$event.keyCode == 13 ? getBrandItemList() : null" />
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-9 col-lg-7 col-sm-9 col-xs-7">
+
+                <div class="form-group">
+                    <div class="col-lg-2 col-md-3 col-sm-3" >
+                        <button type="button" class="btn btn-primary hi_btn"  ng-click="addNewBrandPopulate()">Add</button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-3">
+                        <button type="button" class="btn btn-default hi_btn"  ng-click="importPopup()">Brand Import</button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4">
+                        <button type="submit" id="colButn" class="btn btn-primary" data-toggle="modal"
+                                ng-model="inactiveStatus" data-target=".print-me" ng-click="inactiveBrand()">{{ButtonStatus}}
+                        </button>
+                    </div>
+                    <div class="col-lg-3 col-md-5 col-sm-5" >
+                        <span class="custom-dropdown custom-dropdown--white">
+                            <select ng-model="exportsType" class="form-control ">
+                                <option value=""> Select Type</option>
+                                <option value="pdf"> Pdf</option>
+                                <option value="excel"> Excel</option>
+                            </select>
+                        </span>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 col-sm-3">
+                        <div ng-if="exportsType"><a href="/pos/itemBrandExport?val={{brandSearchText}}&type={{exportsType}}&statustype={{inactiveStatus}}"><button type="button" class="btn btn-primary hi_btn">Export</button></a>
+                    </div>
+                    <div ng-if="!exportsType">
+                        <button type="button" class="btn btn-primary hi_btn">Export</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+
+        <div class="fixed-table-container">
+            <div class="table_wrapfixed-table-container-inner">
+                <div class="header-background"></div>
+                <table data-toggle="table" data-cache="false" data-height="299" class="hi_table table table-hover table-bordered table-striped table-fixed-header">
+                    <thead>
+                    <tr>
+                        <th data-field="cntryname">
+                            <div class="th-inner">Brand Name</div>
+                        </th>
+                        <th data-field="edit">
+                            <div class="th-inner">Brand Description</div>
+                        </th>
+                        <th data-field="edit">
+                            <div class="th-inner">Edit</div>
+                        </th>
+                        <!--<th data-field="edit">-->
+                            <!--<div class="th-inner">{{ButtonStatus}}</div>-->
+                        <!--</th>-->
+                    </tr>
+                    </thead>
+                    <tbody id="parentTable">
+                    <tr ng-repeat="itemBrand in itemBrandList|filter:brandSearchText">
+                        <td>{{itemBrand.brandName}}</td>
+                        <td>{{itemBrand.brandDescription}}</td>
+                        <td>
+                            <a id="edit_{{$index}}" href="javascript:void(0)" ng-click="editbrandPopulate(itemBrand)" class="edit">
+                                <i class="fa fa-pencil-square-o fa-fw orange"></i></a>
+                        </td>
+                        <!--<td><a id="del_{{$index}}" href="javascript:void(0)" ng-click="deletebrand(itemBrand)" class="del"><i class="fa fa-trash-o fa-fw orange"></i></a></td>-->
+                    </tr>
+                    </tbody>
+                    <!--<tr ng-if="itemBrandList.length==0">-->
+                        <!--<td colspan="4" style="color: red; font-weight: bold">No Records Found</td>-->
+                    <!--</tr>-->
+                </table>
+            </div>
+        </div>
+            <div class="col-lg-5 col-md-7 col-sm-10 pagination_" style="float: right; text-align: right; margin-top: 10px;">
+
+                <button type="button" class="btn btn-primary hi_btn" ng-class="{'diabled-class': first}" ng-disabled="first"
+                        ng-click="getBrandItemList('firstPage')"  ng-model="first">First
+                </button>
+                <button type="button" class="btn btn-primary hi_btn"  ng-class="{'diabled-class': prev}" ng-disabled="prev"
+                        ng-click="getBrandItemList('prevPage')"   ng-model="prev">Prev
+                </button>
+                <button type="button" class="btn btn-primary hi_btn"  name="next" ng-disabled="next"
+                        ng-click="getBrandItemList('nextPage')"  value="next"  ng-class="{'diabled-class': next}" ng-model="next">Next
+                </button>
+                <button type="button" class="btn btn-primary hi_btn"
+                        ng-click="getBrandItemList('lastPage')"   ng-class="{'diabled-class': last}" ng-disabled="last"
+                        ng-model="last">Last
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade addCustomer" tabindex="-1" id="add_new_brand_modal" role="dialog" data-backdrop="static"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content checkout">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 id = "brand-title" class="modal-title">Add Brand</h4>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input type="hidden" ng-model="setupobj.brandId" value="{{setupobj.brandId}}"/>
+                                    <label class="col-md-4 col-sm-4 control-label" >Brand Name</label>
+                                    <div class="col-md-6 col-sm-6" style="position:relative;">
+                                        <input id="BrandName" name="BrandName"
+                                               type="text" placeholder="Brand Name"
+                                               ng-model="brandNameText"
+                                               ng-value="setupobj.brandName"
+                                               ng-readonly="operation === 'Edit' "
+                                               class="form-control input-md" maxlength="125">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 col-sm-4 control-label" >Brand Description</label>
+                                    <div class="col-md-6 col-sm-6" style="position:relative;">
+                                        <textarea name="BrandDescription"
+                                                  id="BrandDescription"
+                                                  ng-model="brandDescriptionText"
+                                                  ng-value="setupobj.brandDescription"
+                                                  maxlength="255"></textarea>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 col-sm-4 control-label" for="">Status</label>
+                                    <div class="col-md-6 col-sm-6" >
+                                        <select name="brandStatus" id="brandStatus" ng-model="brandStatusText" class="form-control input-md" required>
+                                            <option value="Active">Active</option>
+                                            <option value="InActive">InActive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" id="submit" ng-disabled="isDisabled"
+                                      ng-click="saveNewBrand(add_new_brand_modal)">Save
+                                </button>
+                                <button type="button" class="btn btn-primary"  ng-click="removeBrandDetails()"data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+            <form class="form-horizontal" id="itemDetails" method="post" ng-submit="saveItemImport()">
+                <div class="modal fade" tabindex="-1" id="import_brand" role="dialog" data-backdrop="static"
+                     aria-labelledby="mySmallModalLabel_1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Import Brand </h4>
+                            </div>
+                            <a href="resources\images\ImportSheets\ItemBrand.xlsx" download>Download ExcelSheet</a>
+                            <div class="modal-body checkout-body">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="col-xs-5">
+                                            <input type="file" name="myFile"
+                                                   id="myFile"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary" data-toggle="modal" ng-disabled="isDisabled">Save</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--</div>-->
+            </form>
+
+</body>
+</html>
+
+
+
+

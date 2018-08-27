@@ -1,0 +1,148 @@
+<body>
+<div class="container-fluid">
+    <div class="container cus_main_row">
+
+        <div class="row">
+            <h2 class="pos-header-new">
+                <div>Inventory</div>
+            </h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-6 rep_list_info " style="font-size:20px;color:#72319a;"
+                 id="categoryinvDiv">
+                <a id="categoryinv" class="fa fa-credit-card" href="#!/categoryinv">
+                    <div class="custom_info">
+                        <div class="rep_info">Category</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-6 rep_list_info" style="font-size:20px;color:#72319a;"
+                 id="brandinvDiv">
+                <a id="brandinv" class="fa fa-credit-card" href="#!/brandinv">
+                    <div class="custom_info">
+                        <div class="rep_info">Brand</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-6 rep_list_info" style="font-size:20px;color:#72319a;"
+                 id="uominvDiv">
+                <a id="uominv" class="fa fa-credit-card" href="#!/uominv">
+                    <div class="custom_info">
+                        <div class="rep_info">UOM</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 rep_list_info" style="font-size:20px;color:#72319a;"
+                 id="iteminvDiv">
+                <a id="iteminv" class="fa fa-credit-card" href="#!/iteminv">
+                    <div class="custom_info">
+                        <div class="rep_info">Item</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-6 rep_list_info"
+                 id="addhsncodeDiv">
+                <a id="addhsncode" class="fa fa-credit-card" href="#!/addhsncode" style="font-size:20px;color:#72319a;">
+                    <div class="custom_info">
+                        <div class="rep_info">HSN Code</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 rep_list_info"
+                 id="addStateDiv">
+                <a id="addState" class="fa fa-credit-card" href="#!/state" style="font-size:20px;color:#72319a;">
+                    <div class="custom_info">
+                        <div class="rep_info">State</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 rep_list_info"
+                 id="addCountryDiv">
+                <a id="addCountry" class="fa fa-credit-card" href="#!/country" style="font-size:20px;color:#72319a;">
+                    <div class="custom_info">
+                        <div class="rep_info">Country</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 rep_list_info"
+                 id="addCurrencyDiv">
+                <a id="addCurrency" class="fa fa-credit-card" href="#!/currency" style="font-size:20px;color:#72319a;">
+                    <div class="custom_info">
+                        <div class="rep_info">Currency</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 rep_list_info"
+                 id="addSupplierDiv">
+                <a id="addSupplier" class="fa fa-credit-card" href="#!/supplier" style="font-size:20px;color:#72319a;">
+                    <div class="custom_info">
+                        <div class="rep_info">Supplier</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 rep_list_info"
+                 id="addCustomerDiv">
+                <a id="addCustomer" class="fa fa-credit-card" href="#!/customer" style="font-size:20px;color:#72319a;">
+                    <div class="custom_info">
+                        <div class="rep_info">Customer</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 rep_list_info"
+                 id="addTaxDiv">
+                <a id="addTax" class="fa fa-credit-card" href="#!/tax" style="font-size:20px;color:#72319a;">
+                    <div class="custom_info">
+                        <div class="rep_info">Tax</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 rep_list_info"
+                 id="addTaxTypeDiv">
+                <a id="addTaxType" class="fa fa-credit-card" href="#!/taxType" style="font-size:20px;color:#72319a;">
+                    <div class="custom_info">
+                        <div class="rep_info">Tax Type</div>
+                    </div>
+                </a>
+            </div>
+            <!--<div class="col-md-3 col-sm-6 col-xs-6 rep_list_info"-->
+                 <!--id="addNewBank">-->
+                <!--<a id="addBank" class="fa fa-credit-card" href="#!/bank" style="font-size:20px;color:#72319a;">-->
+                    <!--<div class="custom_info">-->
+                        <!--<div class="rep_info">Bank</div>-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-md-3 col-sm-6 col-xs-6 rep_list_info"-->
+                 <!--id="addNewAgent">-->
+                <!--<a id="addAgent" class="fa fa-credit-card" href="#!/agent" style="font-size:20px;color:#72319a;">-->
+                    <!--<div class="custom_info">-->
+                        <!--<div class="rep_info">Agent</div>-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-md-3 col-sm-6 col-xs-6 rep_list_info"-->
+                 <!--id="addNewPaymentMethod">-->
+                <!--<a id="addPaymentMethod" class="fa fa-credit-card" href="#!/paymentmethod" style="font-size:20px;color:#72319a;">-->
+                    <!--<div class="custom_info">-->
+                        <!--<div class="rep_info">Payment Method</div>-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <div class="col-md-3 col-sm-6 col-xs-6 rep_list_info"
+                 id="addNewFormSetup">
+                <a id="addFormSetup" class="fa fa-credit-card" href="#!/formsetup" style="font-size:20px;color:#72319a;">
+                    <div class="custom_info">
+                        <div class="rep_info">FormSetup</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+

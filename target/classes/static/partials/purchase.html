@@ -1,0 +1,735 @@
+<body>
+<style>
+
+    #noti_ui li:hover {
+        background: #ddd;
+    }
+
+    #noti_ui li {
+        width: 500px;
+        color: #000;
+        margin: 5px auto;
+        padding: 5px;
+        border-bottom: 1px solid #eee;
+    }
+
+    #noti_ui li:last-child {
+        border-bottom: 0px;
+    }
+
+    #noti_ui p {
+        color: #000;
+        font-size: 13px;
+        font-family: sans-serif;
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    #noti_ui p.control {
+        font-size: 1.5em;
+        display: inline-block;
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .textdiv {
+        height: 382px !important;
+        overflow-y: auto !important;
+    }
+
+</style>
+
+<div class="container cus_main_row">
+
+    <div class="row inner_row_bg purchase_inner" style="margin: 0px !important;">
+
+        <select-item-modal></select-item-modal>
+        <div class="table-responsive" style="height: 100%">
+            <div class="row no-pad">
+                <div class="col-md-3 col-sm-6 input_label cus_input_label">
+                    <input id="textinput1" name="textinput" type="text"
+                           placeholder="Search Item" ng-model="itemSearchText" class="form-control input-md"
+                           ng-click="getItemList(itemSearchText, false)" readonly/>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 input_label cus_input_label">
+                <input ng-disabled="user_access_rights.purchaseSupplierAdd==false" id="textinput2" name="textinput" ng-readonly="operation === 'Return'"
+                       type="text" ng-change="updateSupplierId(this)"
+                       ng-model="supplierSearchText"
+                       class="form-control input-md"
+                       ng-click="getSupplierListSearch(searchSupplierText)"
+                />
+                <input type="hidden" ng-model="supplierId"/>
+
+                <div style="width: 6%;">
+                    <button style="background: #2f689e;border-radius: 5px; border: 0px; padding: 6px 9px;margin-top: -3px; margin-right: 0px;"
+                            class="btn btn-default add_btn" ng-disabled="user_access_rights.purchaseSupplierAdd==false" ng-click="addSupplier()"><i
+                            class="fa fa-plus fa-fw" style="color: #fff"></i></button>
+                </div>
+            </div>
+            <table class="table table-striped table_costomize itemlisttable sales_itemTable purchase_itemTable"
+                   id="itemlisttableId">
+                <thead>
+                <tr>
+                    <th ng-show="operation !== 'Return'"
+                        style='width: 2% !important; padding: 0px;'></th>
+                    <th style='width: 10% !important;'>Item</th>
+                    <th style='width: 11% !important;'>Description</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>UOM</th>
+                    <th style="padding: 8px 0px;" ng-show="operation === 'Return'">Return Qty</th>
+                    <th>Amt(Ex)</th>
+                    <th style="width: 8% !important;">Discount Per Unit</th>
+                    <th style="width: 8% !important;">Total Discount</th>
+                    <th style="width: 7% !important;">Cess%</th>
+                    <th>Cess Amt</th>
+                    <th>Tax</th>
+                    <th ng-show="countryId == '1'"
+                        style="word-wrap: break-word; width: 9% !important;line-height: 12px;">{{fullSimplTax}}
+                    </th>
+                    <th>Tax Amt</th>
+                    <th style="width : 7.3% !important;">Amt(In)</th>
+                    <th ng-if="configurationname.length">{{configurationname}}</th>
+                    <th ng-repeat="attribute in attributeList"
+                        style="width: auto !important; padding: 8px 5px;">{{attribute}}
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="parentTable1" class="textdiv">
+                <tr ng-repeat="item in selectedItemsList">
+                    <td ng-show="operation !== 'Return' && item.message!='Sold'" style='width: 2% !important;'>
+                        <input
+                                type="checkbox" ng-model="selectedItemListRemoval[$index]">
+                    </td>
+                    <td style='width: 14% !important;'
+                        ng-click="showAcceptedNotificationList && openSelectItemModalForNotification($index, itemSearchText)">
+                        <input type="text" class="form-control" ng-model="item.itemName" readonly required/>
+                    </td>
+                    <input type="hidden" ng-model="item.csgtsgstamt"/>
+                    <input type="hidden" ng-model="item.cgstsgsttax"/>
+                    <input type="hidden" ng-model="item.hsnCode" ng-value={{item.hsnCode}}>
+                    <input type="hidden" ng-model="item.uomName" ng-value={{item.uomName}}>
+                    <input type="hidden" ng-model="item.purchaseOrderId" ng-value="{{item.purchaseOrderId}}">
+                    <input type="hidden" ng-model="item.purchaseInvoiceDetailID"
+                           ng-value="{{item.purchaseInvoiceDetailID}}">
+                    <td style='width: 7% !important;'>
+                        <input type="text" limit-to="50" min="0" max="255"
+                               id="itemDescription_{{$index}}"
+                               name="itemDescription_{{$index}}"
+                               class="form-control input-md"
+                               ng-model="item.itemDescription"
+                               ng-click="updateDescription(item)"
+                               required/>
+                    </td>
+                    <td>
+                        <div ng-class="{'has-error': selectedItemForm['unitPrice_' + $index].$invalid}">
+                            <input type="text" limit-to="8" min="0"
+                                   id="unitPrice_{{$index}}"
+                                   name="unitPrice_{{$index}}"
+                                   ng-change="makeExclusive($index,item);editSelectedItemListPrice(item, -1,$index);updatesimplifiedTax();"
+                                   ng-readonly="operation === 'Return' || userRights.unitPriceEditable == false || item.message==='Sold'"
+                                   ng-blur="toFixedTwo(item.unitPrice)"
+                                   ng-click="getSelectedTexElement($event)"
+                                   class="form-control input-md"
+                                   ng-value="{{item.unitPrice}}"
+                                   ng-model="item.unitPrice"
+                                   ng-model-options="{debounce:1000 }"
+                                   step="0.01" two-digits-dec required/>
+                        </div>
+                    </td>
+
+                    <td ng-hide="(item.convertedQuantity ==0 && operation === 'Return') || (item.convertedQuantity ==0 && operation=='Edit') || (item.convertedQuantity ==0 && operation=='Create') || (item.convertedQuantity ==0 && operation=='Invoke')">
+                        <div ng-class="{'has-error': selectedItemForm['qty_' + $index].$invalid}">
+                            <input type="text" limit-to="8" min="0"
+                                   ng-change="getconvertedQua(item,$index,item.convertedQuantity);editSelectedItemList(item, -1,$index);updatesimplifiedTax();"
+                                   name="convertedQuantity_{{$index}}"
+                                   class="form-control input-md"
+                                   ng-readonly="operation === 'Return'|| item.message==='Sold'"
+                                   ng-value="{{item.convertedQuantity}}" id="convertedQuantity_{{$index}}"
+                                   ng-mouseover="makeSerialItemRead($index,item.serializableStatus)"
+                                   ng-model="item.convertedQuantity"
+                                   ng-model-options="{debounce: 1000 }"
+                                   step="0.01" two-digits-dec required/>
+                        </div>
+                    </td>
+                    <td ng-show="(item.convertedQuantity ==0 && operation === 'Return') || (item.convertedQuantity ==0 && operation=='Edit') || (item.convertedQuantity ==0 && operation=='Create') || (item.convertedQuantity ==0 && operation=='Invoke')">
+                        <div ng-class="{'has-error': selectedItemForm['qty_' + $index].$invalid}">
+                            <input type="text" limit-to="8" min="0"
+                                   ng-change="getconvertedQua(item,$index,item.qty);editSelectedItemList(item, -1,$index);updatesimplifiedTax();"
+                                   name="qty_{{$index}}"
+                                   class="form-control input-md"
+                                   ng-readonly="operation === 'Return'|| item.message==='Sold'"
+                                   ng-blur="toFixedTwo(item.qty)"
+                                   ng-value="{{item.qty}}" id="qty_{{$index}}"
+                                   ng-mouseover="makeSerialItemRead($index,item.serializableStatus)"
+                                   ng-model="item.qty"
+                                   ng-model-options="{debounce: 1000 }"
+                                   pattern="^\d+(?:\.\d{1,4})?$"
+                                   step="0.01" required/>
+                        </div>
+                    </td>
+                    <td>
+                        <select class="form-control input-md"
+                                ng-change="getconvertedQua(item,$index,item.convertedQuantity);editSelectedItemList(item, this.tax,$index);updatesimplifiedTax();"
+                                ng-disabled
+                                ng-init="uom = item.uomConvertorId"
+                                ng-model="item.uom" ng-value="{{item.convertedName}}"
+                                ng-options="uom.unitOfMeasurementId as uom.unitOfMeasurementName for uom in uomList">
+                        </select>
+                    </td>
+                    <td>
+                        <div ng-class="{'has-error': selectedItemForm['amtexclusivetax_' + $index].$invalid}">
+                            <input type="text" class="form-control input-md"
+                                   name="amtexclusivetax_{{$index}}"
+                                   readonly ng-value="{{item.amtexclusivetax|number:2}}"
+                                   ng-model="item.amtexclusivetax"
+                                   limit-to="8" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                                   step="0.01" required/>
+                        </div>
+                    </td>
+                    <td style='width: 100px !important;'>
+                        <div ng-class="{'has-error': selectedItemForm['discountAmt_' + $index].$invalid}">
+                            <input type="text" class="form-control input-md word_break"
+                                   name="discountConfigAmt_{{$index}}"
+                                   ng-readonly="operation === 'Return'"
+                                   ng-change="configDiscount(item.discountConfigAmt,item,$index,'Config');editSelectedItemList(item, -1,$index);updatesimplifiedTax();"
+                                   limit-to="8" min="0"
+                                   ng-model-options="{debounce: 1000}"
+                                   ng-model="item.discountConfigAmt"
+                                   step="0.01" required/>
+                        </div>
+                    </td>
+                    <td style='width: 100px !important;'>
+                        <div ng-class="{'has-error': selectedItemForm['discountAmt_' + $index].$invalid}">
+                            <input type="text" class="form-control input-md word_break"
+                                   name="discountAmt_{{$index}}"
+                                   ng-readonly="operation === 'Return'|| !userRights.discount"
+                                   ng-change="configDiscount(item.discountConfigAmt,item,$index,'Amt');editSelectedItemList(item, -1,$index);updatesimplifiedTax();"
+                                   limit-to="8" min="0"
+                                   ng-model-options="{debounce: 1000}"
+                                   ng-model="item.discountAmt" two-digits-dec
+                                   step="0.01" required/>
+                        </div>
+                    </td>
+                    <td style="width: 100px !important;">
+                        <div>
+                            <input type="text" ng-readonly="operation === 'Return'" ng-model="item.cess"
+                                   id="cess" two-digits-dec limit-to="6"
+                                   ng-change="editSelectedItemList(item, -1,$index)"
+                                   class="form-control input-md">
+                        </div>
+                    </td>
+                    <td style="width: 65px !important;">
+                        <div>
+                            <input type="text" ng-model="item.cessTaxAmt" id="cess1" two-digits-dec
+                                   ng-change="editSelectedItemList(item, -1,$index)" ,
+                                   name="cessamt_{{$index}}" readonly
+                                   class="form-control input-md" limit-to="8">
+                        </div>
+                    </td>
+                    <td style="width: 65px !important;">
+                        <select class="form-control input-md"
+                                ng-change="editSelectedItemList(item, this.tax,$index);updatesimplifiedTax($index);"
+                                ng-disabled="operation === 'Return' || !item.itemName"
+                                ng-init="tax = item.taxid"
+                                ng-model="tax"
+                                ng-options="tax.taxid as tax.taxString for tax in taxList"
+                                title="{{ !item.itemName ? 'Item name should not be empty' : ''}}">
+                        </select>
+                    </td>
+                    <td ng-show="countryId == '1'" style="width: 9% !important;">
+                        <div>
+                            <input type="text" ng-model="item.taxAmountSplit" two-digits-dec
+                                   class="form-control input-md" readonly>
+                        </div>
+                    </td>
+                    <td>
+                        <div ng-class="{'has-error': selectedItemForm['taxamt_' + $index].$invalid}">
+                            <input type="text" class="form-control input-md"
+                                   name="taxamt_{{$index}}" readonly
+                                   limit-to="8" ng-value="{{item.taxamt}}"
+                                   ng-model="item.taxamt"
+                                   ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                                   step="1" required/>
+                        </div>
+                    </td>
+
+                    <td style="width : 7.3% !important;">
+                        <div ng-class="{'has-error': selectedItemForm['amtinclusivetax_' + $index].$invalid}">
+                            <input type="number"
+                                   class="form-control input-md"
+                                   name="amtinclusiveeditSerializableItemsListax_{{$index}}"
+                                   readonly
+                                   limit-to="8" ng-value="{{item.amtinclusivetax}}"
+                                   ng-model="item.amtinclusivetax"
+                            />
+                        </div>
+                    </td>
+
+                    <td ng-show="item.serializableStatus=='Batch'" class="custom_date"
+                        style="width: 12% !important; padding-right: 10px" colspan="4">
+                        <p class="input-group">
+                            <input type="text" class="form-control"
+                                   placeholder="Batch Expiry Date"
+                                   uib-datepicker-popup="{{format}}"
+                                   ng-model="item.batchExpDate"
+                                   is-open="popup.opened "
+                                   ng-init="item.batchExpDate=invoiceDate"
+                                   datepicker-options="dateOptionsBatch"
+                                   ng-required="true"
+                                   close-text="Close" alt-input-formats="altInputFormats"/>
+                            <span class="input-group-btn">
+									 <button type="button" class="btn btn-default" ng-click="openDate()"><i
+                                             class="glyphicon glyphicon-calendar"></i></button>
+									</span>
+                        </p>
+                    </td>
+                    <td ng-show="item.serializableStatus=='Batch'" style="width: 12% !important; ">
+                        <div ng-class="{'has-error': selectedItemForm['batchNo' + $index].$invalid}">
+                            <input type="text" maxlength="25" alphanum-without-space=""
+                                   class="form-control input-md"
+                                   ng-change="checkSerialNo(item.serializableNumbers);"
+                                   name="serializableNumbers_{{$index}}"
+                                   ng-value="{{item.serializableNumbers}}"
+                                   ng-model="item.serializableNumbers"
+                                   placeholder="Batch No" step="0.01" required/>
+                        </div>
+                    </td>
+                    <td ng-if="item.serializableStatus=='Serialize'" style="width: 12% !important; ">
+                        <div ng-class="{'has-error': selectedItemForm['serializableIMEINo' + $index].$invalid}">
+                            <input type="text"
+                                   class="form-control input-md" num-with-space
+                                   ng-change="checkIMEINo(item.serializableIMEINo);"
+                                   name="serializableIMEINo_{{$index}}"
+                                   ng-value="{{item.serializableIMEINo}}"
+                                   ng-model="item.serializableIMEINo" maxlength="25"
+                                   placeholder="IMEI No" step="0.01" required/>
+                        </div>
+                    </td>
+
+
+                    <td ng-if="item.serializableStatus=='Serialize'" style="width: 12% !important; ">
+                        <div ng-class="{'has-error': selectedItemForm['serializableNumbers' + $index].$invalid}">
+                            <input type="text" maxlength="25" alphanum-without-space=""
+                                   class="form-control input-md"
+                                   ng-change="checkSerialNo(item.serializableNumbers);"
+                                   name="serializableNumbers_{{$index}}"
+                                   ng-value="{{item.serializableNumbers}}"
+                                   ng-model="item.serializableNumbers"
+                                   placeholder="Serial No" step="0.01" required/>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+        <div class="row main_sales_btn_info">
+            <div class="col-md-1 col-sm-12 check_save_info">
+                <button type="button" data-toggle="modal"
+                        ng-click="saveMultiPayPI()">SAVE
+                </button>
+                <button type="button" ng-show="op === 'Return'" data-toggle="modal"
+                        ng-click="openSelectpaymentForReturn()">RETURN
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade  bs-check" tabindex="-1" id="PosInvoiceList" role="dialog" data-backdrop="static"
+         aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content checkout">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" ng-click="hideButton()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Purchase Invoice List</h4>
+                </div>
+                <div class="modal-body checkout-body">
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label>Search: <input class="form-control input-sm"
+                                                              ng-model="searchText"></label>
+                                        <table class="table table-striped table_costomize" id="purchaselisttable">
+                                            <thead>
+                                            <tr>
+                                                <th data-field="name">Form No</th>
+                                                <th data-field="name">Supplier Name</th>
+                                                <th data-field="name">Total Amount</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="parentTable">
+                                            <tr ng-repeat="p in posPurchaseList | filter:searchText"
+                                                ng-click="appendPosPurchaseInvoice(p.formNo)">
+                                                <td>{{p.formNo}}</td>
+                                                <td class="word_break">{{p.supplierName}}</td>
+                                                <td>{{p.amount}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade  bs-check" tabindex="-1" id="PosInvoiceDuplicatePrint" role="dialog" data-backdrop="static"
+         aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-md" style="width: 718px;">
+            <div class="modal-content checkout">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" ng-click="hideButton()" aria-label="Close">
+                        <span aria-hidden="true" ng-click="remove()">&times;</span></button>
+                    <h4 class="modal-title"> Purchase Invoice List</h4>
+                </div>
+                <div class="modal-body checkout-body">
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label>Search: <input class="form-control input-sm"
+                                                              ng-keyup="$event.keyCode == 13 ? getDuplicateInvoiceList(text) : null"
+                                                              ng-model="text"></label>
+                                        <table class="table table-striped table_costomize seven_table_info"
+                                               id="purchaselisttable">
+                                            <thead>
+                                            <tr>
+                                                <th data-field="name" style="width: 16% !important;">Form No</th>
+                                                <th data-field="name">Supplier Name</th>
+                                                <th data-field="name">Total Amount</th>
+                                                <th data-field="name">Edit</th>
+                                                <th data-field="name">Post</th>
+                                                <th data-field="name">Cancel Draft Invoice</th>
+                                                <th data-field="name">Cancel Invoice</th>
+                                                <th data-field="name">Print</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="parentTable">
+                                            <tr ng-repeat="p in posPurchaseList | filter:searchText">
+                                                <td style="width: 16% !important;">{{p.formNo}}</td>
+                                                <td class="word_break">{{p.supplierName}}</td>
+                                                <td>{{p.amount}}</td>
+                                                <td ng-if="p.piStatus == 'Draft'"><a type="button" data-toggle="tooltip"
+                                                                                     ng-readonly="piStatus === 'Draft'"
+                                                                                     ng-click="getPurchaseInvoiceForEdit(p.formNo)"
+                                                                                     title="edit"><img
+                                                        src="resource/posimages/icons/edit.PNG"></a></td>
+                                                <td ng-if="p.piStatus == 'Prepared'"><a type="text"
+                                                                                        data-toggle="tooltip"
+                                                                                        title="Yes"></a>Posted
+                                                </td>
+                                                <td ng-if="p.piStatus == 'Draft'"><a type="button" data-toggle="tooltip"
+                                                                                     ng-readonly="piStatus === 'Draft'"
+                                                                                     ng-click="postPurchaseInvoice(p.formNo,$index)"
+                                                                                     title="Posting"><img
+                                                        src="resource/posimages/icons/cal_icon_2.png"></a></td>
+                                                <td ng-if="p.piStatus == 'Prepared'"><a type="text"
+                                                                                        data-toggle="tooltip"
+                                                                                        title="Yes"></a>Yes
+                                                </td>
+                                                <td ng-if="p.piStatus == 'Draft'"><a type="button"
+                                                                                     data-toggle="tooltip"
+                                                                                     ng-click="cancelDraftPurchaseInvoice(p.id)"
+                                                                                     title="Cancel Invoice"><img
+                                                        src="resource/posimages/icons/1.png"/></a></td>
+                                                <td ng-if="p.piStatus == 'Prepared'"><a type="text"
+                                                                                        data-toggle="tooltip"
+                                                                                        title="Yes"></a>Invoiced
+                                                </td>
+                                                <td ng-if="p.piStatus == 'Draft'"><a type="text" data-toggle="tooltip"
+                                                                                     title="Yes"></a>Draft
+                                                </td>
+                                                <td ng-if="p.piStatus == 'Prepared'"><a type="button"
+                                                                                        data-toggle="tooltip"
+                                                                                        ng-click="cancelPurchaseInvoice(p.id)"
+                                                                                        title="Cancel Invoice"><img
+                                                        src="resource/posimages/icons/1.png"/></a></td>
+                                                <td><a type="button" data-toggle="tooltip"
+                                                       ng-click="duplicatePIPrint(p.formNo)" title="Print"><img
+                                                        src="resource/posimages/icons/cal_icon_1.png"></a></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="remove();openPaymentList('purchase')" class="btn btn-default"
+                            data-dismiss="modal">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade ItemsNoStockListModel" tabindex="-1" id="ItemsNoStockListModel" role="dialog"
+         data-backdrop="static" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content checkout">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Items No Stock List</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped table_costomize itemlisttable" id="">
+                                    <thead>
+                                    <tr>
+                                        <th data-field="name">Item Code</th>
+                                        <th data-field="desc">Item Name</th>
+                                        <th style="width: 20%" data-field="desc">Available Qty</th>
+                                        <th style="width: 40%" data-field="desc">Item Category Name</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="parentTable">
+                                    <tr ng-repeat="item in itemsNoStockList">
+                                        <td class="word_break">{{item.itemCode}}</td>
+                                        <td class="word_break">{{item.itemName}}</td>
+                                        <td style="width: 20%" class="word_break">{{item.stock}}</td>
+                                        <td style="width: 40%" class="word_break">{{item.itemCategoryName}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <payment-modal></payment-modal>
+    <!--------- ------------------------------->
+    <div class="modal fade selectItem" tabindex="-1" id="selectAccount1" role="dialog" data-backdrop="static"
+         aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content checkout">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Select Account</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Search: <input class="form-control input-sm"
+                                                  ng-change="getBankAccountList(searchText)"
+                                                  ng-change-delay="300" ng-model="searchText"></label>
+                            <div class="table-responsive">
+                                <table class="table table-striped table_costomize itemlisttable four_table_info" id="">
+                                    <thead>
+                                    <tr>
+                                        <th data-field="name">Account Code</th>
+                                        <th data-field="desc">Account Name</th>
+                                        <th data-field="desc">Upper Level Name</th>
+                                        <th data-field="desc">Account Type</th>
+                                        <!--<th data-field="desc">Item Category Name</th>-->
+                                    </tr>
+                                    </thead>
+                                    <tbody id="parentTable">
+                                    <tr ng-repeat="account in accountList| filter:searchText"
+                                        ng-click="showAcceptedNotificationList ? updateNotificationItemInList(account) : addAccount(account);">
+                                        <td hidden>{{account.accountid}}</td>
+                                        <td>{{account.stringAccountCode}}</td>
+                                        <td>{{account.account_name}}</td>
+                                        <td>{{account.parentAccount_name}}</td>
+                                        <td>{{account.accountGroup}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---------SELECT PAYMENT ------------------------------->
+    <div class="modal fade selectItem" tabindex="-1" id="selectPaymentType" role="dialog" data-backdrop="static"
+         aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content checkout">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Select Account</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Search: <input class="form-control input-sm" ng-change="getPaymentTypesList()"
+                                                  ng-change-delay="300" ng-model="searchText"></label>
+                            <div class="table-responsive">
+                                <table class="table table-striped table_costomize itemlisttable four_table_info" id="">
+                                    <thead>
+                                    <tr>
+                                        <th data-field="name">Payment Name</th>
+                                        <th data-field="desc">Payment Type</th>
+                                        <th data-field="desc">Account Name</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="parentTable">
+                                    <tr ng-repeat="pay in paymentList| filter:searchText"
+                                        ng-click="addType(pay.paymentmethodId,pay.paymentmethodName);"
+                                        id="payment{{$index}}">
+                                        <td hidden>{{pay.paymentmethodId}}</td>
+                                        <td>{{pay.paymentmethodName}}</td>
+                                        <td>{{pay.paymentmethodType}}</td>
+                                        <td>{{pay.accountMaster}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#voucherDateDiv').datetimepicker({
+                pickTime: false,
+            });
+
+            $("#calHideDiv").click(function () {
+                $("#conDiv").removeClass("col-md-11 col-sm-11 col-xs-11 custom-col-11");
+            });
+
+        });
+    </script>
+    <div class="modal fade" tabindex="-1" id="purchase_print_list_modal" role="dialog" data-backdrop="static"
+         aria-labelledby="mySmallModalLabel_1">
+        <div class="modal-dialog modal-md" style="width: 700px;">
+            <div class="modal-content checkout">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Print List </h4>
+                </div>
+                <div class="modal-body checkout-body" style="min-height: 515px;">
+                    <div class="col-xs-4 col-md-4">
+                        <div class="report_icon"><a ng-click="getCreditNoteList()"
+                                                    class="link_report_sales"><img src="resource/images/sales.png"/>
+                            Credit Note</a></div>
+                    </div>
+                    <div class="col-xs-4 col-md-4">
+                        <div class="report_icon"><a data-toggle="modal" ng-click="getDuplicateInvoiceList()"
+                                                    data-target=".invoke-order" class="link_account_payable"><img
+                                src="resource/images/creditors-ageing.png" style="width: 53%;"/> Invoice</a></div>
+                    </div>
+                    <div class="col-xs-4 col-md-4">
+                        <div class="report_icon"><a ng-click="getPaymentDetails()" class="link_report_analysis"><img
+                                src="resource/images/sales.png"/>Payment Listing</a></div>
+                    </div>
+                    <div class="col-xs-4 col-md-4">
+                        <div class="report_icon"><a ng-click="getPurchaseOrderDetails('','Print')"
+                                                    class="link_report_analysis"><img
+                                src="resource/images/analysis.png"/> Purchase Order</a></div>
+                    </div>
+                    <div class="col-xs-4 col-md-4">
+                        <div class="report_icon"><a ng-click="getPurchaseReturn()"
+                                                    class="link_report_financial_statement "><img
+                                src="resource/images/financial.png"/> Purchase Return</a></div>
+                    </div>
+                    <div class="col-xs-4 col-md-4">
+                        <div class="report_icon"><a ng-click="getDuplicatePurchaseQuotation('','Print')"
+                                                    class="link_report_financial_statement "><img
+                                src="resource/images/financial.png"/> Purchase Quotation</a></div>
+                    </div>
+                    <div class="col-xs-4 col-md-4">
+                        <div class="report_icon"><a ng-click="getDuplicateReceiveItem('','Print')"
+                                                    class="link_report_financial_statement "><img
+                                src="resource/images/financial.png"/> Receive Item</a></div>
+                    </div>
+                    <div class="col-xs-4 col-md-4">
+                        <div class="report_icon"><a data-toggle="modal" ng-click="getAdvanceInvoiceList()"
+                                                    data-target=".invoke-order" class="link_account_payable"><img
+                                src="resource/images/creditors-ageing.png" style="width: 53%;"/> AdvancePaymentList</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="modal fade selectSupplier" tabindex="-1" id="selectSupplier" role="dialog" data-backdrop="static"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content checkout">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true" ng-click="remove()">&times;</span></button>
+                <h4 class="modal-title">Select Supplier</h4>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Search: <input class="form-control input-sm"
+                                              ng-keyup="$event.keyCode == 13 ? getSupplierListSearch(text) : null"
+                                              ng-change-delay="300" ng-model="text"></label>
+                        <div class="table-responsive">
+                            <table class="table table-select-supplier table-striped table_costomize supplierList" id="">
+                                <thead>
+                                <tr>
+                                    <th style="width: 33.3% " data-field="name">Supplier Name</th>
+                                    <th style="width: 33.3% " data-field="desc">Email</th>
+                                    <th style="width: 33.3% " data-field="desc">Contact</th>
+                                </tr>
+                                </thead>
+                                <tbody id="parentSupplierTable">
+                                <tr ng-repeat="supplierId in supplierList| filter:searchSupplierText"
+                                    ng-click="appendSupplier(supplierId)">
+                                    <td style="width: 33.3% !important;word-break: break-word;">{{supplierId.supplierName}}</td>
+                                    <td style="width: 33.3% !important;word-break: break-word;">{{supplierId.supplierEmail}}</td>
+                                    <td style="width: 33.3% !important;word-break: break-word;">{{supplierId.phoneNumber1}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="remove()" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <add-new-item-modal></add-new-item-modal>
+    <payment-modal></payment-modal>
+    <add-new-supplier-modal></add-new-supplier-modal>
+</div>
+</body>

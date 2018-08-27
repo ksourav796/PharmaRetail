@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div class="container-fluid">
+    <div class="container cus_main_row" >
+
+        <div class="row">
+            <h2 class="pos-header-new">
+                <div>Tax</div>
+            </h2>
+        </div>
+        <div class="row inner_row_bg">
+<div class="col-md-12 col-sm-12">
+    <div class="panel">
+        <div class="panel-body" style="height: 65px;">
+            <div class="col-md-12 col-sm-12">
+
+                <form class="form-horizontal ng-pristine ng-valid">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12">
+                                <div class="col-md-7 col-sm-6">
+                                    <p class="input-group">
+                                        <input type="text" class="form-control ng-pristine ng-untouched ng-valid"
+                                               ng-keyup="$event.keyCode == 13 ? getTaxList(searchText) : null" ng-model="searchText"placeholder="Tax Name">
+                                    </p>
+                                </div>
+                                <!--<div class="col-md-5 col-sm-6">-->
+                                    <!--<button type="button" class="btn btn-default hi_btn" ng-click="getTaxList(text)">Search</button>-->
+                                <!--</div>-->
+                            </div>
+                            <div class="col-md-5 col-sm-12">
+                                <div class="col-md-3 col-sm-3">
+                                    <button type="button" class="btn btn-default hi_btn" ng-click="addTax()">Add</button>
+                                </div>
+                                <div class="col-md-3 col-sm-3">
+                                    <button type="submit" id="colButn" class="btn btn-default" data-toggle="modal"
+                                            ng-model="inactiveStatus" data-target=".print-me" ng-click="inactiveTax()">{{ButtonStatus}}
+                                    </button>
+                                </div>
+                                <!--<div class="col-md-3 col-sm-3">-->
+                                    <!--<button type="button" class="btn btn-default hi_btn" ng-click="activateTax()">Activate</button>-->
+                                <!--</div>-->
+                                <!--<div class="col-md-3 col-sm-3">-->
+                                    <!--<button type="button" class="btn btn-default hi_btn" ng-click="deActivateTax()">Deactivate</button>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 col-sm-12">
+    <div class="panel">
+
+        <div class="fixed-table-container">
+            <div class="table_wrapfixed-table-container-inner">
+                <div class="header-background"></div>
+                <table data-toggle="table" data-cache="false" data-height="299"
+                       class="hi_table table table-hover table-bordered table-striped table-fixed-header" style="margin-bottom: 0;">
+                    <thead>
+                    <tr>
+                        <th data-field="slct">
+                            <div class="th-inner"></div>
+                        </th>
+                        <th data-field="taxcd">
+                            <div class="th-inner">Tax Code</div>
+                        </th>
+                        <th data-field="taxnm">
+                            <div class="th-inner">Tax Name</div>
+                        </th>
+                        <th data-field="descrp">
+                            <div class="th-inner">Tax Type</div>
+                        </th>
+                        <th data-field="descrp">
+                            <div class="th-inner">Tax</div>
+                        </th>
+                        <th data-field="descrp">
+                            <div class="th-inner">Description</div>
+                        </th>
+
+                        <th data-field="descrp">
+                            <div class="th-inner">Status</div>
+                        </th>
+                        <th data-field="edt">
+                            <div class="th-inner">Edit</div>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody id="parentTable">
+                    <tr ng-repeat="tax in taxList| filter:searchText">
+                        <td><input type="checkbox" ng-modal="tax.selected" value="{{tax.taxId}}" id="selected"/></td>
+                        <td>{{tax.taxCode}}</td>
+                        <td>{{tax.taxName}}</td>
+                        <td>{{tax.taxTypeName}}</td>
+                        <td>{{tax.tax_Per}}</td>
+                        <td>{{tax.taxDescription}}</td>
+                        <td>{{tax.taxStatus}}</td>
+                        <td>
+                            <a href="javascript:void(0)" ng-click="editTax(tax)" class="edit"><i class="fa fa-pencil-square-o fa-fw orange"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div></div>
+            <div class="form-group">
+                <div class="col-sm-12 col-md-12 pagination_" style="margin-top: 180px;">
+
+                    <button type="button" class="btn btn-default hi_btn" ng-class="{'diabled-class': first}" ng-disabled="first"
+                            ng-click="getPaginatedTaxList('firstPage')"  ng-model="first">First
+                    </button>
+                    <button type="button" class="btn btn-default hi_btn"  ng-class="{'diabled-class': prev}" ng-disabled="prev"
+                            ng-click="getPaginatedTaxList('prevPage')"   ng-model="prev">Prev
+                    </button>
+                    <button type="button" class="btn btn-default hi_btn"  name="next" ng-disabled="next"
+                            ng-click="getPaginatedTaxList('nextPage')"  value="next"  ng-class="{'diabled-class': next}" ng-model="next">Next
+                    </button>
+                    <button type="button" class="btn btn-default hi_btn"
+                            ng-click="getPaginatedTaxList('lastPage')"   ng-class="{'diabled-class': last}" ng-disabled="last"
+                            ng-model="last">Last
+                    </button>
+                </div>
+                <div align="center"><span style="color: red;"></span></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="modal fade Tax" tabindex="-1" id="add_New_Tax_modal" role="dialog" data-backdrop="static"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md" style="width: 28%">
+        <div class="modal-content checkout" ng-form name="taxForm">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 id = "tax-title" class="modal-title">{{title}}</h4>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal" name="taxForm" novalidate>
+                            <fieldset>
+                                <input type="hidden" ng-model="taxEntity.taxId" value="{{taxEntity.taxId}}"/>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="">Tax Code</label>
+                                    <div class="col-md-6" style="position:relative;">
+                                        <input id="TaxCode" name="TaxCode" class="form-control"
+                                               type="text" placeholder="Tax Code"
+                                               ng-value = "taxEntity.taxCode"
+                                               ng-model="TaxCodeText"
+                                               ng-model-options="{ debounce: 1000 }"
+                                               ng-blur="hideAutoComplete()"
+                                               ng-change = "checkTaxCode()"
+                                               minlength="2"
+                                               maxlength="30"
+                                               class="form-control input-md" autocomplete="off" required>
+                                        <span style="color:red" ng-show="taxForm.TaxCode.$error.required && taxForm.TaxCode.$dirty">TaxCode is required</span>
+                                        <span style="color:red" ng-show="taxForm.TaxCode.$error.minlength && taxForm.TaxCode.$dirty">Min Length has to be 2-digit</span>
+                                        <span style="color:red" ng-show="taxForm.TaxCode.$error.maxlength && taxForm.TaxCode.$dirty">Max Length has to be 6-digit</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="">Tax Name</label>
+                                    <div class="col-md-6" style="position:relative;">
+                                        <input id="TaxName" name="TaxName"
+                                               type="text" placeholder="Tax Name"
+                                               ng-value = "taxEntity.taxName"
+                                               ng-model="TaxNameText"
+                                               ng-model-options="{ debounce: 1000 }"
+                                               ng-blur="hideAutoComplete()"
+                                               minlength="3"
+                                               maxlength="60"
+                                               class="form-control input-md" autocomplete="off" required>
+                                        <span style="color:red" ng-show="taxForm.TaxName.$error.required && taxForm.TaxName.$dirty">TaxCode is required</span>
+                                        <span style="color:red" ng-show="taxForm.TaxName.$error.minlength && taxForm.TaxName.$dirty">Min Length has to be 3-digit</span>
+                                        <span style="color:red" ng-show="taxForm.TaxName.$error.maxlength && taxForm.TaxName.$dirty">Max Length has to be 20-digit</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="">Tax Group</label>
+                                    <div class="col-md-6" style="position:relative;">
+                                        <select class="form-control input-md"
+                                                ng-model="selectedTaxGroup">
+                                            <option value="SALES/OUTPUT">SALES/OUTPUT</option>
+                                            <option value="PURCHASE/INPUT">PURCHASE/INPUT</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="">Tax Type</label>
+                                    <div class="col-md-6" style="position:relative;">
+                                        <select class="form-control input-md"
+                                                ng-model="selectedTaxType"
+                                                ng-change="generateAccountCode()"
+                                                ng-options="tTxTyp.taxName as tTxTyp.taxName for tTxTyp in taxTypeList" required>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="">Tax %</label>
+                                    <div class="col-md-6" style="position:relative;">
+                                        <input id="TaxPerc" name="TaxPerc"
+                                               type="number" placeholder="Tax %"
+                                               ng-model="TaxPercText"
+                                               min="0" max="100"
+                                               class="form-control input-md" autocomplete="off"  required>
+                                        <span style="color:red" ng-show="taxForm.TaxPerc.$error.required && taxForm.TaxPerc.$dirty">Tax % is required</span>
+                                        <span style="color:red" ng-show="taxForm.TaxPerc.$error.max">You cant enter above 100</span>
+                                        <span style="color:red" ng-show="taxForm.TaxPerc.$error.min">You cant enter below 0</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="">Description</label>
+                                    <div class="col-md-6" style="position:relative;">
+                                        <input id="Description" name="Description"
+                                               allowpattern="[a-z]"
+                                               type="text" placeholder="Description"
+                                               ng-value = "taxEntity.taxDescription"
+                                               ng-model="DescriptionText"
+                                               ng-model-options="{ debounce: 1000 }"
+                                               ng-blur="hideAutoComplete()"
+                                               maxlength="50"
+                                               class="form-control input-md" autocomplete="off">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="">Status</label>
+                                    <div class="col-md-6" style="position:relative;">
+                                        <select class="form-control input-md"
+                                                ng-model="selectedStatusText"
+                                                ng-options="tStLst.value as tStLst.name for tStLst in statusList" required>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-default" data-toggle="modal"
+                                        data-target=".print-me" ng-click="saveTax()" ng-disabled ="taxForm.$invalid">Save
+                                </button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

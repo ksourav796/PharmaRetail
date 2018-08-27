@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div class="container-fluid">
+    <div class="container cus_main_row" >
+
+        <div class="row">
+            <h2 class="pos-header-new">
+                <div>Tax Type</div>
+            </h2>
+        </div>
+        <div class="row inner_row_bg">
+<div class="col-md-12">
+    <div class="panel">
+        <div class="panel-body" style="height: 65px;">
+            <div class="col-md-12">
+                <form class="form-horizontal ng-pristine ng-valid">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="col-md-2 col-sm-3">
+                                    <p class="input-group">
+                                        <input type="text" class="form-control ng-pristine ng-untouched ng-valid"
+                                               placeholder="Tax Type"
+                                               ng-keyup="$event.keyCode == 13 ? getTaxTypeList() : null" ng-model="taxSearchtext">
+                                    </p>
+                                </div>
+                                <div class="col-md-5 col-sm-12">
+                                <!--<div class="col-md-6 col-sm-3">-->
+                                    <!--<button type="button" class="btn btn-default hi_btn"  ng-click="getTaxTypeList(text)">Search</button>-->
+                                <!--</div>-->
+                                    <div class="col-md-3 col-sm-3">
+                                    <button type="button" class="btn btn-default hi_btn"  ng-click="addTaxType()">Add</button>
+                                </div>
+                                    <div class="col-lg-4 col-md-2 col-sm-4">
+                                    <span class="custom-dropdown custom-dropdown--white">
+                                        <select ng-model="exportsType" class="form-control " ng-change="GetValue()">
+                                            <option value=""> Select Type</option>
+                                            <option value="pdf"> Pdf</option>
+                                            <option value="excel"> Excel</option>
+                                        </select>
+                                    </span>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2" style="margin-left: 0px;">
+                                        <div ng-if="exportsType"><a
+                                                href="/pos/taxTypeExport?val={{searchText}}&type={{exportsType}}&statustype={{inactiveStatus}}">
+                                            <button type="button" class="btn btn-default hi_btn">Export</button>
+                                        </a></div>
+                                        <div ng-if="!exportsType">
+                                            <button type="button" class="btn btn-default hi_btn">Export</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12">
+
+
+        <div class="fixed-table-container">
+            <div class="table_wrapfixed-table-container-inner">
+                <div class="header-background"></div>
+                <table data-toggle="table" data-cache="false" data-height="299" class="hi_table table table-hover table-bordered table-striped table-fixed-header" style="margin-bottom: 0;">
+                    <thead>
+                    <tr>
+                        <th data-field="slct">
+                            <div class="th-inner"></div>
+                        </th>
+                        <!--<th data-field="adtaxtyp">-->
+                            <!--<div class="th-inner">Add Tax Type</div>-->
+                        <!--</th>-->
+                        <th data-field="taxtyp">
+                            <div class="th-inner">Tax Type</div>
+                        </th>
+                        <th data-field="descrp">
+                            <div class="th-inner">Description</div>
+                        </th>
+                        <th data-field="edt">
+                            <div class="th-inner">Edit</div>
+                        </th>
+                        <!--<th data-field="edt">-->
+                            <!--<div class="th-inner">Delete</div>-->
+                        <!--</th>-->
+                    </tr>
+                    </thead>
+                    <tbody id="parentTable">
+                    <tr ng-repeat="taxType in taxTypeList| filter:taxSearchtext">
+                        <td><input type="checkbox" ng-modal=taxType.taxTypeId /></td>
+                        <!--<td>{{taxType.taxClassId.taxClassName}}</td>-->
+                        <td>{{taxType.taxName}}</td>
+                        <td>{{taxType.taxDescription}}</td>
+                        <td>
+                            <a href="javascript:void(0)" ng-click="editTaxType(taxType)" class="edit"><i class="fa fa-pencil-square-o fa-fw orange"></i></a>
+                        </td>
+                        <!--<td><a id="del_{{$index}}" href="javascript:void(0)" ng-click="deleteTaxType(taxType)" class="del"><i class="fa fa-trash-o fa-fw orange"></i></a>-->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--Button added for pagination @rahul-->
+            <div class="form-group">
+                <div class="col-sm-12 col-md-12 pagination_">
+
+                    <button type="button" class="btn btn-default hi_btn" ng-class="{'diabled-class': first}" ng-disabled="first"
+                            ng-click="getTaxTypeList('firstPage')"  ng-model="first">First
+                    </button>
+                    <button type="button" class="btn btn-default hi_btn"  ng-class="{'diabled-class': prev}" ng-disabled="prev"
+                            ng-click="getTaxTypeList('prevPage')"   ng-model="prev">Prev
+                    </button>
+                    <button type="button" class="btn btn-default hi_btn"  name="next" ng-disabled="next"
+                            ng-click="getTaxTypeList('nextPage')"  value="next"  ng-class="{'diabled-class': next}" ng-model="next">Next
+                    </button>
+                    <button type="button" class="btn btn-default hi_btn"
+                            ng-click="getTaxTypeList('lastPage')"   ng-class="{'diabled-class': last}" ng-disabled="last"
+                            ng-model="last">Last
+                    </button>
+                </div>
+                <div align="center"><span style="color: red;"></span></div>
+            </div>
+        </div>
+
+
+</div>
+
+
+<div class="modal fade TaxType" tabindex="-1" id="add_New_Tax_Type_modal" role="dialog" data-backdrop="static"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md" style="width: 30%">
+        <div class="modal-content checkout">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">{{title}}</h4>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal">
+                            <fieldset>
+
+                                <!--<div class="form-group">-->
+                                    <!--<label class="col-md-4 control-label" for="">Tax Class</label>-->
+                                    <!--<div class="col-md-6" style="position:relative;">-->
+                                        <!--<select class="form-control input-md"-->
+                                                <!--ng-model="selectedTaxClass"-->
+                                                <!--ng-options="tClass.taxClassId as tClass.taxClassName for tClass in taxClassList">-->
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                    <!--<label class="col-md-4 control-label" for="">Tax Group</label>-->
+                                    <!--<div class="col-md-6" style="position:relative;">-->
+                                        <!--<select class="form-control input-md"-->
+                                                <!--ng-model="selectedTaxGroup"-->
+                                                <!--ng-options="tGroup.taxGroupId as tGroup.taxGroupName for tGroup in taxGroupList">-->
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="">Tax Type</label>
+                                    <div class="col-md-6" style="position:relative;">
+                                        <input id="TaxType" name="TaxType"
+                                               allowpattern="[a-z]"
+                                               type="text" placeholder="Tax Type"
+                                               ng-model="TaxTypeText"
+                                               ng-blur="hideAutoComplete()"
+                                               class="form-control input-md" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="">Description</label>
+                                    <div class="col-md-6" style="position:relative;">
+                                        <input type="text"
+                                               id="TaxTypeDescription" name="TaxTypeDescription"
+                                               allowpattern="[a-z]"
+                                               placeholder="Tax Type Description"
+                                               ng-model="TaxTypeDescriptionText"
+                                               ng-blur="hideAutoComplete()"
+                                               class="form-control input-md" required>
+                                    </div>
+                                </div>
+
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default" data-toggle="modal"
+                        data-target=".print-me" ng-click="saveTaxType()">Save
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

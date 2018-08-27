@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div class="container-fluid">
+    <div class="container cus_main_row" style="height: 715px;">
+
+        <div class="row">
+            <h2 class="pos-header-new">
+                <div>item</div>
+            </h2>
+        </div>
+        <div class="row inner_row_bg">
+            <div class="col-md-12 col-sm-12 col-xs-12 ng-scope">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="col-md-3 col-lg-3 col-sm-3 col-xs-5">
+                            <form class="form-horizontal ng-pristine ng-valid">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <p class="input-group" style="display: block;">
+                                            <input type="text" list="itemList1" ng-model="itemSearchText" placeholder="Search Item"
+                                                   ng-keyup="$event.keyCode == 13 ? getItemList(itemSearchText) : null"
+                                                   class="form-control input-md"/>
+                                            <datalist id="itemList1">
+                                                <option ng-repeat="option in completeItemList | filter:itemSearchText | limitTo:5" value="{{option.itemName}}"></option>
+                                            </datalist>
+                                        </p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-md-9 col-lg-7 col-sm-9 col-xs-7">
+
+                            <div class="form-group">
+                                <div class="col-lg-2 col-md-3 col-sm-3">
+                                    <button type="button" class="btn btn-default hi_btn"
+                                            ng-click="addNewItemPopulate()">Add
+                                    </button>
+                                </div>
+                                <!--<div class="col-lg-2 col-md-3 col-sm-3">-->
+                                    <!--<button type="button" class="btn btn-default hi_btn" ng-click="importPopup()">Item-->
+                                        <!--Import-->
+                                    <!--</button>-->
+                                <!--</div>-->
+
+                                <div class="col-lg-2 col-md-3 col-sm-3">
+                                    <button type="submit" id="colButn" class="btn btn-default" data-toggle="modal"
+                                            ng-model="inactiveStatus" data-target=".print-me" ng-click="inactiveItem()">{{ButtonStatus}}
+                                    </button>
+                                </div>
+
+                                <!--<div class="col-lg-3 col-md-3 col-sm-4">-->
+                        <!--<span class="custom-dropdown custom-dropdown&#45;&#45;white">-->
+                            <!--<select ng-model="exportsType" class="form-control " ng-change="GetValue()" style="margin-top: 0;">-->
+                                <!--<option value=""> Select Type</option>-->
+                                <!--<option value="pdf"> Pdf</option>-->
+                                <!--<option value="excel"> Excel</option>-->
+                            <!--</select>-->
+                        <!--</span>-->
+                                <!--</div>-->
+                                <!--<div class="col-lg-2 col-md-3 col-sm-3">-->
+                                    <!--<a href="/hipos/1/itemExpxort?type={{exportsType}}">-->
+                                        <!--<div ng-if="exportsType"><button type="button" class="btn btn-default hi_btn">Export</button>-->
+                                    <!--</a>-->
+                                <!--</div>-->
+                                <!--<div ng-if="!exportsType">-->
+                                    <!--<button type="button" class="btn btn-default hi_btn">Export</button>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+
+                <div class="fixed-table-container">
+                    <div class="table_wrapsasdsafixed-table-container-innerdsad">
+
+                        <div class="table-responsive">
+                            <table class=" hi_table table table_option2 table-hover table-striped table-fixed-header list_table" id="" style="margin-bottom: 0;">
+                                <thead>
+                                <tr>
+                                    <th data-field="name">
+                                        <div class="th-inner">Item Code</div>
+                                    </th>
+                                    <th data-field="desc">
+                                        <div class="th-inner">Item Name</div>
+                                    </th>
+                                    <th data-field="desc">
+                                        <div class="th-inner">Status</div>
+                                    </th>
+                                    <th data-field="desc">
+                                        <div class="th-inner">Available Qty</div>
+                                    </th>
+                                    <th data-field="desc">
+                                        <div class="th-inner">Item Category Name</div>
+                                    </th>
+                                    <th data-field="desc">
+                                        <div class="th-inner">Edit</div>
+                                    </th>
+                                    <th data-field="desc">
+                                        <div class="th-inner">Generate BarCode</div>
+                                    </th>
+                                </tr>
+                                </thead>
+
+                                <tbody id="parentTable">
+                                <tr ng-repeat="item in itemList| filter:itemSearchText">
+                                    <hidden {{item.itemId}}/>
+                                    <td>{{item.itemCode}}</td>
+                                    <td class="word_break">{{item.itemName}}</td>
+                                    <td>{{item.itemStatus}}</td>
+                                    <td>{{item.stock | number:4}}</td>
+                                    <td>{{item.itemCategoryName}}</td>
+                                    <td>
+                                        <a id="edit_{{$index}}" ng-click="editItemPopulate(item)" class="edit">
+                                            <i class="fa fa-pencil-square-o fa-fw orange"></i></a>
+                                    </td>
+                                    <td>
+                                        <a id="edit1_{{$index}}" ng-click="generateBarCode(item.itemId)" class="edit">
+                                            <i class="fa fa-barcode fa-fw orange"></i></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <!--<tbody id="parentTable">-->
+                                <!--<tr>-->
+                                <!--<td>12</td>-->
+                                <!--<td class="word_break">12</td>-->
+                                <!--<td>12</td>-->
+                                <!--<td>12</td>-->
+                                <!--<td>12</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                <!--<td>12</td>-->
+                                <!--<td class="word_break">12</td>-->
+                                <!--<td>12</td>-->
+                                <!--<td>12</td>-->
+                                <!--<td>12</td>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+
+                                <!--<td>12</td>-->
+                                <!--<td class="word_break">12</td>-->
+                                <!--<td>12</td>-->
+                                <!--<td>12</td>-->
+                                <!--<td>12</td>-->
+                                <!--</tr>-->
+
+
+                                <!--</tbody>-->
+                            </table>
+                        </div>
+                    </div>
+                    <!--adding button for navigation on 21/08/2017-->
+
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12 pagination_">
+
+                        <button type="button" class="btn btn-default hi_btn" ng-class="{'diabled-class': first}"
+                                ng-disabled="first"
+                                ng-click="getPaginatedItemList('firstPage')" ng-model="first">First
+                        </button>
+                        <button type="button" class="btn btn-default hi_btn" ng-class="{'diabled-class': prev}"
+                                ng-disabled="prev"
+                                ng-click="getPaginatedItemList('prevPage')" ng-model="prev">Prev
+                        </button>
+                        <button type="button" class="btn btn-default hi_btn" name="next" ng-disabled="next"
+                                ng-click="getPaginatedItemList('nextPage')" value="next"
+                                ng-class="{'diabled-class': next}" ng-model="next">Next
+                        </button>
+                        <button type="button" class="btn btn-default hi_btn"
+                                ng-click="getPaginatedItemList('lastPage')" ng-class="{'diabled-class': last}"
+                                ng-disabled="last"
+                                ng-model="last">Last
+                        </button>
+                    </div>
+                    <div align="center"><span style="color: red;"></span></div>
+                </div>
+
+            </div>
+
+
+            <add-new-item-modal></add-new-item-modal>
+            <!-- start div -->
+            <div class="modal fade " tabindex="-1" id="barcodereceiptA5" role="dialog" data-backdrop="static"
+                 aria-labelledby="mySmallModalLabel">
+                <!--<link href="css/bootstrap.css" rel="stylesheet" media='print'>-->
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content checkout">
+                        <div id="barcodereceiptA5_modal" class="panel-body" class="mini-print-wrapper"
+                             style=" overflow-y: scroll; padding-left: 30px;">
+                            <style>
+                                tr {
+                                    display: table-row;
+                                }
+
+                                td {
+                                    display: table-cell;
+                                }
+
+                                tbody {
+                                    display: table-row-group;
+                                }
+
+                                .form-control {
+                                    margin-top: 5px;
+                                }
+                            </style>
+                            <table style="width: 93%; margin: 0% 2% 0% 5%;">
+                                <tr>
+                                    <td colspan="3">
+                                        <p style="margin:0px">Item Code: {{itemInfo.itemCode}}</p>
+                                        <!--<img style="  margin-bottom: 15px; width: 180px;" src="resource/posimages/barcode.PNG">-->
+                                        <img src="data:image/png;base64,{{itemInfo.barCode}}"
+                                             style="margin-bottom: 5px; width: 138px;"/>
+                                        <!--<p style="margin:0px">Number </p>-->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <p style="margin:0px">Item Name: {{itemInfo.itemName}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <p style="margin:0px">Item Sales Price: {{itemInfo.salesPrice}}</p>
+                                    </td>
+                                </tr>
+
+                                <!--<tr>-->
+                                <!--<td style="width: 73px;">-->
+                                <!--<p>Item Name</p>-->
+                                <!--<p>{{sItems.itemName}}</p>-->
+                                <!--</td>-->
+                                <!--<td style="width: 73px;">-->
+                                <!--<p>Qty</p>-->
+                                <!--<p>{{sItems.qty}}</p>-->
+                                <!--</td>-->
+                                <!--<td style="width: 73px;">-->
+                                <!--<p>Date</p>-->
+                                <!--<p>{{sItems.purchaseDate}}</p>-->
+                                <!--</td>-->
+                                <!--</tr>-->
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="reloadPage()">
+                                Close
+                            </button>
+                            <button type="button" id="generateCode" ng-click="printDiv('barcodereceiptA5_modal')"
+                                    class="btn btn-default">Print
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- end Div -->
+
+
+            <div class="modal fade" tabindex="-1" id="edit_new_item_modal" role="dialog" data-backdrop="static"
+                 aria-labelledby="mySmallModalLabel_1">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Update Item </h4>
+                        </div>
+                        <div class="modal-body checkout-body" style="min-height: 507px;">
+                            <div class="col-md-6">
+                                <!-- Text input-->
+                                <fieldset>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active"> <!--id="sub_step1"-->
+                                            <div ng-show="showFirst">
+                                                <div class="form-group">
+                                                    <label class="col-xs-5 control-label" for="ItemCode">Item Code/Bar
+                                                        Code
+                                                        <span>*</span></label>
+                                                    <div class="col-xs-6">
+                                                        <input id="ItemCode" name="ItemCode"
+                                                               allowpattern="[a-z-0-9]"
+                                                               type="text" placeholder="Item Code"
+                                                               ng-model="itemCodeText"
+                                                               class="form-control input-md">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-xs-5 control-label" for="ItemName">Item Name
+                                                        <span>*</span></label>
+                                                    <div class="col-xs-6">
+                                                        <input id="ItemName" name="ItemName"
+                                                               allowpattern="[a-z]"
+                                                               type="text" placeholder="Item Name"
+                                                               ng-model="itemNameText"
+                                                               no-special-char=""
+                                                               class="form-control input-md">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-xs-5 control-label"
+                                                           for="itemDesc">Description</label>
+                                                    <div class="col-xs-6">
+                                            <textarea name="itemDesc" cols="" rows="" id="itemDesc"
+                                                      class="form-control input-md"
+                                                      ng-model="itemDiscText"
+                                                      maxlength="150"></textarea>
+                                                    </div>
+                                                </div>
+                                                <!-- Text input-->
+                                                <div class="form-group">
+                                                    <label class="col-xs-5 control-label" for="Category">Item Category
+                                                        <span>*</span></label>
+                                                    <div class="col-xs-6">
+                                                        <select name="idItemCategory.itemCategoryId" id="idItemCategory"
+                                                                ng-model="itemCategoryId"
+                                                                ng-options="itcid.itemCategoryId as itcid.itemCategoryName for itcid in itemCategoryDTOList"
+                                                                class="form-control input-md" readonly>
+                                                            <option value="">Select</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-xs-5 control-label" for="Item Type">Item Type
+                                                        <span>*</span></label>
+                                                    <div class="col-xs-6">
+                                                        <select name="idItemType.itemTypeId" id="idItem"
+                                                                class="form-control input-md"
+                                                                ng-model="itemTypeId"
+                                                                ng-options="iTypeId.itemTypeId as iTypeId.itemTypeName for iTypeId in itemTypeDTOList"
+                                                                readonly>
+                                                            <option value="">Select</option>
+                                                        </select>
+                                                        <div id="idItemTypeerror" style="color: red"></div>
+                                                    </div>
+                                                    <div class="col-xs-1">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-xs-5 control-label" for="Units Of Measure">Unit of
+                                                        Measurement
+                                                        <span>*</span></label>
+                                                    <div class="col-xs-6">
+                                                        <select name="idItemUOM.UnitOfMeasurementId" id="idItemUOM"
+                                                                class="form-control input-md"
+                                                                ng-model="unitOfMeasurementId"
+                                                                ng-options="uom.unitOfMeasurementId as uom.unitOfMeasurementName for uom in itemUOMTypeDTOList"
+                                                                readonly>
+                                                            <option value="">Select</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-xs-5 control-label" for="Units Of Measure">HSN
+                                                        Code
+                                                        <span>*</span></label>
+                                                    <div class="col-xs-6">
+                                                        <select name="msiccomid.msiccomid" id="msiccomid"
+                                                                ng-model="mscid"
+                                                                ng-options="mid.mscid as mid.description for mid in itemMSICDTOList"
+                                                                class="form-control input-md" readonly>
+                                                            <option value="">Select</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Text input-->
+                                                <div class="form-group">
+                                                    <label class="col-xs-5 control-label" for="input Tax">Input
+                                                        Tax<span>*</span></label>
+                                                    <div class="col-xs-6">
+                                                        <select
+                                                                ng-model="taxIPId"
+                                                                ng-options="taxIP.taxIPId as taxIP.taxCode for taxIP in itemIPTaxDTOList"
+                                                                class="form-control input-md">
+                                                            <option value="">Select</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-xs-5 control-label" for="input Tax">Output
+                                                        Tax<span>*</span></label>
+                                                    <div class="col-xs-6">
+                                                        <select ng-model="taxOPId"
+                                                                ng-options="taxOP.taxOPId as taxOP.taxCode for taxOP in itemOPTaxDTOList"
+                                                                class="form-control input-md">
+                                                            <option value="">Select</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-xs-5 control-label"
+                                                           for="CESS">CESS(%) <span></span></label>
+                                                    <div class="col-xs-6">
+                                                        <input type="text" limit-to="8" min="0"
+                                                               id="CESS"
+                                                               name="CESS"
+                                                               class="form-control input-md"
+                                                               ng-model="CESSText"
+                                                               ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01"
+                                                               required/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-xs-5 control-label" for="Units Of Measure">Brand
+                                                        Name</label>
+                                                    <div class="col-xs-6">
+                                                        <select name="brandName.brandId" id="itemBrandId"
+                                                                ng-model="brandId"
+                                                                ng-options="brId.brandId as brId.brandName for brId in itemBrandDTOList"
+                                                                class="form-control input-md">
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-1 col-md-1 col-lg-1 no-pad">
+                                                        <a class="btn btn-default add_btn" ng-click="addNewBrand()"
+                                                           id="get-selections"><i
+                                                                class="fa fa-plus fa-fw"></i></a>
+                                                    </div>
+                                                </div>
+                                                <!--<a class="btn btn-default next" href="javascript:void(0)"
+                                                   ng-click="showFirstSecond('second')"
+                                                   data-toggle="tab" data-step="2">{{moreOrLessText}}</a>-->
+                                                <!--ng-click="next_wizard()"-->
+                                            </div>
+
+
+                                        </div>
+                                        <!--<div class="tab-pane fade" id="sub_step2">
+                                        </div>-->
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div ng-show="showSecond">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-5 control-label" for="Units Of Measure">Count Type</label>
+                                    <div class="col-xs-6">
+                                        <select name="serializableStatus" id="serializableStatus"
+                                                ng-model="inventoryMovementId"
+                                                ng-options="inventoryMovementId.inventoryMovementId as inventoryMovementId.inventoryMovementName for inventoryMovementId in itemCountTypeDTOList"
+                                                class="form-control input-md" readonly>
+                                            <option value="">Select</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label" for="">Status</label>
+                                    <div class="col-md-6">
+                                        <select name="itemStatus" id="itemStatus" ng-model="itemStatusText"
+                                                class="form-control input-md">
+                                            <option select="true" value="Active">Active</option>
+                                            <option value="InActive">InActive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-5 control-label" for="re-OrderLevel">Re-OrderLevel</label>
+                                    <div class="col-xs-6">
+                                        <input id="Re-Order Level" name="Re-OrderLevel"
+                                               type="text" placeholder="Re-OrderLevel "
+                                               ng-model="reOrderLevelText"
+                                               class="form-control input-md" maxlength="15">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-5 control-label"
+                                           for="purchasePricing">Purchase Pricing <span></span></label>
+                                    <div class="col-xs-6">
+                                        <input type="text" limit-to="8" min="0"
+                                               id="purchasePricing"
+                                               name="purchasePricing"
+                                               class="form-control input-md"
+                                               ng-model="purchasePricingText" two-digits-dec
+                                               ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" required/>
+                                    </div>
+                                    <div class="col-xs-1" style="margin-top: 14px;">
+                                        <input type="checkbox" ng-model="inTax"/>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-5 control-label"
+                                           for="salesPricing">Sales Pricing <span></span></label>
+                                    <div class="col-xs-6">
+                                        <input type="text" limit-to="8" min="0"
+                                               id="salesPricing"
+                                               name="salesPricing"
+                                               class="form-control input-md"
+                                               ng-model="salesPricingText"
+                                               ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" required/>
+                                    </div>
+                                    <div class="col-xs-1" style="margin-top: 14px;">
+                                        <input type="checkbox" ng-model="outTax"
+                                               ng-init="outTax = outTax || false"/>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-5 col-xs-5 control-label">Certificate No<span></span></label>
+                                    <div class="col-sm-6 col-xs-6">
+                                        <input type="text" limit-to="10" min="0" num-with-space
+                                               id="certNo" name="certNo" placeholder="Certificate No"
+                                               class="form-control input-md"
+                                               ng-model="certNoText"
+                                               ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" required/>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-xs-5 control-label"
+                                           for="productionItem">Production Item <span></span></label>
+                                    <div class="col-xs-6">
+                                        <input type="checkbox" ng-model="productionItem"
+                                               ng-init="productionItem = productionItem || false"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-5 control-label" for="">Attribute :</label>
+                                    <div class="col-xs-6 control-label"
+                                         style="border: 1px solid #ccc; overflow: auto; max-height: 100px;">
+                                        <div style="width: 344px;">
+                                            <div class="col-lg-4"
+                                                 style="display:inline; margin: 0px; padding: 0px 5px; text-align: left"
+                                                 ng-repeat="x in attributeConfiguratorDTOList">
+                                                <input type="checkbox"
+                                                       id="{{x.attributeConfiguratorId}}"
+                                                       name="attributeConfiguratorConvertedName"
+                                                       ng-model="x.status"
+                                                       ng-change="selectModule(x);"> {{x.attributeConfiguratorName}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6 col-xs-offset-2">
+                                        <input type='file' accept='image/*' ng-model-instant
+                                               onchange="angular.element(this).scope().imageUpload(event)"><br>
+                                        <img class="image-preview" style="width:200px;height:200px;"
+                                             src="{{imageLocation}}">
+                                    </div>
+                                </div>
+                                <!--<a class="btn btn-default back" href="javascript:void(0)"
+                                   ng-click="showFirstSecond('first')"
+                                   data-toggle="tab" data-step="2">{{moreOrLessText}}</a>-->
+                                <!--ng-click="back_wizard()"-->
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-toggle="modal"
+                                    ng-click="saveUpdateItem()">Update
+                            </button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                        </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<iframe id="printerFrame" hidden>
+</iframe>
+</html>
+
+
+
+
+

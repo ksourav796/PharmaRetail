@@ -1,0 +1,3087 @@
+<!--<link rel="stylesheet" href="/resources/static/css/posBilling-style.css" type="text/html"xmlns: xmlns:>-->
+<style>
+    /*  custom css for hiwindow
+*
+*
+created By Ambi */
+
+    table.hiWindowTable tr:nth-child(1) > td {
+        padding: 0px !important;
+    }
+
+    .uib-daypicker td, .uib-daypicker th, .hi_table td, .hi_table th, .uib-monthpicker td, .uib-monthpicker th, .uib-yearpicker td, .uib-yearpicker th {
+        display: table-cell !important;
+        vertical-align: inherit;
+    }
+
+    .uib-daypicker tr, .hi_table tr, .uib-monthpicker tr, .uib-yearpicker tr {
+        display: table-row !important;
+    }
+
+    .uib-daypicker tbody, .hi_table tbody, .uib-datepicker thead, .hi_table thead, .uib-monthpicker thead, .uib-monthpicker tbody, .uib-yearpicker thead, .uib-yearpicker tbody {
+        display: table-row-group !important;
+    }
+
+    body {
+        color: #000;
+    }
+
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    /* header  */
+    .hiNav {
+        background-color: #89c534;
+        color: #fff
+    }
+
+    .hiNav h2 {
+        margin: 0px;
+    }
+
+    .hiNav .glyphicon {
+        font-size: 26px;
+    }
+
+    .hiNav .notify {
+        padding: 2px;
+    }
+
+    .notify div:nth-child(1), .notify div:nth-child(2) {
+        height: 28px;
+        padding-top: 3px;
+        text-align: center;
+    }
+
+    .company_title span {
+        font-size: 15px;
+    }
+
+    /* header end */
+    /* common css */
+    .hiContainer {
+        padding: 0px;
+    }
+
+    .mainRow {
+        /*padding: 15px; */
+    }
+
+    .form-control {
+        height: 31px;
+        border-radius: 1px;
+    }
+
+    .hiContainer .row {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    .width100 {
+        width: 100%
+    }
+
+    .padding_0px {
+        padding: 0px
+    }
+
+    /*margin style */
+    .md-margin20px {
+        margin-top: 20px;
+    }
+
+    .markText {
+        color: red;
+    }
+
+    .markTextFirst::first-letter {
+        font-size: 16px;
+        color: red;
+    }
+
+    /* common css  end*/
+
+    /* body billing css */
+
+    .billing_main_row {
+        padding: 0px 1% 0px 2%;
+        width: 97%;
+    }
+
+    .customTrnsBtn {
+        min-width: 116%;
+        color: #7f7f7f;
+        background: transparent;
+        border: 1px solid #385d8a;
+        border-radius: 2px;
+        padding: 4px;
+    }
+
+    .hi_add_btn {
+        background: #ffffff;
+        min-width: 65px;
+        height: 25px;
+        margin: 0px;
+        line-height: 10px;
+        color: #000000d4;
+    }
+
+    /* hiwindow table css
+    ****
+    ******/
+    table#itemlisttableId.hiWindowTable {
+        width: 100%;
+        color: #fff;
+        font-size: 12px;
+    }
+
+    table#itemlisttableId.hiWindowTable th {
+        padding: 0px 1px 0px 6px;
+    }
+
+    table#itemlisttableId.hiWindowTable td {
+        padding: 0px;
+    }
+
+    table#itemlisttableId.hiWindowTable tr th {
+        background: #74379c;
+        height: 35px;
+        color: #fff;
+    }
+
+    table#itemlisttableId.hiWindowTable tr td {
+        background: #fff !important;
+        color: #000 !important;
+        height: 29px !important;
+        border: 0px !important;
+    }
+
+    .tableRow {
+        height: 35rem;
+    }
+
+    #itemlisttableId.sales_itemTable tbody td {
+        padding: 0px;
+    }
+
+    div.row.tableRow table#itemlisttableId.hiWindowTable.billingTable thead tr th, div.row.tableRow table#itemlisttableId.hiWindowTable.billingTable tbody tr td {
+        width: 6.71% !important;
+    }
+
+    div.row.tableRow table#itemlisttableId.hiWindowTable.billingTable thead tr th:nth-child(1), div.row.tableRow table#itemlisttableId.hiWindowTable.billingTable tbody tr td:nth-child(1) {
+        width: 35px !important;
+    }
+
+    div.row.tableRow table#itemlisttableId.hiWindowTable.billingTable thead tr th:nth-child(2), div.row.tableRow table#itemlisttableId.hiWindowTable.billingTable tbody tr td:nth-child(2) {
+        width: 10% !important;
+    }
+
+    div.row.tableRow table#itemlisttableId.hiWindowTable.billingTable thead tr th:nth-child(3), div.row.tableRow table#itemlisttableId.hiWindowTable.billingTable tbody tr td:nth-child(3) {
+        width: 34% !important;
+    }
+
+    .hiWindowTable.billingTable tr td input {
+        height: 26px;
+    }
+
+    #itemlisttableId.sales_itemTable tbody td {
+        padding: 0px;
+    }
+
+    /*Amount Row
+    ****
+    ******/
+    .amount_row {
+        padding: 5px 0px;
+        background: #dbeef4;
+    }
+
+    .amount_row .form-group {
+        margin-bottom: 1px;
+    }
+
+    .amount_row .form-group label {
+        font-size: 12px;
+        padding-right: 0px;
+    }
+
+    .amount_row .form-group input {
+        border: 0px;
+        height: 28px;
+    }
+
+    .amount_row .form-group .bigText {
+        font-size: 18px;
+        padding: 0px
+    }
+
+    .amount_right_info input {
+        text-align: right;
+    }
+
+    .button_Row button.hiWindowBtn {
+        margin-bottom: 0px;
+    }
+
+    .amt-btn-info {
+        margin-top: 50px;
+    }
+
+    .amt-btn-info img {
+        width: 32%;
+        text-align: center;
+        margin-top: 7px;
+    }
+
+    .amt-btn-info > div {
+        background: linear-gradient(#bfd5f1, #66a7ef);
+        text-align: center;
+        margin-right: 10px;
+        height: 70px;
+        padding: 3px;
+        padding-top: 0px;
+    }
+
+    .amt-btn-info p {
+        font-size: 11px;
+    }
+
+    /* button row
+    ****
+    ******/
+    .button_info > div.col-md-1 {
+        width: 10%;
+        padding: 0px;
+    }
+
+    .hiWindowBtn {
+        background: #d9d9d9;
+        border: 1px solid #c7c7c7;
+        width: 100%;
+        height: 28px;
+    }
+
+    .version_info p span {
+        margin: 0px 30px;
+    }
+
+    .hiWindowUpload .btn-primary {
+        color: #fff;
+        background-color: #337ab7;
+        border-color: #2e6da4;
+        min-width: 110px;
+        padding: 3px;
+    }
+
+    .more_info {
+        margin-top: 6px;
+        position: absolute;
+        background: #d9d9d9;
+        padding: 5px 0px;
+        width: 100%;
+    }
+
+    .more_info .form-group {
+        margin-bottom: 5px !important;
+        margin: 0px;
+    }
+
+    /* custom select Box
+    ****
+    ******/
+
+    .custom-dropdown--large {
+        font-size: 1.5em;
+    }
+
+    .custom-dropdown--small {
+        font-size: .7em;
+    }
+
+    .custom-dropdown__select {
+        font-size: inherit; /* inherit size from .custom-dropdown */
+        padding: .5em; /* add some space*/
+        margin: 0; /* remove default margins */
+    }
+
+    .custom-dropdown__select--white {
+        background-color: #fff;
+        color: #444;
+    }
+
+    .res_text {
+        font-size: 11px;
+        min-height: 28px;
+        overflow: hidden;
+        z-index: 0;
+        width: 100%;
+    }
+
+    @supports (pointer-events: none) and
+	  ((-webkit-appearance: none) or
+	  (-moz-appearance: none) or
+	  (appearance: none)) {
+
+        .custom-dropdown {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            width: 100%;
+        }
+
+        .custom-dropdown__select {
+            padding-right: 2.5em;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            -webkit-appearance: none;
+        }
+
+        .custom-dropdown::before,
+        .custom-dropdown::after {
+            content: "";
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .custom-dropdown::after { /*  Custom dropdown arrow */
+            content: "\25BC";
+            height: 1em;
+            font-size: .825em;
+            line-height: 1;
+            right: 1.0em;
+            top: 50%;
+            margin-top: -.5em;
+        }
+
+        .custom-dropdown::before { /*  Custom dropdown arrow cover */
+            width: 2.4em;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            border-radius: 3px;
+        }
+
+        .custom-dropdown__select[disabled] {
+            color: rgba(0, 0, 0, .3);
+        }
+
+        .custom-dropdown.custom-dropdown--disabled::after {
+            color: rgba(0, 0, 0, .1);
+        }
+
+        /* White dropdown style */
+        .custom-dropdown--white::before {
+            background-color: #74379c;
+            border-left: 1px solid rgba(0, 0, 0, .1);
+        }
+
+        .custom-dropdown--white::after {
+            color: #fff;
+        }
+
+        /* FF only temp fix */
+        @-moz-document url-prefix() {
+            .custom-dropdown__select {
+                padding-right: .9em
+            }
+            .custom-dropdown--large .custom-dropdown__select {
+                padding-right: 1.3em
+            }
+            .custom-dropdown--small .custom-dropdown__select {
+                padding-right: .5em
+            }
+        }
+    }
+
+    /* #searchPopUp{
+        display: none;
+    }
+    */
+    .popUpDiv {
+        /*max-height: 200px;*/
+        /*overflow-y: auto;*/
+        background: #ccc;
+        width: 37%;
+        position: absolute;
+        z-index: 999;
+        box-shadow: 0px 1px 2px #333;
+    }
+
+    .item_demo {
+        max-height: 200px !important;
+        overflow-y: auto;
+        background: #ccc;
+        width: 100%;
+        position: absolute;
+        z-index: 999;
+        box-shadow: 0px 1px 2px #333;
+        background-color: #fff !important;
+    }
+
+    .item_demo td:nth-child(1) {
+        width: 40% !important;
+    }
+
+    .item_demo td:nth-child(2) {
+        width: 35% !important;
+    }
+
+    .item_demo td:nth-child(3) {
+        width: 25% !important;
+    }
+
+    .cust_demo {
+        max-height: 200px !important;
+        overflow-y: auto;
+        background: #ccc;
+        width: 100%;
+        position: absolute;
+        z-index: 999;
+        box-shadow: 0px 1px 2px #333;
+        background-color: #fff !important;
+    }
+
+    .cust_demo td:nth-child(1) {
+        width: 50% !important;
+    }
+
+    .cust_demo td:nth-child(2) {
+        width: 50% !important;
+    }
+
+    #closePopUp {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        border: 1px solid #fff;
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+        z-index: 999;
+        padding: 5px;
+    }
+
+    #btnAddsupplier {
+        position: absolute;
+        right: 40px;
+        top: 5px;
+        color: #333;
+        cursor: pointer;
+        z-index: 999;
+    }
+
+    .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+        z-index: 2;
+        margin-left: -1px;
+        padding: 4.5px 8px;
+    }
+
+    .searchPopUp-container > table {
+        width: 100%;
+    }
+
+    .searchPopUp-container > table > thead {
+        background-color: #333333;
+        color: #fdfdfd;
+    }
+
+    .searchPopUp-container > table td:nth-child(1) {
+        width: 200px !important;
+    }
+
+    .searchPopUp-container > table th:nth-child(1) {
+        width: 200px !important;
+    }
+
+    .searchPopUp-container > table > thead > tr {
+        height: 35px;
+
+    }
+
+    .searchPopUp-container > table > thead > tr > th {
+        font-size: 12px;
+        line-height: 35px;
+        text-align: left;
+    }
+
+    .searchPopUp-container > table > thead > tr {
+        display: block;
+        position: relative;
+        height: 35px;
+
+    }
+
+    .searchPopUp-container > table > thead > tr > th {
+        font-size: 12px;
+        line-height: 35px;
+    }
+
+    .searchPopUp-container > table > tbody {
+        display: block;
+        overflow: auto;
+        width: 100%;
+        max-height: 160px;
+    }
+
+    .searchPopUp-container > table > tbody > tr {
+        display: block;
+        position: relative;
+        height: 25px;
+        cursor: pointer;
+    }
+
+    .searchPopUp-container > table > tbody > tr:hover {
+        background-color: #ddd;
+    }
+
+    .searchPopUp1-container > table {
+        width: 100%;
+    }
+
+    .searchPopUp1-container > table > thead {
+        background-color: #333333;
+        color: #fdfdfd;
+    }
+
+    .searchPopUp1-container > table td:nth-child(1) {
+        width: 200px !important;
+    }
+
+    .searchPopUp1-container > table th:nth-child(1) {
+        width: 192px !important;
+    }
+
+    .searchPopUp1-container > table th:nth-child(2) {
+        width: 168px !important;
+    }
+
+    .searchPopUp1-container > table > thead > tr {
+        height: 35px;
+
+    }
+
+    .searchPopUp1-container > table > thead > tr > th {
+        font-size: 12px;
+        line-height: 35px;
+        text-align: left;
+    }
+
+    .searchPopUp1-container > table > thead > tr {
+        display: block;
+        position: relative;
+        height: 35px;
+
+    }
+
+    .searchPopUp1-container > table > thead > tr > th {
+        font-size: 12px;
+        line-height: 35px;
+    }
+
+    .searchPopUp1-container > table > tbody {
+        display: block;
+        overflow: auto;
+        width: 100%;
+        max-height: 160px;
+    }
+
+    .searchPopUp1-container > table > tbody > tr {
+        display: block;
+        position: relative;
+        height: 25px;
+        cursor: pointer;
+    }
+
+    .searchPopUp1-container > table > tbody > tr:hover {
+        background-color: #ddd;
+    }
+
+    /* custom select Box end of code */
+
+    .popUpDiv thead tr {
+        background: #74379c;
+    }
+
+    .popUpDiv thead tr th {
+        padding: 0px 11px !important;
+        border: 1px solid #ccc !important;
+    }
+
+    .popUpDiv .panel-body {
+        padding: 0px;
+        border: 4px solid #1b4374;
+    }
+
+    .hi_pos_btn {
+        padding: 3px 3px;
+        background: #2c5486;
+        color: #fff;
+        border: 0px;
+        margin: 0px;
+        width: 24%;
+        border: 1px solid #376092;
+        margin-left: -4px;
+    }
+
+    .paymentPopupTitle {
+        padding: 5px 15px;
+        background: #1b4374;
+        color: #fff;
+    }
+
+    #paymentPopup .panel-body {
+        background: #fff;
+        padding: 0px;
+    }
+
+    .totalInfo span {
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    .totalInfo span:nth-child(2) {
+        float: right;
+    }
+
+    .totalInfo {
+        background: #f2f2f2;
+        height: 30px;
+        padding: 5px;
+        border-top: 1px solid #bfbfbf;
+        margin-top: 2px;
+    }
+
+    .calcInfo {
+        background: #254061;
+        color: #fff;
+        padding: 8px;
+    }
+
+    .calcInfo p {
+        margin-bottom: 0px;
+    }
+
+    .calcContentInfo {
+        background: #f2f2f2;
+    }
+
+    .calcContentInfo div.col-md-6 {
+        padding: 0px !important;
+    }
+
+    .hi_pos_btn p:nth-child(1) {
+        text-align: left;
+        margin-bottom: 0px;
+    }
+
+    .acceptInfo {
+        padding-top: 2px;
+    }
+
+    .acceptInfo .hiWindowBtn {
+        width: 46%;
+        display: inline;
+        margin-bottom: 0px;
+    }
+
+    .calcInfo {
+
+    }
+
+    .hi_pos_btn p:nth-child(1) {
+        text-align: left;
+        margin-bottom: 0px;
+    }
+
+    .itemFirstRowhide td:not(:nth-child(2)), .itemFirstRowhide td:not(:nth-child(2)) input {
+        background: #d9d9d9 !important;
+        border: 0px !important;
+    }
+
+    .hiWindowTable tr:not(:first-child) td {
+        padding: 0px 5px;
+        font-size: 14px;
+    }
+
+    .inputfile + label {
+        font-size: 1.25em;
+        font-weight: 700;
+        color: white;
+        background-color: black;
+        display: inline-block;
+    }
+
+    .inputfile:focus + label,
+    .inputfile + label:hover {
+        background-color: red;
+    }
+
+    .pos_descrp {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .pos_descrp:hover {
+        text-overflow: clip;
+        white-space: normal;
+        word-break: break-all;
+    }
+
+    table#itemlisttableId.hiWindowTable tr td.active {
+        background-color: yellow !important;
+    }
+
+    /*Additinal styling starts here*/
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .pos-header {
+
+        background: #60bac6;
+        padding: 5px 15px 5px;
+    }
+
+    .sales_itemTable .hi_table tr td, .hi_table tr th {
+        font-size: 12px !important;
+        border: 1px solid #ccc !important;
+    }
+
+    .fixed_headers tr td {
+
+        font-size: 12px !important;
+        border: 1px solid #ccc !important;
+    }
+
+    /*table.sub_border_info tr th{*/
+    /*font-size: 30px !important;*/
+    /*}*/
+    .pos-header p {
+        color: #fff;
+        font-size: 30px;
+        float: left;
+    }
+
+    .pos-header ul {
+        float: right;
+        padding-top: 9px;
+    }
+
+    .pos-header .container > a > img {
+        width: 95px;
+    }
+
+    .pos-header .container > a:nth-child(2) > img {
+        margin-left: 50px;
+        width: 105px;
+    }
+
+    .pos-header ul li {
+        color: #fff;
+        list-style: none;
+        display: inline-block;
+    }
+
+    .panel {
+        margin-top: 5px;
+        border-radius: 0;
+        border: solid 1px #ddd;
+    }
+
+    .pos_time {
+        display: inline-block;
+        float: right;
+        padding: 5px 0;
+    }
+
+    .pos_table_icons {
+        display: inline-block;
+        float: right;
+    }
+
+    .pos_table_icons li {
+        margin: 0 4px;
+        list-style: none;
+        display: inline-block;
+        border: solid 1px #ccc;
+        padding: 5px;
+        border-radius: 2px;
+    }
+
+    .below-header .form-group {
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+
+    .table_costomize {
+        display: table;
+        float: left;
+    }
+
+    .table_costomize thead {
+        background: #ccc;
+    }
+
+    .table_costomize thead tr th {
+        text-align: center;
+        border-right: 1px solid #fff;
+    }
+
+    .table_costomize thead, tbody, tr, td, th {
+        display: block;
+    }
+
+    .table_costomize tr:after {
+        content: ' ';
+        display: block;
+        visibility: hidden;
+        clear: both;
+    }
+
+    .table_costomize thead th {
+        height: 30px;
+        /*text-align: left;*/
+    }
+
+    .table_costomize tbody {
+        /*    height: 228px;*/
+        height: 330px;
+        overflow-y: auto;
+    }
+
+    .table_costomize thead {
+        /* fallback */
+    }
+
+    .table_costomize tbody td, .table_costomize thead th {
+        width: 19.2%;
+        float: left;
+    }
+
+    #itemlisttableId tbody td, #itemlisttableId thead th {
+        width: 9.388% !important;
+        float: left;
+        color: #333333;
+    }
+
+    #selectProduct table tbody td, #selectProduct table thead th {
+        width: 19% !important;
+    }
+
+    #selectProduct table tbody td:last-child, #selectProduct table thead th:last-child {
+        width: 24% !important;
+    }
+
+    #selectItem table tbody td, #selectItem table thead th {
+        width: 19% !important;
+    }
+
+    #selectItem table tbody td:last-child, #selectItem table thead th:last-child {
+        width: 24% !important;
+    }
+
+    .pos-below-table {
+        padding: 10px;
+    }
+
+    .pos-below-table input {
+        border: solid 1px #ccc;
+        padding: 5px 10px;
+        margin-left: 5px;
+    }
+
+    .category {
+        min-height: 232px;
+    }
+
+    .category ul {
+        padding: 0;
+        max-height: 300px;
+        /*overflow-y: scroll;*/
+    }
+
+    .category ul li {
+        list-style: none;
+        padding: 10px 0;
+    }
+
+    .category ul li a {
+        padding: 10px 0 10px 0;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .category ul li:nth-child(odd) {
+        background: #eee;
+    }
+
+    .category ul .active {
+        background: #1E5687 !important;
+    }
+
+    .category ul .active a {
+        color: #fff !important;
+    }
+
+    .pos_cat_thumb {
+        padding: 10px;
+    }
+
+    .pos_item_thumb {
+        float: left;
+        padding: 0 10px;
+        width: 100%;
+    }
+
+    .pos-calculator {
+        margin: auto;
+    }
+
+    .pos-calculator tr {
+        display: flex;
+    }
+
+    .pos-calculator td {
+        display: flex;
+        width: 80px;
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.67);
+        margin: 2px;
+        color: #fff;
+        font-size: 20px;
+        display: block;
+        text-align: center;
+    }
+
+    .pos-calculator td button {
+        padding: 0px 20px;
+        background: none;
+        border: none;
+    }
+
+    .pos_calculator_icons {
+        display: inline-block;
+        float: right;
+    }
+
+    .pos_calculator_icons li {
+        margin: 0 4px;
+        list-style: none;
+        display: inline-block;
+        border: solid 1px #ccc;
+        padding: 5px;
+        border-radius: 2px;
+    }
+
+    .pos-below-cal input {
+        width: 38%;
+        border: solid 1px #ccc;
+        padding: 5px 10px;
+    }
+
+    .active .cat-name {
+        font-size: 11px;
+        color: #fff;
+        margin: 15px 46px;
+    }
+
+    .cat-name {
+        font-size: 11px;
+        color: #000;
+        margin: 15px 46px;
+    }
+
+    .active .price {
+        position: relative;
+        top: -58px;
+        color: #fff;
+        padding: 10px;
+    }
+
+    .price {
+        position: relative;
+        float: right;
+        color: #000;
+        padding: 10px;
+        top: -58px;
+    }
+
+    .item ul {
+        background: #F7F7F7;
+        padding: 0;
+        max-height: 300px;
+        /*overflow-y: scroll;*/
+    }
+
+    .item ul {
+        margin-left: 2%;
+    }
+
+    .item ul li {
+        height: 135px;
+        list-style: none;
+        /*    width: 135px;*/
+        width: 100%;
+        padding: 10px 0;
+        display: inline-block;
+    }
+
+    .item ul li a {
+        text-decoration: none;
+        word-wrap: break-word;
+    }
+
+    .item ul .active {
+        background: #1E5687 !important;
+    }
+
+    .item ul .active a {
+        color: #fff !important;
+    }
+
+    @media screen and (max-width: 768px) {
+
+        .pos-calculator td {
+            width: 60px;
+        }
+    }
+
+    label {
+        font-weight: 100;
+        font-size: 12px;
+    }
+
+    .right-title {
+        background: #60BAC6;
+        color: #fff;
+        padding: 10px 15px 0px;
+    }
+
+    .pos-price .form-group {
+        margin: 10px 0 20px 0;
+    }
+
+    .pos-price .total {
+        font-size: 25px;
+        padding: 0 !important;
+    }
+
+    .checkout a {
+
+        text-align: center;
+    }
+
+    .checkout i {
+        margin: 40px 40px 10px 40px;
+        font-size: 60px;
+        border: solid 1px #eee;
+        padding: 10px;
+
+    }
+
+    .payment-icon button {
+        background: none;
+        border: none;
+    }
+
+    .checkout-body {
+        min-height: 330px;
+    }
+
+    .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+        border-top: none;
+        text-align: center;
+        width: 95px;
+    }
+
+    .table > thead > tr > td, .table > thead > tr > th {
+
+        font-size: 12px;
+    }
+
+    .dynamic-table {
+        background: url(../posimages/pos-table.png) no-repeat;
+        height: 150px;
+        background-size: 100%;
+        background-position: 0px 20px;
+        width: 150px;
+        border: solid 1px #eee;
+        border-radius: 50%;
+        background-color: #fefefe;
+        display: inline-block;
+        margin-right: 15px;
+        margin-top: 12px;
+        color: #ffffff;
+    }
+
+    .tabel-container {
+        width: 1140px;
+        background: #fff;
+        padding: 30px;
+        overflow-x: scroll;
+    }
+
+    .table-dynamic td, th {
+        display: inline;
+    }
+
+    .scroll_table {
+        overflow: hidden;
+        overflow-x: scroll;
+    }
+
+    .tooltip.bottom {
+        top: 45px !important;
+    }
+
+    /*   .loading {
+
+
+       }*/
+    .loader {
+        display: none;
+        width: 100%;
+        height: inherit;
+        background: url(../posimages/loading_spinner.gif) center 10% no-repeat !important;
+        /* z-index: 99999; */
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+
+    /*   html {
+                                    -webkit-transition: background-color 1s;
+                                    transition: background-color 1s;
+                            }
+                            html, body { min-height: 100%; }
+                            html.loading {
+                                    background: #333 url(../posimages/loading_spinner.gif) no-repeat 50% 50%;
+                                    -webkit-transition: background-color 0;
+                                    transition: background-color 0;
+                            }
+                            body {
+                                    -webkit-transition: opacity 1s ease-in;
+                                    transition: opacity 1s ease-in;
+                            }
+                            html.loading body {
+                                    opacity: 0;
+                                    -webkit-transition: opacity 0;
+                                    transition: opacity 0;
+                            }*/
+    #printreceipt .modal-dialog, #duplicate .modal-dialog {
+        /*    width: 510px;*/
+        width: 300px;
+    }
+
+    #samllbody .modal-dialog {
+        width: 350px;
+    }
+
+    /*navbar css begins*/
+    .no-pad {
+        padding: 0px !important;
+    }
+
+    .no-pad-l {
+        padding-left: 0px !important;
+    }
+
+    .no-pad-r {
+        padding-right: 0px !important;
+    }
+
+    .padding-0px-15px {
+        padding: 0px 15px !important;
+    }
+
+    .camera_div {
+        border: solid 1px #ccc;
+        /*padding: 2px 5px 2px;*/
+        width: 36px;
+        margin-right: 40px;
+        background: #fff;
+        margin-top: 4px;
+        padding: 2px 6px !important;
+    }
+
+    .datepicker-days table tr td, .datepicker-days table tr th {
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 4px;
+        border: none;
+        display: table-cell;
+    }
+
+    .bootstrap-datetimepicker-widget .dow {
+        width: 30px !important;
+    }
+
+    .datepicker-months table tr td span, .datepicker-years table tr td span {
+        width: 47px;
+    }
+
+    .bootstrap-datetimepicker-widget {
+        width: 226px !important;
+    }
+
+    .bootstrap-datetimepicker-widget th.switch {
+        width: 130px !important;
+    }
+
+    .ng-scope .modal-header, .modal-header button > span {
+        background: #74379c;
+        color: #fff;
+    }
+
+    @media (max-width: 1194px) {
+        .pos-calculator td button {
+            padding: 0px 10px;
+        }
+
+        .pos-calculator tr td img {
+            width: inherit;
+        }
+
+        .pos-calculator tr td {
+            width: 36% !important;
+        }
+
+        checkOutInfo {
+            width: 100%;
+        }
+    }
+
+    @media only screen and (max-width: 1050px) and (min-width: 1012px) {
+        .supplierListInfo {
+            width: 19.666667% !important;
+        }
+
+        .custom-col-8 .supplierListInfo {
+            width: 22% !important;
+        }
+
+    }
+
+    @media only screen and (max-width: 1011px) {
+        .supplierListInfo {
+            width: 20% !important;
+        }
+
+        .custom-col-8 .supplierListInfo {
+            width: 24% !important;
+        }
+
+    }
+
+    #PosInvoiceList .table > thead > tr > th, #PosInvoiceList .table_costomize #parentTable tr > td {
+        width: 33.33% !important;
+    }
+
+    #selectSupplier .table > thead > tr > th, #selectSupplier .table_costomize tr > td {
+        width: 25% !important;
+    }
+
+    input[type="file"]#file-upload {
+        display: none;
+    }
+
+    .custom-file-upload {
+        border: 1px solid #ccc;
+        padding: 9px 12px 6px 12px;
+        cursor: pointer;
+        width: 100%;
+        display: inline;
+        height: 55px;
+        margin-right: 24px;
+    }
+
+    .custom-file-upload i {
+        margin: 0px;
+        font-size: 22px;
+        border: solid 1px #eee;
+        padding: 0px 0px;
+        height: 24px;
+
+    }
+
+    .rerun {
+        padding: 5px 16px;
+        display: inline !important;
+    }
+
+    .custom_input {
+        height: 50px;
+        margin-top: 5px;
+    }
+
+    @media (max-width: 1012px) {
+        #conDiv.custom-col-8 {
+            width: 97% !important;
+        }
+
+        #calDiv.custom-col-4 {
+            width: 97% !important;
+        }
+    }
+
+    #selectInvokeOrderList .form-group {
+        margin-bottom: 10px;
+    }
+
+    .word_break {
+        word-break: break-all !important;
+    }
+
+    /*Ambi_ new css code of pos version*/
+    .total_info {
+        border-bottom: 1px solid #eeeeee;
+        margin-bottom: 10px;
+    }
+
+    .Payment_checkbox {
+        margin-bottom: 10px;
+    }
+
+    .Payment_checkbox label {
+        width: 15%;
+    }
+
+    #multiPaymentNew .modal-body {
+        height: 382px;
+        overflow-y: scroll;
+    }
+
+    .card_info:first-child {
+        margin-top: 15px;
+    }
+
+    #PosInvoiceDuplicatePrint .table > tbody > tr > td, #PosInvoiceDuplicatePrint .table > tbody > tr > th,
+    #PosInvoiceDuplicatePrint .table > tfoot > tr > td, #PosInvoiceDuplicatePrint .table > tfoot > tr > th,
+    #PosInvoiceDuplicatePrint .table > thead > tr > td, #PosInvoiceDuplicatePrint .table > thead > tr > th {
+        width: 20% !important;
+    }
+
+    .button_info > button {
+        float: left;
+    }
+
+    .button_info > button:nth-child(1) {
+        margin-right: 11px;
+        padding: 6px 13px;
+    }
+
+    .button_info {
+        padding: 0px 5px !important
+    }
+
+    .selectList_info:last-child {
+        margin-bottom: 400px;
+    }
+
+    .select_custom_info {
+        margin-bottom: 0px !important;
+    }
+
+    .mainSelect_custom_info {
+        min-height: 200px;
+    }
+
+    .select_custom_info p {
+        vertical-align: top;
+        border-right: 1px solid #000;
+    }
+
+    .mainSelect_custom_info tr th {
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000 !important;
+    }
+
+    .mainSelect_custom_info tr th:nth-child(2), .mainSelect_custom_info tr td:nth-child(2) {
+        width: 450px !important;
+    }
+
+    .mainSelect_custom_info tr td:nth-child(1), .mainSelect_custom_info tr td:nth-child(2) {
+        text-align: left;
+    }
+
+    .mainSelect_custom_info tr td:nth-child(3), .mainSelect_custom_info tr td:nth-child(4), .mainSelect_custom_info tr td:nth-child(5) {
+        text-align: center;
+    }
+
+    .mainSelect_custom_info tr th:last-child, .mainSelect_custom_info tr td:last-child {
+        border-right: 0px;
+    }
+
+    .mainSelect_custom_info tr th:first-child, .mainSelect_custom_info tr td:first-child {
+        border-left: 0px;
+    }
+
+    .mainSelect_custom_info tr th, .mainSelect_custom_info tr td {
+        border-right: 1px solid #000;
+        display: table-cell;
+        padding: 10px;
+        width: 93px !important;
+    }
+
+    .mainSelect_custom_info {
+        border: 1px solid #000;
+        margin-bottom: 0px !important;
+    }
+
+    .mainSelect_custom_info .selectList_info:last-child {
+        margin-bottom: 0px;
+    }
+
+    .mainSelect_custom_info tr.select_info:last-child td {
+        height: 400px;
+    }
+
+    .mainSelect_custom_info tr.select_info:nth-child(n+7):last-child td {
+        height: 0px;
+    }
+
+    .main_pos_body {
+        position: relative;
+    }
+
+    .main_pos_body:after {
+        opacity: .5;
+    }
+
+    .pos_button_info .btn.btn-default {
+        min-width: 175px;
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+
+    .report_icon {
+        padding: 16px 0px;
+        text-align: center;
+        border: 1px solid #ebebeb;
+        margin-bottom: 30px;
+        border-radius: 5px;
+        min-height: 138px;
+        height: auto;
+    }
+
+    .report_icon a {
+        font-size: 14px;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .report_icon a img {
+        display: block;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+    #companySearch .table tr th, #companySearch .table tr > td {
+        width: 33.3%;
+    }
+
+    #paymentReportId tbody td, #paymentReportId thead th {
+        width: 16.63% !important;
+        float: left;
+        color: #333333;
+    }
+
+    .table_costomize#paymentReportId tbody {
+        height: 400px;
+    }
+
+    /*End css code of pos version */
+
+
+</style>
+<div class="container-fluid hiContainer">
+    <header class="clearfix">
+        <nav class="hiNav clearfix">
+            <div class="col-md-6">
+                <h2 class="company_title">Purchase</h2>
+            </div>
+
+        </nav>
+    </header>
+    <section class=" mainRow clearfix">
+        <div class="row" style="margin: 0px;">
+            <div class="row billing_main_row" style="padding: 15px 1% 0px 2%">
+                <form name="billing-list" class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            <span class="custom-dropdown custom-dropdown--white">
+                    <!--<select class="form-control" ng-options="x.supplierName for x in supplierList" ng-model="biSelectedsupplier">
+                    </select>-->
+                    <input id="pos_supplier" class="form-control" placeholder="Select Supplier" maxlength="126"
+                           ng-keyup="getSupplierListSearch(supplierSearchText);$event.keyCode == 45 ?addSupplier() : null;$event.keyCode == 13 ?focus('stock'):null"
+                           ng-blur="popUpDivHide('supplierPopup');" ng-click="displayPopUp('supplierPopup')"
+                           ng-model="supplierSearchText" list="suppliers"
+                           name="browser" alphanum-with-space>
+                    <div ng-show="isVisible" class="popUpDiv" id="supplierPopup" style="width: 400px;">
+                        <div class="searchPopUp-container">
+                            <table class="fixed_headers hi_table">
+                                <thead>
+                                    <tr>
+                                        <th>Mobile Number </th>
+                                        <th><span>Name</span>
+                                            <span style="float: right"><button id="btnAddsupplier" type="button"
+                                                                               class="hi_add_btn"
+                                                                               ng-click="addSupplier()"
+                                                                               title="Add Supplier">Add</button></span></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="cust_demo hi_table">
+                                    <tr ng-repeat="c in supplierList" ng-click="appendSupplier(c)">
+                                        <td>{{c.supplierNumber}}</td>
+                                        <td>{{c.supplierName}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </span></div>
+
+                        <div class="col-md-2">
+                            <td>
+                                <input id="pos_stock_no"
+                                       maxlength="126"
+                                       name="barcodeInput"
+                                       ng-keyup="$event.keyCode == 45 ?addNewItemPopulate() : null"
+                                       ng-keypress="$event.keyCode == 13 ?displayPopUp('itemPopup',item.itemCode):null"
+                                       style="margin-top: 0px;" ng-disabled="operation=='Return'"
+                                       ng-blur="popUpDivHide('itemPopup');" ng-click=" displayPopUp('itemPopup')"
+                                       type="text" ng-model="item.itemCode"
+                                       class="form-control input-md"
+                                       alphanum-with-space required/>
+                            </td>
+
+                        </div>
+
+
+                        <div class="col-md-2 col-md-offset-3"
+                             ng-show="moreShow &&permission.pos_ship_address !='InActive'">
+                                <span class="custom-dropdown custom-dropdown--white">
+                                    <select id="pos_ship_address" class="form-control">
+                                        <option value="1">Shipping TO</option>
+                                    </select>
+                                </span>
+                        </div>
+                        <div class="col-md-5 pull-right">
+                            <div class="col-md-3">
+                                <button class="customTrnsBtn" ng-click="moreShow =true; lessbtn=true; morebtn=false;"
+                                        ng-show="morebtn">More >>
+                                </button>
+                                <button class="customTrnsBtn" ng-click="moreShow =false; morebtn=true; lessbtn=false;"
+                                        ng-show="lessbtn">Less <<
+                                </button>
+                            </div>
+                            <div class="col-md-5">
+                                <button id="pos_bill_no" style="text-align: left;" class="customTrnsBtn">
+                                    <span>Bill No:{{billNO}} </span>
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="input-group margin_0px">
+                                    <input id="pos_bill_date" type="text" class="form-control" style="margin-left: 10px;width: 120px"
+                                           uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened"
+                                           datepicker-options="dateOptions" readonly="readonly" ng-required="true"
+                                           close-text="Close" alt-input-formats="altInputFormats"/>
+                                    <span class="input-group-btn">
+                                     <button type="button" class="btn btn-default" ng-click="open1()"><i
+                                             class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row more_info" ng-show="moreShow">
+                <form name="billing-list" class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div ng-hide="permission.pos_sales_man ==='InActive'" class="col-md-2">
+                        <span class="custom-dropdown custom-dropdown--white">
+
+                    <input id="pos_sales_man" class="form-control" placeholder="Select_SalesMan"
+                           ng-blur="popUpDivHide('UserPopup');"
+                           ng-keyup="getUserAccountSetupList(selectedUser);$event.keyCode == 45 ?addUser():null"
+                           ng-click="displayPopUp('UserPopup')" ng-model="selectedUser"
+                           name="browser">
+
+                </span></div>
+                            <div ng-hide="permission.pos_doctor ==='InActive'" class="col-md-2">
+                                <span class="custom-dropdown custom-dropdown--white">
+
+                                <input id="pos_doctor" class="form-control" placeholder="Select_Doctor"
+                                       ng-blur="popUpDivHide('DoctorPopUp');"
+                                       ng-keyup="getDoctorList(selectedDoctor);$event.keyCode == 45 ?addNewDoctorPopulate():null"
+                                       ng-click="displayPopUp('DoctorPopUp')" ng-model="selectedDoctor"
+                                       name="browser">
+
+                            </span></div>
+                            <div ng-hide="permission.pos_patient ==='InActive'" class="col-md-2">
+
+                                <input id="pos_patient" type="text" maxlength="25" class="form-control"
+                                       placeholder="Enter Patient  Name"
+                                       ng-model="PatientName" alpha-without-space required/>
+                            </div>
+                            <div ng-hide="permission.pos_attach_presc ==='InActive'" class="col-md-3">
+                                <label class="control-label  col-md-7" for=""> Attach Prescription: </label>
+                                <div class="col-md-4 hiWindowUpload">
+                                    <label class="cabinet">
+                                        <input type='file' accept='image/*' id="imageLoadPos" ng-model-instant
+                                               onchange="angular.element(this).scope().imageUpload(event)"><br>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div ng-show="isAgent" class="popUpDiv" style="   margin-top: 31px;  margin-left: 242px;"
+                             id="DoctorPopUp">
+                            <div class="searchPopUp-container">
+                                <table class="fixed_headers hi_table">
+                                    <thead>
+                                    <tr>
+                                        <th>Doctor Name</th>
+                                        <th>Phone No
+                                            <span style="float: right"><button id="btnAddDoctor" type="button"
+                                                                               class="hi_add_btn"
+                                                                               ng-click="addNewDoctorPopulate()"
+                                                                               title="Add supplier">Add</button></span>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="agent in agentList" ng-click="selectDoctor(agent)">
+                                        <td>{{agent.agentName}}</td>
+                                        <td>{{agent.mobile}}</td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        <div ng-show="isUser" class="popUpDiv" style=" margin-top: 31px; margin-left: 22px;"
+                             id="UserPopup">
+                            <div class="searchPopUp-container">
+                                <table class="fixed_headers hi_table">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th><span>Email Id</span>
+                                            <span style="float: right"><button id="btnAddUser" type="button"
+                                                                               class="hi_add_btn" ng-click="addUser()"
+                                                                               title="Add SalesMan">Add</button></span>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="user in userAccountSetupList" ng-click="selectUser(user)">
+                                        <td>{{user.full_name}}</td>
+                                        <td>{{user.email}}</td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 ">
+                            <div ng-hide="permission.pos_location ==='InActive'" class="col-md-2">
+                    <span class="custom-dropdown custom-dropdown--white">
+                        <select id="pos_location" class="form-control">
+                            <option value="1">Location</option>
+                        </select>
+                    </span>
+                            </div>
+                            <div ng-hide="permission.pos_cost_centre ==='InActive'" class="col-md-2">
+                    <span class="custom-dropdown custom-dropdown--white">
+                        <select id="pos_cost_centre" class="form-control">
+                            <option value="1">Cost Centre</option>
+                        </select>
+                    </span>
+                            </div>
+                            <div ng-hide="permission.pos_tax ==='InActive'" class="col-md-2">
+                    <span class="custom-dropdown custom-dropdown--white">
+                        <select id="pos_tax" class="form-control">
+                            <option value="1">Taxation</option>
+                        </select>
+                    </span>
+                            </div>
+                            <div ng-hide="permission.pos_currency ==='InActive'" class="col-md-2">
+                    <span class="custom-dropdown custom-dropdown--white">
+                        <select id="pos_currency" class="form-control">
+                            <option value="1">Indian Rupee</option>
+                        </select>
+                    </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div ng-hide="permission.pos_ship_ref_no ==='InActive'" class="col-md-4">
+                                <label id="pos_dispatch_details" class="control-label  col-md-6" for=""> Dispatch
+                                    Details: </label>
+                                <div class="col-md-6">
+                                    <input id="pos_ship_ref_no" type="text" class="form-control"
+                                           ng-model="shippingRefNo"
+                                           placeholder="Shipping Ref No">
+                                </div>
+                            </div>
+                            <div ng-hide="permission.pos_ship_method ==='InActive'" class="col-md-2">
+                                <input id="pos_ship_method" type="text" class="form-control"
+                                       ng-model="shippingMethodText"
+                                       placeholder="Shipping Method">
+                            </div>
+                            <div ng-hide="permission.pos_destination ==='InActive'" class="col-md-2">
+                                <input id="pos_destination" type="text" class="form-control" ng-model="destination"
+                                       placeholder="Destination"
+                                >
+                            </div>
+                            <div ng-hide="permission.pos_vehicle_no ==='InActive'" class="col-md-2">
+                                <input id="pos_vehicle_no" type="text" class="form-control" ng-model="vehicleNo"
+                                       placeholder="Vehicle No"
+                                >
+                            </div>
+                            <div ng-hide="permission.pos_eway_bill_no ==='InActive'" class="col-md-2">
+                                <input id="pos_eway_bill_no" type="text" class="form-control" ng-model="eWayBillNo"
+                                       placeholder="Enter E-way Bill No">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!--<input id="barcodeInput" name="barcodeInput" type="text"-->
+        <!--ng-readonly="operation === 'Return'" placeholder="Search Item Barcode"-->
+        <!--ng-model="barcodeInput"-->
+        <!--ng-keyup="$event.keyCode == 13 && addItem(this,$event.keyCode)"-->
+        <!--class="form-control input-md" style="width: 64% !important; display: inline;"-->
+        <!--ng-disabled="user_access_rights.salesSearchBarCode==false">-->
+        <add-new-supplier-modal></add-new-supplier-modal>
+        <add-new-item-modal></add-new-item-modal>
+        <purchase-invoice-print></purchase-invoice-print>
+        <purchase-return-print></purchase-return-print>
+
+        <div ng-show="isItemVisible" class="popUpDiv" style="margin-top: 65px;" id="itemPopup">
+            <div class="searchPopUp1-container">
+                <table class="fixed_headers hi_table">
+                    <thead>
+                    <tr>
+                        <th>Item Code</th>
+                        <th>Item Name</th>
+                        <th>
+                            <span>QTY</span>
+
+                            <span style="float: right"><button id="pos_add_Item" type="button" class="hi_add_btn"
+                                                               ng-click="addNewItemPopulate()"
+                                                               title="Add Item">Add</button></span></th>
+                    </tr>
+                    </thead>
+                    <tbody class="item_demo hi_table">
+                    <tr ng-repeat="item in itemList" ng-click="addItem(item)">
+                        <td>{{item.itemCode}}</td>
+                        <td>{{item.itemName}}</td>
+                        <td>{{item.stock}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div ng-show="isBatchItem" class="popUpDiv" style="right: 0px; margin-top: 65px;" id="batchItemPopup">
+            <div class="searchPopUp-container">
+                <table class="fixed_headers hi_table">
+                    <thead>
+                    <tr>
+                        <th>Batch NO</th>
+                        <th>Quantity</th>
+                        <th>ManufacturingDate</th>
+                        <th>Expiry Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="batch in serializableItemsList" ng-click="selectBatch(batch)">
+                        <td>{{batch.sORbNumbers}}</td>
+                        <td>{{batch.qtyOnHand}}</td>
+                        <td>{{batch.manufactureDate}}</td>
+                        <td>{{batch.expireDate}}</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="popUpDiv" id="paymentPopup" style="margin-left: 30%; max-height: none; display: none;">
+            <div class="searchPopUp-container">
+                <div class="paymentPopupTitle">
+                    <h4 class="modal-title">Payment</h4>
+                    <button type="button" class="close" ng-click="popUpDivHide('paymentPopup');" data-dismiss="modal"
+                            aria-label="Close" style="margin-top: -21px; color: #fff;"><span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="panel-body">
+                    <div class="row" style="margin-left: 4px;">
+                        <button type="button" id="cashButton" ng-model="cashPayment"
+                                ng-click="paymentOption('cashShow',cashButton);balanceCalc('cash')" class="hi_pos_btn">
+                            <p> F1 </p>
+                            <p> Cash </p>
+                        </button>
+                        <button type="button" id="cardButton" ng-model="cardPayment"
+                                ng-click="paymentOption('cardShow',cardButton);balanceCalc('card')" class="hi_pos_btn">
+                            <p> F2 </p>
+                            <p> Card </p>
+                        </button>
+                        <button type="button" id="creditButton" ng-model="creditCardPayment"
+                                ng-click="paymentOption('creditNoteShow');balanceCalc('creditNote')" class="hi_pos_btn">
+                            <p> F3</p>
+                            <p> Credit Notes </p>
+                        </button>
+                        <button type="button" id="couponButton" ng-model="couponPaymnet"
+                                ng-click="paymentOption('CouponShow');balanceCalc('coupon')" class="hi_pos_btn">
+                            <p> F4 </p>
+                            <p> Coupons </p>
+                        </button>
+                        <button type="button" id="chequeButton" ng-model="chequePayment"
+                                ng-click="paymentOption('chequeShow');balanceCalc('cheque')" class="hi_pos_btn">
+                            <p> F5 </p>
+                            <p> Cheque </p>
+                        </button>
+                        <button type="button" id="eWalletButton" ng-model="ewalletPayment"
+                                ng-click="paymentOption('eWalletShow');balanceCalc('ewallet')" class="hi_pos_btn">
+                            <p> F6 </p>
+                            <p> eWallet </p>
+                        </button>
+
+                        <!--<button type="button" id="giftButton" ng-model="giftCardPayment" ng-click="paymentOption('giftShow');balanceCalc('gift')" class="hi_pos_btn">-->
+                        <!--<p> F7 </p>-->
+                        <!--<p> Gift Card </p>-->
+                        <!--</button>-->
+                    </div>
+                    <div class="row totalInfo">
+                        <span>Total Due</span>
+                        <span ng-bind="paymentTotalDue">0.00</span>
+                    </div>
+                    <div class="row calcInfo">
+                        <p ng-show="cardShow">Card Details </p>
+                    </div>
+                    <div class="row calcContentInfo">
+                        <div class="row cardShow" ng-show="cashShow">
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for="">Amount Tendered</label>
+                                <div class="col-md-6">
+                                    <input type="text" maxlength="25" class="form-control" ng-pattern="discRegex"
+                                           ng-change="paymentDue('cash');multiPaymentType('cash')"
+                                           ng-model="tenderedAmt" ng-model-options="{debounce: 1000}" two-digits-dec
+                                           required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for="">Change Due</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" ng-model="changeAmt" readonly/>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row cardShow" ng-show="cardShow">
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for="">Amount</label>
+                                <div class="col-md-6">
+                                    <input type="text" maxlength="8" class="form-control" ng-pattern="discRegex"
+                                           ng-change="paymentDue('card');multiPaymentType('card')" ng-model="cardAmount"
+                                           ng-model-options="{debounce: 1000}" two-digits-dec required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for="">Card Number</label>
+                                <div class="col-md-6">
+                                    <input type="text" maxlength="16" class="form-control"
+                                           ng-change="multiPaymentType('card')" ng-model="cardNumber"
+                                           num-with-space=""/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for="">supplier Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" maxlength="125" class="form-control"
+                                           ng-change="multiPaymentType('card')" ng-model="cardCustName"
+                                           alphanum-with-space=""/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for="">Expiry Date</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" ng-change="multiPaymentType('card')"
+                                           ng-model="cardExpiryDate"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for="">Approval Code</label>
+                                <div class="col-md-6">
+                                    <input type="text" maxlength="25" class="form-control"
+                                           ng-change="multiPaymentType('card')" ng-model="cardApprovalCode"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row creditNoteShow" ng-show="creditNoteShow">
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for="">Amount</label>
+                                <div class="col-md-6">
+                                    <input type="text" maxlength="25" class="form-control" ng-pattern="discRegex"
+                                           ng-change="paymentDue('creditNote');multiPaymentType('creditNote')"
+                                           ng-model="creditNoteAmt" ng-model-options="{debounce: 1000}" two-digits-dec
+                                           required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for="">Credit Note No</label>
+                                <div class="col-md-6">
+                                    <input type="text" maxlength="25" class="form-control"
+                                           ng-change="multiPaymentType('creditNote')" ng-model="creditNoteNo"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for="">C.N. Date</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" ng-change="multiPaymentType('creditNote')"
+                                           ng-model="creditCNDate"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row CouponShow" ng-show="CouponShow">
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for="">Amount</label>
+                                <div class="col-md-6">
+                                    <input type="text" maxlength="25" class="form-control" ng-pattern="discRegex"
+                                           ng-change="paymentDue('coupon');multiPaymentType('coupon')"
+                                           ng-model="couponAmount" ng-model-options="{debounce: 1000}" two-digits-dec
+                                           required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for=""> Coupon No</label>
+                                <div class="col-md-6">
+                                    <input type="text" maxlength="25" class="form-control"
+                                           ng-change="multiPaymentType('coupon')" ng-model="couponNo"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for="">Validity Date</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" ng-change="multiPaymentType('coupon')"
+                                           ng-model="couponDate"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row eWalletShow" ng-show="eWalletShow">
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for="">Amount</label>
+                                <div class="col-md-6">
+                                    <input type="text" maxlength="25" class="form-control" ng-pattern="discRegex"
+                                           ng-change="paymentDue('eWallet');multiPaymentType('eWallet')"
+                                           ng-model="ewalletAmt" ng-model-options="{debounce: 1000}" two-digits-dec
+                                           required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for=""> Mobile No.</label>
+                                <div class="col-md-6">
+                                    <input type="text" maxlength="10" class="form-control"
+                                           ng-change="multiPaymentType('eWallet')" ng-model="ewalletMobile"
+                                           num-with-space required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label  col-md-6" for="">Approval Code</label>
+                                <div class="col-md-6">
+                                    <input type="text" maxlength="25" class="form-control"
+                                           ng-change="multiPaymentType('eWallet')" ng-model="ewalletCode"
+                                           alphanum-without-space required/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row chequeShow" ng-show="chequeShow">
+                        <div class="form-group">
+                            <label class="control-label  col-md-6" for="">cheque Amount</label>
+                            <div class="col-md-6">
+                                <input type="text" maxlength="25" class="form-control" ng-pattern="discRegex"
+                                       ng-change="paymentDue('cheque');multiPaymentType('cheque')" ng-model="chequeAmt"
+                                       ng-model-options="{debounce: 1000}" two-digits-dec required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label  col-md-6" for=""> cheque No.</label>
+                            <div class="col-md-6">
+                                <input type="text" maxlength="25" class="form-control"
+                                       ng-change="multiPaymentType('cheque')" ng-model="chequeNo"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label  col-md-6" for="">Bank Name</label>
+                            <div class="col-md-6">
+                                <input type="text" maxlength="25" class="form-control"
+                                       ng-change="multiPaymentType('cheque')" ng-model="bankName"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label  col-md-6" for="">Cheque Date</label>
+                            <div class="col-md-6">
+                                <input type="text" maxlength="25" class="form-control"
+                                       ng-change="multiPaymentType('cheque')" ng-model="chequeDate"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row giftShow" ng-show="giftShow">
+                    <div class="form-group">
+                        <label class="control-label  col-md-6" for="">GiftCard No.</label>
+                        <div class="col-md-6">
+                            <input type="text" maxlength="25" class="form-control" ng-change="multiPaymentType('gift')"
+                                   ng-model="giftCardNumber"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label  col-md-6" for="">GiftCard Amount</label>
+                        <div class="col-md-6">
+                            <input type="text" maxlength="25" class="form-control" ng-pattern="discRegex"
+                                   ng-change="paymentDue('gift');multiPaymentType('gift')" ng-model="giftAmount"
+                                   ng-model-options="{debounce: 1000}" two-digits-dec required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label  col-md-6" for="">Amount To be Used</label>
+                        <div class="col-md-6">
+                            <input type="text" maxlength="25" class="form-control" ng-change="multiPaymentType('gift')"
+                                   ng-model="giftAmtUsed"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row acceptInfo">
+                <div class="col-md-6 col-md-offset-6" style="padding-right: 0;">
+                    <button ng-click="popUpDivHide('paymentPopup');saveMultiPaymentPOS('AcceptPayment')"
+                            class="hiWindowBtn">Accept
+                    </button>
+                    <button ng-click="popUpDivHide('paymentPopup');removePaymentPopUpDetails()" class="hiWindowBtn">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+            <div class="row totalInfo">
+                <span>Balance</span>
+                <span ng-bind="paymentTotalBalance">0.00</span>
+            </div>
+        </div>
+        <div class="row tableRow" style="height: 30rem;">
+            <div class="table-responsive">
+                <table class="hiWindowTable billingTable hi_table table table-striped table_costomize itemlisttable sales_itemTable"
+                       style="margin: 0px;" id="itemlisttableId">
+                    <thead>
+                    <tr>
+                        <th style='width: 2% !important; padding: 2px;'></th>
+                        <th>Stock No</th>
+                        <th>item Description</th>
+                        <th style="text-align: center;">QTY</th>
+                        <th style="text-align: center;" ng-show="operation=='Return'">Return QTY</th>
+                        <th>UOM</th>
+                        <th>Rate</th>
+                        <th>Disc</th>
+                        <th>Dis Value</th>
+                        <th>Tax</th>
+                        <th>Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody class="billingTableBody"
+                           style="height: 265px;  overflow-y: auto; display: block !important;">
+                    <tr ng-repeat="item in selectedTemItemsList" class="itemFirstRow">
+                        <td style='width: 2% !important; padding: 2px; background-color: #dadada !important; height: 26px !important;'></td>
+
+                        <td><input id="pos_descrp" type="text"
+                                   class="form-control" ng-disabled="operation=='Return'"
+                                   ng-readonly="readonlyItemDescription"
+                                   ng-model="item.itemDescription"
+                                   style="text-align: left;text-overflow: ellipsis;"/>
+                        </td>
+                        <td><input id="pos_qty" type="text"
+                                   maxlength="8"
+                                   class="form-control"
+                                   ng-readonly="readonlyQty"
+                                   style="text-align: center;" ng-disabled="operation=='Return'"
+                                   ng-change="editSelectedItemList(item,'',$index)"
+                                   ng-keyup="$event.keyCode == 13 ?focusVal('qty'):null"
+                                   ng-model="item.qty" two-digits-dec/></td>
+                        <td ng-show="operation=='Return'"><input id="pos_returnQty" type="text"
+                                                                 maxlength="8"
+                                                                 class="form-control"
+                                                                 ng-readonly="readonlyQty"
+                                                                 style="text-align: center;"
+                                                                 ng-change="editSelectedItemList(item,'',$index)"
+                                                                 ng-keypress="pushItemList($event.keyCode, 'pos_discount_per');"
+                                                                 ng-model="item.returnQty" two-digits-dec/></td>
+                        <td><input id="pos_uom" type="text"
+                                   class="form-control"
+                                   ng-readonly="true"
+                                   style="text-align: center;" ng-disabled="operation=='Return'"
+                                   ng-model="item.uomName"/></td>
+                        <td><input id="pos_price" type="text"
+                                   maxlength="12"
+                                   class="form-control" ng-disabled="operation=='Return'"
+                                   style="text-align: right;"
+                                   ng-readonly="readonlyUnitPrice"
+                                   ng-keyup="$event.keyCode == 13 ?focusVal('price'):null"
+                                   ng-change="editSelectedItemListPrice(item,'')"
+                                   ng-model="item.unitPrice"
+                                   two-digits-dec/>
+                        </td>
+                        <td><input id="pos_discount_per" type="text"
+                                   class="form-control"
+                                   ng-readonly="readonlyDiscountConfigAmt"
+                                   ng-pattern="discRegex" ng-disabled="operation=='Return'"
+                                   limit-to="8" min="0" ng-keypress="pushItemList($event.keyCode, 'pos_discount_per');"
+                                   style="text-align: right;" ng-keyup="$event.keyCode == 13 ?focusVal('discount'):null"
+                                   ng-change="configDiscount(item.discountConfigAmt,item,$index,'Config');editSelectedItemList(item, -1,$index);updatesimplifiedTax();"
+                                   ng-model="item.discountConfigAmt"
+                                   ng-model-options="{debounce: 1000}"
+                                   step="0.01" two-digits-dec required/></td>
+                        <td><input id="pos_discount_amt" type="text" ng-disabled="operation=='Return'"
+                                   class="form-control"
+                                   ng-readonly="true" ng-click="focusVal('discountamt')"
+                                   style="text-align: right;"
+                                   ng-change="configDiscount(item.discountConfigAmt,item,$index,'Amt');editSelectedItemList(item, -1,$index);updatesimplifiedTax();"
+                                   ng-model="item.discountAmt"
+                        />
+                        </td>
+                        <td><input id="pos_item_tax" type="text"
+                                   class="form-control"
+                                   maxlength="8" ng-disabled="operation=='Return'"
+                                   two-digits-dec
+                                   ng-readonly="true"
+                                   style="text-align: right;"
+                                   ng-model="item.taxpercent" id="pos_item_tax"/></td>
+                        <td><input id="pos_item_amt" type="text"
+                                   class="form-control" ng-disabled="operation=='Return'"
+                                   style="text-align: right;"
+                                   ng-readonly="true"
+                                   style="text-align: right;"
+                                   ng-model="item.amtexclusivetax"
+                                   two-digits-dec/></td>
+                    </tr>
+                    <tr ng-repeat="item in selectedItemsList" class="stockItemTr">
+                        <td style='width: 2% !important; padding: 0px;'><input style="margin-top: 0px;"
+                                                                               type="checkbox"
+                                                                               ng-model="selectedItemListRemoval[$index]"
+                                                                               ng-change="selectItemMethod(s)">
+                        </td>
+                        <td ng-dblclick="editSelectedItemList1(item,$index)" style="text-align: left;">
+                            {{item.itemCode}}
+                        </td>
+                        <td ng-dblclick="editSelectedItemList1(item,$index)"
+                            style="text-align: left;text-overflow: ellipsis;display:inline-block; white-space:nowrap; overflow:hidden;">
+                            {{item.itemDescription}}
+                        </td>
+                        <td ng-dblclick="editSelectedItemList1(item,$index)" style="text-align: center;">{{item.qty}}
+                        </td>
+                        <td ng-dblclick="editSelectedItemList1(item,$index)" style="text-align: center;" ng-if="operation=='Return'">{{item.returnQty}}
+                        </td>
+                        <td ng-dblclick="editSelectedItemList1(item,$index)" style="text-align: center;">
+                            {{item.uomName}}
+                        </td>
+                        <td ng-dblclick="editSelectedItemList1(item,$index)" style="text-align: right;">{{item.unitPrice
+                            |number:2}}
+                        </td>
+                        <td ng-dblclick="editSelectedItemList1(item,$index)" style="text-align: right;">
+                            {{item.discountConfigAmt}}
+                        </td>
+                        <td ng-dblclick="editSelectedItemList1(item,$index)" style="text-align: right;">
+                            {{item.discountAmt}}
+                        </td>
+                        <td ng-dblclick="editSelectedItemList1(item,$index)" style="text-align: right;">
+                            {{item.taxpercent}}%
+                        </td>
+                        <td ng-dblclick="editSelectedItemList1(item,$index)" style="text-align: right;">
+                            {{item.amtexclusivetax |number :2}}
+                        </td>
+                    <tr>
+                </table>
+            </div>
+        </div>
+        <div class="amount_row row">
+            <div class="col-md-6">
+                <div id="pos_remarks" class="row">
+                    <form name="Bill-reference" class="form-horizontal">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label class="control-label  col-md-3" style="width: 20%;" for="">Bill
+                                    Reference:</label>
+                                <div class="col-md-9">
+                                    <input type="text" maxlength="256" id="memo" class="form-control" ng-model="memo"
+                                           required/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="row amt-btn-info">
+                    <div class="col-md-2 col-md-offset-3">
+                        <button style="background: transparent;  width: 100%; border: 0px;"
+                                ng-click="popUpDivShow('paymentPopup')">
+                            <p style="font-size: 15px;"><span class="markText">F9</span>Other Pay Modes</p></button>
+                    </div>
+                    <div ng-show="saveButton ==='ExactCash'&&operation!='Return'" class="col-md-2">
+                        <button style="background: transparent;  width: 100%; border: 0px;"
+                                ng-blur="popUpDivHide('paymentPopup');" ng-click="exactCash()"><img
+                                src="../posimages/icons/iconCash.png" style="width:40%;" alt=""/></button>
+                        <p><span class="markText">F8</span>Exact Cash</p>
+                    </div>
+                    <div ng-show="operation=='Return'" class="col-md-2">
+                        <button style="background: transparent;  width: 100%; border: 0px;"
+                                ng-blur="popUpDivHide('paymentPopup');" ng-click="saveReturnPI()"><img
+                                src="../posimages/icons/iconCash.png" style="width:40%;" alt=""/></button>
+                        <p><span class="markText">F8</span>Return</p>
+                    </div>
+                    <div ng-show="saveButton ==='save'&&operation!='Return'" class="col-md-2">
+                        <button style="background: transparent;  width: 100%; border: 0px;"
+                                ng-blur="popUpDivHide('paymentPopup');" ng-click="saveWithTenderedCash()"><img
+                                src="../posimages/icons/iconCash.png" style="width:40%;" alt=""/></button>
+                        <p><span class="markText"></span>SAVE</p>
+                    </div>
+                    <div class="col-md-2">
+                        <button style="background: transparent;  width: 100%; border: 0px;" ng-click="removeAllItems()">
+                            <img src="../posimages/icons/iconClear.png" alt=""/></button>
+                        <p> C<span class="markText">l</span>ear</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img src="../posimages/icons/iconExit.png" alt=""/>
+                        <p><span class="markText"></span> E<span class="markText">x</span>it</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <form name="amount-list" class="form-horizontal">
+                    <div class="col-md-6">
+                        <div ng-hide="permission.pos_total_qty ==='InActive'" class="form-group">
+                            <label class="control-label  col-md-5" for="">Total Quantity</label>
+                            <div class="col-md-7">
+                                <input style="text-align: center;" id="pos_total_qty" type="text" class="form-control"
+                                       ng-model="totalQty" ng-value={{totalQty|number:2}} readonly>
+                            </div>
+                        </div>
+                        <div ng-hide="permission.pos_bill_level_discount ==='InActive'" class="form-group">
+                            <label class="control-label  col-md-5" for="">Bill Level Disc</label>
+                            <div class="col-md-7">
+                                <input style="text-align: right;" id="pos_bill_level_discount" maxlength="25"
+                                       type="text" class="form-control" ng-change="configDiscountTotal(totalDisc)"
+                                       ng-model="totalDisc" ng-value={{totalDiscount|number:2}}
+                                       ng-model-options="{debounce: 1000}"
+                                       required/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 amount_right_info">
+                        <div ng-hide="permission.pos_bill_level_discount ==='InActive'" class="form-group">
+                            <label class="control-label  col-md-5" for="">Total Amount</label>
+                            <div class="col-md-7">
+                                <input style="text-align: right;" id="pos_total_value" type="text" class="form-control"
+                                       ng-model="totalBillAmount" ng-value={{totalBillAmount|number:2}} readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label  col-md-5" for="">Disc Value</label>
+                            <div class="col-md-7">
+                                <input style="text-align: right;" type="text" class="form-control"
+                                       ng-model="totalDiscountValue" ng-value={{totalDiscountValue|number:2}} readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label  col-md-5 markTextFirst" for="">Tax Amount</label>
+                            <div class="col-md-7">
+                                <input style="text-align: right;" type="text" class="form-control"
+                                       ng-model="totalTaxAmt" ng-value={{totalTaxAmt|number:2}} readonly>
+                            </div>
+                        </div>
+                        <div ng-hide="permission.pos_net_value ==='InActive'" class="form-group">
+                            <label class="control-label  col-md-5 bigText" for="">Net Amount</label>
+                            <div class="col-md-7">
+                                <input style="text-align: right;" id="pos_net_value" type="text" class="form-control"
+                                       ng-model="netAmount" ng-value={{netAmount|number:2}} readonly>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div ng-hide="permission.pos_cash_tendered ==='InActive'" class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label  col-md-5" for="">Cash Tender(F10)</label>
+                            <div class="col-md-7">
+                                <input style="text-align: right;" maxlength="8" id="pos_cash_tendered" type="text"
+                                       class="form-control" ng-pattern="discRegex" ng-model="tenderedAmt"
+                                       ng-model-options="{debounce: 1000}" ng-change="dueAmount(tenderedAmt,'')"
+                                       two-digits-dec required/>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-hide="permission.pos_change_due ==='InActive'" class="col-md-6 amount_right_info">
+                        <div class="form-group">
+                            <label class="control-label  col-md-5" for="">Change Due</label>
+                            <div class="col-md-7">
+                                <input style="text-align: right;" id="pos_change_due" type="text" class="form-control"
+                                       ng-model="changeAmt" ng-value={{changeAmt|number:2}} readonly>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row button_Row">
+            <div class="col-md-11 button_info padding_0px" style="background: #dadada">
+                <div class="col-md-1">
+                    <button class="hiWindowBtn"><u>A</u>dd Qty</button>
+                </div>
+                <div class="col-md-1">
+                    <button class="hiWindowBtn"><u>R</u>emove Qty</button>
+                </div>
+                <div ng-hide="permission.pos_remove_item ==='InActive'" class="col-md-1">
+                    <button id="pos_remove_item" type="button" class="hiWindowBtn" ng-click="removeSelectedItems()">
+                        <u>R</u>emove Item
+                    </button>
+                </div>
+                <div ng-hide="permission.pos_hold_recall ==='InActive'" class="col-md-1">
+                    <button id="pos_hold_recall" class="hiWindowBtn" ng-click="savePosDraft()"><u>H</u>old / Recall
+                    </button>
+                </div>
+                <div ng-hide="permission.pos_previous_bill ==='InActive'" class="col-md-1">
+                    <button id="pos_previous_bill" class="hiWindowBtn" ng-click="getEditSalesInvoice()"> Previous
+                        <u>B</u>ill
+                    </button>
+                </div>
+                <div class="col-md-1">
+                    <button class="hiWindowBtn"><u>P</u>rint</button>
+                </div>
+                <div ng-hide="permission.pos_edit_bill ==='InActive'" class="col-md-1">
+                    <button id="pos_edit_bill" class="hiWindowBtn" ng-click="editInvoiceList()"><u>E</u>dit Bill
+                    </button>
+                </div>
+                <div ng-hide="permission.pos_cancel_bill ==='InActive'" class="col-md-1">
+                    <button id="pos_cancel_bill" class="hiWindowBtn"> Ca<u>N</u>cel Bill</button>
+                </div>
+                <div ng-hide="permission.pos_print_configuration ==='InActive'" class="col-md-1">
+                    <button id="pos_print_configuration" class="hiWindowBtn"> Prin<u>T</u> Setting</button>
+                </div>
+                <div  class="col-md-1">
+                    <button id="pos_search_item" class="hiWindowBtn" ng-click="editInvoiceListReturn('Return')"><u>R</u>eturn</button>
+                </div>
+                <div class="col-md-1">
+                    <button class="hiWindowBtn" ng-click="getPosPermissions()"><u>B</u>illing Setting</button>
+                </div>
+                <div ng-hide="permission.pos_sales_order ==='InActive'" class="col-md-1">
+                    <button id="pos_sales_order" class="hiWindowBtn"> Sales <u>O</u>rder</button>
+                </div>
+                <div ng-hide="permission.pos_sales_order ==='InActive'" class="col-md-1">
+                    <button id="pos_quotation" class="hiWindowBtn"><u>Q</u>uotation</button>
+                </div>
+                <div ng-hide="permission.pos_delivery_challan ==='InActive'" class="col-md-1">
+                    <button id="pos_delivery_challan" class="hiWindowBtn"><u>D</u>ly. Challan</button>
+                </div>
+                <div ng-hide="permission.pos_payment ==='InActive'" class="col-md-1">
+                    <button id="pos_payment" class="hiWindowBtn"> Pay<u>M</u>ent</button>
+                </div>
+                <div class="col-md-1">
+                    <button class="hiWindowBtn"> Adv. Receipt</button>
+                </div>
+                <div class="col-md-1">
+                    <button class="hiWindowBtn"></button>
+                </div>
+                <div class="col-md-1">
+                    <button class="hiWindowBtn"></button>
+                </div>
+                <div class="col-md-1">
+                    <button class="hiWindowBtn"></button>
+                </div>
+                <div class="col-md-1">
+                    <button class="hiWindowBtn"></button>
+                </div>
+            </div>
+
+            <div class="col-md-1 padding_0px" style="border: 3px solid #5c738e;">
+                <img src="../images/hi_logo.jpg" class="width100"/>
+            </div>
+        </div>
+        <div class="row version_info">
+            <p> Product Version <span> v18.0.1 </span> <span>   Licence No.</span> <span>  723232323232</span></p>
+        </div>
+    </section>
+</div>
+<div class="modal fade  bs-check" tabindex="-1" id="PosInvoiceEdit" role="dialog" data-backdrop="static"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md" style="width: 1050px;">
+        <div class="modal-content checkout">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" ng-click="hideButton()" aria-label="Close">
+                    <span aria-hidden="true" ng-click="remove()">&times;</span></button>
+                <h4 class="modal-title">POS Purchase Billing List</h4>
+            </div>
+            <div class="modal-body checkout-body">
+                <div class="modal-body" style="    width: 1050px; padding: 0px 33px 0px 0px;">
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label>Search: <input class="form-control input-sm"
+                                                          ng-keyup="$event.keyCode == 13 ? editInvoiceList(text) : null"
+                                                          ng-model="text"></label>
+                                    <table class="table table-striped table_costomize ten_table_info"
+                                           id="saleslisttable">
+                                        <thead>
+                                        <tr>
+                                            <th data-field="name" style="width: 16.9% !important;">Invoice No</th>
+                                            <th data-field="name">Date</th>
+                                            <th data-field="name" style="width: 16.9%  !important;">supplier Name</th>
+                                            <th data-field="name"> Amount</th>
+                                            <th data-field="name">Edit</th>
+                                            <th data-field="name">Cancel</th>
+                                            <th data-field="name">Delete</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody id="parentTable">
+                                        <tr ng-repeat="p in posSalesList | filter:searchText">
+                                            <td style="width: 16.9% !important;">{{p.piNo}}</td>
+                                            <td>{{p.date |date:'dd/MM/yyyy'}}</td>
+                                            <td style="width: 16.9% !important;">{{p.supplierName}}</td>
+                                            <td>{{p.totalTenderedAmount}}</td>
+                                            <td><a type="button" data-toggle="tooltip"
+                                                   ng-click="getEditPurchaseInvoice(p.piNo)"
+                                                   title="Edit"><img
+                                                    src="../posimages/icons/edit.PNG"></a></td>
+
+                                            <td><a type="button" data-toggle="tooltip"
+                                                   ng-click="cancelInvoice(p.piNo)"
+                                                   title="Cancel"><img
+                                                    src="../posimages/icons/1.png"/></a></td>
+                                            <td><a class="fa fa-trash-o" style="font-size:26px;color:#74379c"
+                                                   type="button" data-toggle="tooltip"
+                                                   ng-click="deletePOSInvoice(p.piNo)" title="Delete"><img
+                                            ></a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade  bs-check" tabindex="-1" id="PosInvoiceDraft" role="dialog" data-backdrop="static"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md" style="width: 1050px;">
+        <div class="modal-content checkout">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" ng-click="hideButton()" aria-label="Close">
+                    <span aria-hidden="true" ng-click="remove()">&times;</span></button>
+                <h4 class="modal-title">POS Purchase Billing List</h4>
+            </div>
+            <div class="modal-body checkout-body">
+                <div class="modal-body" style="    width: 1050px; padding: 0px 33px 0px 0px;">
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label>Search: <input class="form-control input-sm"
+                                                          ng-keyup="$event.keyCode == 13 ? editDraftInvoiceList(text) : null"
+                                                          ng-model="text"></label>
+                                    <table class="table table-striped table_costomize ten_table_info"
+                                           id="saleslisttable">
+                                        <thead>
+                                        <tr>
+                                            <th data-field="name" style="width: 16.9% !important;">Invoice No</th>
+                                            <th data-field="name">Date</th>
+                                            <th data-field="name" style="width: 16.9%  !important;">supplier Name</th>
+                                            <th data-field="name"> Amount</th>
+                                            <th data-field="name">Edit</th>
+                                            <th data-field="name">Cancel</th>
+                                            <th data-field="name">Delete</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody id="parentTable">
+                                        <tr ng-repeat="p in posSalesList | filter:searchText">
+                                            <td style="width: 16.9% !important;">{{p.piNo}}</td>
+                                            <td>{{p.date |date:'dd/MM/yyyy'}}</td>
+                                            <td style="width: 16.9% !important;">{{p.supplierName}}</td>
+                                            <td>{{p.totalTenderedAmount}}</td>
+                                            <td><a type="button" data-toggle="tooltip"
+                                                   ng-click="getEditPurchaseInvoice(p.piNo)"
+                                                   title="Edit"><img
+                                                    src="../posimages/icons/edit.PNG"></a></td>
+
+                                            <td><a type="button" data-toggle="tooltip"
+                                                   ng-click="cancelInvoice(p.piNo)"
+                                                   title="Cancel"><img
+                                                    src="../posimages/icons/1.png"/></a></td>
+                                            <td><a class="fa fa-trash-o" style="font-size:26px;color:#74379c"
+                                                   type="button" data-toggle="tooltip"
+                                                   ng-click="deletePOSInvoice(p.piNo)" title="Delete"><img
+                                            ></a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade  bs-check" tabindex="-1" id="PosInvoiceReturn" role="dialog" data-backdrop="static"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md" style="width: 1050px;">
+        <div class="modal-content checkout">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" ng-click="hideButton()" aria-label="Close">
+                    <span aria-hidden="true" ng-click="remove()">&times;</span></button>
+                <h4 class="modal-title">POS Purchase Billing List</h4>
+            </div>
+            <div class="modal-body checkout-body">
+                <div class="modal-body" style="    width: 1050px; padding: 0px 33px 0px 0px;">
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label>Search: <input class="form-control input-sm"
+                                                          ng-keyup="$event.keyCode == 13 ? editInvoiceListReturn('',text) : null"
+                                                          ng-model="text"></label>
+                                    <table class="table table-striped table_costomize ten_table_info"
+                                           id="saleslisttable">
+                                        <thead>
+                                        <tr>
+                                            <th data-field="name" style="width: 16.9% !important;">Invoice No</th>
+                                            <th data-field="name">Date</th>
+                                            <th data-field="name" style="width: 16.9%  !important;">supplier Name</th>
+                                            <th data-field="name"> Amount</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody id="parentTable">
+                                        <tr ng-repeat="p in posSalesList | filter:searchText" ng-click="getEditPurchaseInvoice(p.piNo,'Return')">
+                                            <td style="width: 16.9% !important;">{{p.piNo}}</td>
+                                            <td>{{p.date |date:'dd/MM/yyyy'}}</td>
+                                            <td style="width: 16.9% !important;">{{p.supplierName}}</td>
+                                            <td>{{p.totalTenderedAmount}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade addsupplier" tabindex="-1" id="add_new_doctor_modal" role="dialog" data-backdrop="static"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content checkout">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 id="doctor-title" class="modal-title">Add Doctor</h4>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <form class="form-horizontal" name="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input type="hidden" ng-model="agentObj.agentId" value="{{agentObj.agentId}}"/>
+                                    <div ng-show="agentId" class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label" for="">Doctor Name</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="AgentName" name="AgentName" alpha-with-space=""
+                                                   ng-pattern="/[aA-zZ\s]$/"
+                                                   type="text" placeholder="Doctor Name"
+                                                   ng-model="DoctorNameText" maxlength="125"
+                                                   ng-value="agentObj.agentName"
+                                                   readonly="readonly"
+                                                   class="form-control input-md" required>
+                                        </div>
+                                    </div>
+
+                                    <div ng-show="!agentId" class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label" for="">Doctor Name</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="AgentName1" name="AgentName" alpha-with-space=""
+                                                   ng-pattern="/[aA-zZ\s]$/" maxlength="125"
+                                                   type="text" placeholder="Doctor Name"
+                                                   ng-model="DoctorNameText"
+                                                   class="form-control input-md" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label" for="">Email</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="Email" name="Email"
+                                                   ng-pattern="word"
+                                                   type="text" placeholder="Email"
+                                                   ng-model="EmailText"
+                                                   ng-value="agentObj.email"
+                                                   class="form-control input-md" required>
+                                            <p class="error" ng-show="form.Email.$error.pattern">Enter Valid MailID</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label" for="">Mobile</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="Mobile" name="Mobile" num-with-space
+                                                   type="text" placeholder="Mobile" maxlength="10"
+                                                   ng-pattern="number"
+                                                   ng-model="MobileText"
+                                                   ng-value="agentObj.mobile"
+                                                   class="form-control input-md" required>
+                                            <p class="error" ng-show="form.Mobile.$error.pattern">Enter Valid Phone
+                                                Number</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label" for="">Address</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="Address" name="Address"
+                                                   allowpattern="[a-z]"
+                                                   type="text" placeholder="Address"
+                                                   ng-model="AddressText" maxlength="250"
+                                                   ng-value="agentObj.address"
+                                                   ng-model-options="{ debounce: 1000 }"
+                                                   ng-blur="hideAutoComplete()"
+                                                   class="form-control input-md" autocomplete="off" required>
+                                        </div>
+                                    </div>
+                                    <!--<div class="form-group">-->
+                                    <!--<label class="col-md-4 col-sm-4 control-label" for="">Commission %</label>-->
+                                    <!--<div class="col-md-6 col-sm-6" style="position:relative;">-->
+                                    <!--<input id="Commission" name="Commission"-->
+                                    <!--allowpattern="[a-z]"-->
+                                    <!--type="text" placeholder="Commission"-->
+                                    <!--ng-model="CommissionText"-->
+                                    <!--ng-value="agentObj.commission"-->
+                                    <!--ng-blur="hideAutoComplete()"-->
+                                    <!--min="0" max="100" prevent-typing-greater-->
+                                    <!--class="form-control input-md" autocomplete="off" required>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-4 col-sm-4" for="">Effective Date:</label>
+                                        <div class="col-sm-6 col-sm-6">
+                                            <p class="input-group">
+                                                <input type="text" class="form-control"
+                                                       uib-datepicker-popup="{{format}}"
+                                                       ng-value="agentObj.effectiveDate" ng-model="dt1"
+                                                       is-open="popup.opened" datepicker-options="dateOptions"
+                                                       ng-readonly="true" ng-required="true" close-text="Close"
+                                                       alt-input-formats="altInputFormats" required/>
+                                                <span class="input-group-btn">
+                                     <button id="datePick" type="button" class="btn btn-default"
+                                             ng-click="openDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label" for="">GSTN</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="GSTIN" name="GSTIN" alphanum-with-space
+                                                   maxlength="15"
+                                                   type="text" placeholder="GSTIN"
+                                                   ng-model="GSTINText"
+                                                   ng-value="agentObj.gstinNo"
+                                                   class="form-control input-md" autocomplete="off" required>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label" for="">E-commerce</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <select name="Ecommerce" id="Ecommerce" ng-value="{{agentObj.ecommerce}}"
+                                                    ng-model="EcommerceText" class="form-control input-md">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label" for="">Status</label>
+                                        <div class="col-md-6 col-sm-6">
+                                            <select name="agentStatus" id="agentStatus" ng-model="doctorStatusText"
+                                                    class="form-control input-md" required>
+                                                <option value="Active">Active</option>
+                                                <option value="InActive">InActive</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default" data-toggle="modal" ng-disabled="isDisabled"
+                        data-target=".print-me" ng-click="saveNewDoctor('add_new_doctor_modal')">Save
+                </button>
+                <button type="button" class="btn btn-default" ng-click="removeDoctorDetails()" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade addsupplier" tabindex="-1" id="add_useraccountsetupwithpermissions_modal" role="dialog"
+     data-backdrop="static"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content checkout">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">{{addOReditUserTitle}}</h4>
+
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <form class="form-horizontal" name="mail">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input type="hidden" ng-model="setupobj.useraccount_id"
+                                           value="{{setupobj.useraccount_id}}"/>
+                                    <div ng-show="useraccount_id" class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label" for="">SalesMan Name</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="UserName" name="UserName"
+                                                   allowpattern="[a-z]"
+                                                   type="text" placeholder="User Name"
+                                                   ng-model="AddressText" maxlength="125"
+                                                   ng-value="setupobj.user_loginId"
+                                                   readonly="readonly"
+                                                   class="form-control input-md" autocomplete="off" required>
+                                        </div>
+                                    </div>
+
+                                    <div ng-show="!useraccount_id" class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label">User Name</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="UserNameOne" name="UserNameOne"
+                                                   allowpattern="[a-z]"
+                                                   type="text" placeholder="User Name" maxlength="125"
+                                                   ng-model="AddressText"
+                                                   class="form-control input-md" autocomplete="off" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" ng-show="isUserAccountInEditMode">
+                                        <label class="col-md-4 col-sm-4 control-label">Current Password
+                                            <span>*</span></label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="currentPassword" name="currentPassword"
+                                                   type="text" placeholder="Current Password"
+                                                   ng-model="currentPassword"
+                                                   class="form-control input-md" autocomplete="off" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label"> {{isUserAccountInEditMode ?
+                                            "New" : ""}} Password
+                                            <span>*</span></label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="newPassword" name="newPassword"
+                                                   maxlength="125"
+                                                   type="password" placeholder="Password"
+                                                   ng-model="PasswordText"
+                                                   class="form-control input-md" autocomplete="off" required>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label">Full Name</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="FullName" name="FullName" alpha-with-space
+                                                   allowpattern="[a-z]"
+                                                   maxlength="125"
+                                                   type="text" placeholder="Full Name"
+                                                   ng-model="FullNameText"
+                                                   ng-value="setupobj.full_name"
+                                                   class="form-control input-md" autocomplete="off" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label">Security Question</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="SecurityQuestion" name="SecurityQuestion"
+                                                   allowpattern="[a-z]"
+                                                   type="text" placeholder="Security Question"
+                                                   ng-model="SecurityQuestionText"
+                                                   ng-value="setupobj.securityQuestion"
+                                                   class="form-control input-md" autocomplete="off" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label">Answer</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="Answer" name="Answer"
+                                                   allowpattern="[a-z]"
+                                                   type="text" placeholder="Answer"
+                                                   ng-model="AnswerText"
+                                                   ng-value="setupobj.securityAnswer"
+                                                   class="form-control input-md" autocomplete="off" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label">Telephone Number</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="TelephoneNumber" name="TelephoneNumber" num-with-space
+                                                   maxlength="10"
+                                                   allowpattern="[a-z]"
+                                                   type="text" placeholder="Telephone Number"
+                                                   ng-model="TelephoneNumberText"
+                                                   ng-value="setupobj.phone"
+                                                   class="form-control input-md" autocomplete="off" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label">Email Address</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <input id="EmailAddress" name="EmailAddress"
+                                                   ng-pattern="word"
+                                                   type="text" placeholder="Email Address"
+                                                   ng-model="EmailAddressText"
+                                                   no-special-char=""
+                                                   class="form-control input-md" required>
+                                            <p class="error" ng-show="mail.EmailAddress.$error.pattern">Enter Valid
+                                                MailID</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label">Inventory Location</label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <select id="inventoryLocationId" name="inventoryLocationId"
+                                                    ng-model="inventoryLocationId" ng-options="inventoryLocation.inventoryLocationId as
+          inventoryLocation.inventoryLocationName for inventoryLocation in location" class="form-control input-md">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label">Status </label>
+                                        <div class="col-md-6 col-sm-6" style="position:relative;">
+                                            <select id="statusId" name="status"
+                                                    ng-model="status" ng-init="status='Active'"
+                                                    class="form-control input-md">
+                                                <option value="Active">Active</option>
+                                                <option value="InActive">InActive</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                            </fieldset>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default" data-toggle="modal" ng-disabled="isDisabled"
+                        data-target=".print-me"
+                        ng-click="saveUserAccountSetup('add_useraccountsetupwithpermissions_modal')">Save
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade ItemsNoStockListModel" tabindex="-1" id="ItemsNoStockListModel" role="dialog"
+     data-backdrop="static" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content checkout">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Items No Stock List</h4>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped table_costomize itemlisttable" id="">
+                                <thead>
+                                <tr>
+                                    <th data-field="name">Item Code</th>
+                                    <th data-field="desc">Item Name</th>
+                                    <th style="width: 20%" data-field="desc">Available Qty</th>
+                                    <th style="width: 40%" data-field="desc">Item Category Name</th>
+                                </tr>
+                                </thead>
+                                <tbody id="parentTable">
+                                <tr ng-repeat="item in itemsNoStockList">
+                                    <td>{{item.itemCode}}</td>
+                                    <td>{{item.itemName}}</td>
+                                    <td style="width: 20%">{{item.stock}}</td>
+                                    <td style="width: 40%">{{item.itemCategoryName}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" id="posBillPermissions" role="dialog" data-backdrop="static"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md" style="width: 750px;">
+        <div class="modal-content checkout">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 id="User-title12" class="modal-title">Billing Settings</h4>
+            </div>
+
+            <hidden value="{{useraccount_id}}"/>
+
+            <div class="panel-body">
+                <div class="row row_ch_per_info" style=" height: 500px; overflow-y: auto;">
+                    <div class="row" id="parent-{{key}}" ng-repeat="(key, list) in posPermissionList"
+                         style="margin-bottom: 20px;">
+                        <div class="col-md-12 col-sm-12" style="margin-bottom: 30px;">
+                            <div class="col-md-3"
+                                 ng-init="this['minusHide-'+key]=false; this['plusHide-'+key] =true; this['parentShow-'+key] = true">
+                                <label for="dashboardID"></label><span class="check_span_info"
+                                                                       style="font-size: 15px; font-weight: bold;">
+                                            <button ng-click="this['parentShow-'+key] = true; this['minusHide-'+key]=false; this['plusHide-'+key]=true;"
+                                                    ng-hide="this['plusHide-'+key]"> <i class="fa fa-plus"
+                                                                                        aria-hidden="true"></i></button>
+                                            <button ng-click="this['parentShow-'+key] = false; this['plusHide-'+key]=false; this['minusHide-'+key]=true;"
+                                                    ng-hide="this['minusHide-'+key]"> <i class="fa fa-minus"
+                                                                                         aria-hidden="true"></i></button>
+                                            {{key}}</span>
+                            </div>
+                            <div class="col-md-3" style="font-size: 18px">
+                                <input type="radio" ng-model="list.status" id="input-{{key}}"
+                                       ng-click="permissionEvent('Active',$event)" value="Active"/>Active
+                            </div>
+                            <div class="col-md-3" style="font-size: 18px">
+                                <input type="radio" ng-model="list.status" ng-click="permissionEvent('InActive',$event)"
+                                       value="InActive"/>In Active
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-12" ng-show="this['parentShow-'+key]">
+                            <div id="child-1" class="col-md-12" ng-repeat="(key1,value1) in list.children">
+                                <div class="col-md-11 col-md-offset-1 col-sm-11 col-sm-offset-1" ng-show="key">
+                                    <div class="row margin_0px">
+                                        <div class="col-md-12 col-sm-4">
+                                            <div class="col-md-3">
+                                                <label for="datetime"></label><span
+                                                    class="check_span_info">{{key1}}</span>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="radio" ng-model="value1.status" id="input-{{key1}}"
+                                                       ng-click="permissionEvent('Active',$event)" value="Restrict"/>Active
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="radio" ng-model="value1.status" value="InActive"/>In Active
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="radio" ng-model="value1.status" value="Active"/>Active&Alter
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-md-9 col-sm-9 text-right">
+                            <button type="button" class="btn btn-default" ng-click="savePosPermissions()"
+                                    data-dismiss="modal">Save
+                            </button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="myModal" class="modal">
+        <div id="myModal1" class="modal1">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    setTimeout(function () {
+        $('.tableRow ').height($(window).height() - ($('.version_info ').height() + $('.button_row  ').height() + $('.amount_row  ').height() + $('.billing_main_row ').height() + $('header').height() + ($('.tableRow ').height() / 100) * 12));
+    }, 500);
+
+    $(window).resize(function () {
+        $('.tableRow ').height($(window).height() - ($('.version_info ').height() + $('.button_row  ').height() + $('.amount_row  ').height() + $('.billing_main_row ').height() + $('header').height() + ($('.tableRow ').height() / 100) * 12));
+    });
+
+</script>
+
